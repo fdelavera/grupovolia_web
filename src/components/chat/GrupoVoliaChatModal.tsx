@@ -21,7 +21,7 @@ export default function GrupoVoliaChatModal({
     {
       role: "assistant",
       content:
-        "¡Hola! Soy Anna, asesora ejecutiva de Grupo Volia. Puedo ayudarte a elegir entre nuestra Suite Completa PYME ($69/mes o $890 Licencia) con Inventario Conectado y Facturación SRI, explicar cómo enlazamos tu agente a WhatsApp Business Web o cotizar producción audiovisual IA con estándares internacionales. ¿A qué se dedica tu empresa?",
+        "¡Hola! Soy Anna, asesora ejecutiva de Grupo Volia. Puedo ayudarte a elegir entre nuestra Suite Completa PYME ($69/mes o $890 Licencia) con Inventario Conectado, Facturación SRI y Copiloto IA Interno para tu equipo, o cotizar producción audiovisual IA con estándares internacionales. ¿A qué se dedica tu empresa?",
     },
   ]);
   const [input, setInput] = useState("");
@@ -115,7 +115,7 @@ export default function GrupoVoliaChatModal({
 
   const suggestedQuestions = [
     "¿Cómo funciona el módulo de Inventario y la conexión con POS en Ecuador?",
-    "¿Qué requisitos tiene enlazar mi agente a WhatsApp Business?",
+    "¿Qué hace el Copiloto IA Interno para mis empleados y gerencia?",
     "¿Cómo funciona la personalización en 1 mes y las 3 revisiones?",
     "¿Qué incluye la Suite Completa PYME de $69/mes vs. $890 Licencia?",
   ];
@@ -335,7 +335,7 @@ export default function GrupoVoliaChatModal({
                   type="text"
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
-                  placeholder="Pregúntale a Anna sobre módulos, precios o WhatsApp..."
+                  placeholder="Pregúntale a Anna sobre módulos, inventario o precios..."
                   className="flex-1 bg-white border border-slate-300 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-swiss-pine placeholder-slate-400 focus:outline-none focus:border-brand-emerald"
                 />
                 <button

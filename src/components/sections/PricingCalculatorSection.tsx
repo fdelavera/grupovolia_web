@@ -31,7 +31,7 @@ export default function PricingCalculatorSection({ onSelectPlan }: PricingCalcul
       modA: { license: 490, cloudMonthly: 19, annualSriYear2: 140 },
       features: [
         "1 Módulo a elección (Contabilidad SRI + Retención IVA Proveedores, Inventario API, o CRM)",
-        "Incluye los 2 Agentes de IA (Agente Externo Ventas + Agente Interno Gerencia)",
+        "Incluye Copiloto IA Interno integrado para tu equipo (nombre personalizable)",
         "Cuota incluida de 1,500 interacciones de IA / mes",
         "Personalización en 1 mes con hasta 3 revisiones previas a la entrega",
         "Actualizaciones de normativas incluidas dentro de la membresía mensual",
@@ -39,14 +39,14 @@ export default function PricingCalculatorSection({ onSelectPlan }: PricingCalcul
     },
     pyme: {
       name: "2. SUITE COMPLETA PYME",
-      subtitle: "Contabilidad SRI + Retenciones + Inventario Conectado + Finanzas NIIF + CRM + Marketing + 2 IA",
+      subtitle: "Contabilidad SRI + Retenciones + Inventario Conectado + Finanzas NIIF + CRM + Marketing + Copiloto IA",
       badge: "MÁS ELEGIDO · ESTRELLA",
       highlight: true,
       modB: { setup: 240, monthly: 69 },
       modA: { license: 890, cloudMonthly: 25, annualSriYear2: 220 },
       features: [
         "Los 5 Módulos Integrados: Contabilidad SRI (con Retención IVA Proveedores) + Inventario API POS + Finanzas NIIF + CRM + Marketing Ops",
-        "Doble Agente IA activo 24/7 en Web (+ enlazable a WhatsApp Business Web*)",
+        "Copiloto IA Interno integrado para empleados y gerencia (con el nombre que elijas)",
         "1,500 interacciones mensuales de IA incluidas",
         "Personalización a tu marca en 1 mes (incluye hasta 3 revisiones previas a entrega final)",
         "Actualizaciones normativas SRI/NIIF 100% incluidas en membresía",
@@ -54,7 +54,7 @@ export default function PricingCalculatorSection({ onSelectPlan }: PricingCalcul
     },
     corp: {
       name: "3. Suite Corporativa / Multisucursal",
-      subtitle: "Base de Datos Dedicada + Inventario Multibodega + Usuarios Ilimitados + 2 Agentes IA Pro",
+      subtitle: "Base de Datos Dedicada + Inventario Multibodega + Usuarios Ilimitados + Copiloto IA Pro",
       badge: "Mediana Empresa & Grupos",
       highlight: false,
       modB: { setup: 450, monthly: 119 },
@@ -62,7 +62,7 @@ export default function PricingCalculatorSection({ onSelectPlan }: PricingCalcul
       features: [
         "Base de datos dedicada con aislamiento total, múltiples sucursales y bodegas de inventario",
         "Conexión API con sistemas de ventas/POS en Ecuador y múltiples puntos de emisión SRI",
-        "Agentes IA Pro entrenados con catálogos extensos, stock en vivo y alertas UAFE",
+        "Copiloto IA Pro Interno entrenado con tu inventario en vivo y alertas UAFE",
         "Personalización en 1 mes (hasta 3 revisiones) + soporte prioritario ejecutivo",
         "Actualizaciones normativas SRI/NIIF incluidas sin costo adicional en membresía",
       ],
@@ -461,7 +461,7 @@ export default function PricingCalculatorSection({ onSelectPlan }: PricingCalcul
                   En {calcMonths} meses ($600 setup + ${competitorMonthly}/m)
                 </div>
                 <div className="mt-2 pt-2 border-t border-slate-200 text-[11px] text-slate-500">
-                  Sin Doble Agente IA incluido
+                  Sin Copiloto IA Interno incluido
                 </div>
               </div>
             </div>

@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     template: "%s | Grupo Volia",
   },
   description:
-    "Grupo Volia — Infraestructura Empresarial para Ecuador, Latinoamérica y EE.UU.: Facturación Electrónica SRI con Retenciones a Proveedores, Manejo de Inventario conectado por API POS, Finanzas NIIF, CRM Automatizado, Doble Agente IA (Anna), Oráculos Cuantitativos VWAP y Producción Audiovisual IA.",
+    "Grupo Volia — Infraestructura Empresarial para Ecuador, Latinoamérica y EE.UU.: Facturación Electrónica SRI con Retenciones a Proveedores, Manejo de Inventario conectado por API POS, Finanzas NIIF, CRM Automatizado, Copiloto IA Interno personalizable, Oráculos Cuantitativos VWAP y Producción Audiovisual IA.",
   keywords: [
     "Grupo Volia",
     "Facturación Electrónica SRI IA",

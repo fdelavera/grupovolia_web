@@ -43,7 +43,7 @@ export default function Footer() {
             <ul className="space-y-2">
               <li>
                 <a href="#doble-agente" className="hover:text-brand-emeraldBright transition-colors">
-                  Arquitectura Doble Agente IA
+                  Copiloto IA Interno
                 </a>
               </li>
               <li>

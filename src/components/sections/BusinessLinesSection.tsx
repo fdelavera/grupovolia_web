@@ -61,12 +61,12 @@ export default function BusinessLinesSection() {
       title: "CRM Inteligente, Pipeline Kanban & Automatización Inngest",
       icon: Users,
       features: [
-        "Tablero Kanban visual de oportunidades comerciales desde el primer contacto en la Web hasta la facturación y descarga de inventario.",
+        "Tablero Kanban visual de oportunidades comerciales desde el registro del lead hasta la facturación y descarga de inventario.",
         "Flujos en segundo plano (Serverless Workflows con Inngest): seguimiento automático de cotizaciones abiertas, cobranza y reactivación.",
-        "Historial unificado 360° de cada cliente: conversaciones con el Agente IA, facturas emitidas en el SRI y pagos.",
+        "Historial unificado 360° de cada cliente: notas comerciales, facturas emitidas en el SRI y pagos.",
         "Alertas de cumplimiento y debida diligencia (UAFE) para sectores obligados (inmobiliarias, joyerías, vehículos).",
       ],
-      techStack: "Inngest Workflows · Kanban CRM · API WhatsApp Web* · Alertas UAFE",
+      techStack: "Inngest Workflows · Kanban CRM · Recordatorios Email · Alertas UAFE",
     },
     {
       badge: "MÓDULO 5 · ADQUISICIÓN Y CONTENIDO AUTOMATIZADO",
@@ -189,7 +189,7 @@ export default function BusinessLinesSection() {
                   Stack: <strong className="text-swiss-pine">{activeModule.techStack}</strong>
                 </span>
                 <span className="text-xs font-mono font-bold text-brand-emerald">
-                  + Incluye los 2 Agentes de IA
+                  + Integrado con el Copiloto IA Interno
                 </span>
               </div>
             </div>

@@ -135,7 +135,7 @@ export default function ContactSection({
                   Presentación Comercial PYME y Mediana Empresa (PDF)
                 </div>
                 <p className="text-xs text-slate-500 mt-0.5">
-                  Incluye 5 módulos (con Inventario y Retenciones), Doble Agente IA y tarifas.
+                  Incluye 5 módulos (con Inventario y Retenciones), Copiloto IA Interno y tarifas.
                 </p>
               </div>
               <a

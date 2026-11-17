@@ -38,7 +38,7 @@ export default function HeroSection({ onOpenChat }: HeroSectionProps) {
   const [showSriModal, setShowSriModal] = useState(false);
   const [quickPrompt, setQuickPrompt] = useState("");
   const [quickReply, setQuickReply] = useState(
-    "Agente Interno (#2): 142 facturas XML firmadas XAdES-BES, retenciones de IVA a proveedores cuadradas y stock enlazado vía API."
+    "Copiloto IA Interno: 142 facturas XML firmadas XAdES-BES, retenciones de IVA a proveedores cuadradas y stock enlazado vía API."
   );
 
   const presets: Record<
@@ -190,7 +190,7 @@ export default function HeroSection({ onOpenChat }: HeroSectionProps) {
             Arquitectura financiera autónoma para PYMEs y corporativos: Facturación Electrónica SRI con{" "}
             <strong className="text-swiss-pine">Retención de IVA a Proveedores</strong>,{" "}
             <strong className="text-swiss-pine">Manejo de Inventario conectado por API</strong>, Estados NIIF, CRM Automatizado,{" "}
-            <strong className="text-swiss-pine">Doble Agente de IA incluido</strong>, algoritmos{" "}
+            <strong className="text-swiss-pine">Copiloto de IA Interno incluido</strong>, algoritmos{" "}
             <strong className="text-brand-emerald">VWAP / EMA-9</strong> y Producción Audiovisual IA con Estándares Internacionales.
           </p>
 
@@ -490,7 +490,7 @@ export default function HeroSection({ onOpenChat }: HeroSectionProps) {
             </div>
           </div>
 
-          {/* COLUMN 3: Doble Agente IA · Consola Dual (3 cols) */}
+          {/* COLUMN 3: Copiloto IA Interno · Para Empleados y Gerencia (3 cols) */}
           <div className="lg:col-span-3 swiss-card rounded-2xl p-5 flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between mb-1">
@@ -498,32 +498,23 @@ export default function HeroSection({ onOpenChat }: HeroSectionProps) {
                   <span className="w-6 h-6 rounded-md bg-brand-emeraldSoft border border-brand-emerald/30 text-brand-emerald font-mono font-bold text-xs flex items-center justify-center">
                     3
                   </span>
-                  <h2 className="text-sm font-bold text-swiss-pine">Doble Agente IA</h2>
+                  <h2 className="text-sm font-bold text-swiss-pine">Copiloto IA Interno</h2>
                 </div>
                 <Bot className="w-4 h-4 text-brand-emerald" />
               </div>
               <p className="text-[11px] text-slate-500 mb-3">
-                Consola autónoma dual (1,500 consultas/m incluidas)
+                Exclusivo para tu equipo (1,500 consultas/m incluidas)
               </p>
 
-              <div className="grid grid-cols-2 gap-2 mb-3">
-                <div className="p-2.5 rounded-xl bg-swiss-canvas border border-slate-200">
-                  <div className="text-[10px] font-mono font-bold text-brand-pine mb-1">
-                    Agente #2 Interno
-                  </div>
-                  <div className="text-[10px] font-mono text-slate-600 space-y-1 leading-tight">
-                    <div>✓ Retenciones SRI ok</div>
-                    <div>✓ Stock al día API</div>
-                    <div>✓ Campaña mes lista</div>
-                  </div>
+              <div className="p-3 rounded-xl bg-swiss-canvas border border-slate-200 mb-3">
+                <div className="text-[10px] font-mono font-bold text-brand-pine mb-1.5">
+                  Asistente Integrado en tus Módulos
                 </div>
-                <div className="p-2.5 rounded-xl bg-brand-emeraldSoft/60 border border-brand-emerald/25">
-                  <div className="text-[10px] font-mono font-bold text-brand-emerald mb-1">
-                    Agente #1 Ventas
-                  </div>
-                  <div className="text-[10px] text-slate-700 leading-tight">
-                    &ldquo;¡Hola! Confirmé stock en inventario y agendé tu proforma en el CRM.&rdquo;
-                  </div>
+                <div className="text-[11px] font-mono text-slate-600 space-y-1 leading-tight">
+                  <div>✓ Pre-llena facturas y retenciones SRI</div>
+                  <div>✓ Alerta quiebres de stock en Inventario</div>
+                  <div>✓ Explica balances NIIF en español claro</div>
+                  <div>✓ Nombre personalizable para tu empresa</div>
                 </div>
               </div>
 
@@ -555,11 +546,11 @@ export default function HeroSection({ onOpenChat }: HeroSectionProps) {
               <div className="space-y-1.5">
                 <div className="flex items-center gap-2 px-2.5 py-1.5 rounded-lg bg-brand-emeraldSoft border border-brand-emerald/20 text-[11px] font-semibold text-brand-pine">
                   <CheckCircle2 className="w-3.5 h-3.5 text-brand-emerald shrink-0" />
-                  <span>Web nativa (+ enlace WhatsApp API)</span>
+                  <span>100% dentro de tus módulos</span>
                 </div>
                 <div className="flex items-center gap-2 px-2.5 py-1.5 rounded-lg bg-brand-emeraldSoft border border-brand-emerald/20 text-[11px] font-semibold text-brand-pine">
                   <CheckCircle2 className="w-3.5 h-3.5 text-brand-emerald shrink-0" />
-                  <span>Explicación NIIF en español claro</span>
+                  <span>Ponle el nombre que tú elijas</span>
                 </div>
               </div>
             </div>
