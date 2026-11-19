@@ -76,6 +76,15 @@ export default function Footer() {
             </div>
             <div className="flex flex-col gap-2">
               <a
+                href="https://app.grupovolia.com/login"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-slate-200 hover:text-brand-emeraldBright transition-colors"
+              >
+                <span>Acceso Clientes / Panel Grupo Volia</span>
+                <ArrowUpRight className="w-3.5 h-3.5" />
+              </a>
+              <a
                 href="/docs/Dossier_Comercial_GrupoVolia_SAS.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
