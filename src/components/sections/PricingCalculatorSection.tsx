@@ -170,11 +170,11 @@ export default function PricingCalculatorSection({ onSelectPlan }: PricingCalcul
                         <span className="text-3xl sm:text-4xl font-extrabold text-swiss-pine font-mono tabular-nums">
                           ${pkg.modB.monthly}
                         </span>
-                        <span className="text-xs text-slate-500 font-mono">USD / mes</span>
+                        <span className="text-xs text-slate-500 font-mono">USD / mes + IVA</span>
                       </div>
                       <div className="mt-2 pt-2 border-t border-slate-200 flex items-center justify-between text-xs">
                         <span className="text-slate-600">Diseño e Implementación Inicial:</span>
-                        <strong className="text-brand-emerald font-mono">${pkg.modB.setup} USD (Único)</strong>
+                        <strong className="text-brand-emerald font-mono">${pkg.modB.setup} USD + IVA (Único)</strong>
                       </div>
                       <div className="mt-1 text-[11px] font-semibold text-brand-pine">
                         ✓ Actualizaciones normativas SRI, Nube y API IA incluidas
@@ -186,16 +186,16 @@ export default function PricingCalculatorSection({ onSelectPlan }: PricingCalcul
                         <span className="text-3xl sm:text-4xl font-extrabold text-brand-pine font-mono tabular-nums">
                           ${pkg.modA.license}
                         </span>
-                        <span className="text-xs text-slate-600 font-mono">USD Licencia (Diseño Incluido)</span>
+                        <span className="text-xs text-slate-600 font-mono">USD + IVA Licencia (Diseño Incluido)</span>
                       </div>
                       <div className="mt-2 pt-2 border-t border-brand-emerald/20 space-y-1 text-xs">
                         <div className="flex justify-between">
                           <span className="text-slate-600">Nube + API IA (1,500 consultas):</span>
-                          <strong className="text-swiss-pine font-mono">${pkg.modA.cloudMonthly} / mes</strong>
+                          <strong className="text-swiss-pine font-mono">${pkg.modA.cloudMonthly} / mes + IVA</strong>
                         </div>
                         <div className="flex justify-between">
                           <span className="text-slate-600">Actualización normativa SRI (Año 2+):</span>
-                          <strong className="text-slate-700 font-mono">${pkg.modA.annualSriYear2} / año</strong>
+                          <strong className="text-slate-700 font-mono">${pkg.modA.annualSriYear2} / año + IVA</strong>
                         </div>
                       </div>
                     </div>
@@ -251,7 +251,8 @@ export default function PricingCalculatorSection({ onSelectPlan }: PricingCalcul
               <strong className="text-brand-emerald">1 mes (4 semanas)</strong> e incluye{" "}
               <strong className="text-brand-emerald">hasta 3 revisiones</strong> previas a la entrega final.<br />
               • <strong className="text-swiss-pine">Cambios posteriores a la entrega:</strong> Cualquier modificación o requerimiento nuevo solicitado luego de la entrega final se factura de manera independiente.<br />
-              • <strong className="text-swiss-pine">Actualizaciones de normativas (SRI / NIIF):</strong> ¡Están <strong>100% incluidas sin costo adicional</strong> dentro de tu paquete de membresía mensual!
+              • <strong className="text-swiss-pine">Actualizaciones de normativas (SRI / NIIF):</strong> ¡Están <strong>100% incluidas sin costo adicional</strong> dentro de tu paquete de membresía mensual!<br />
+              • <strong className="text-swiss-pine">Impuestos (IVA Ecuador):</strong> Todos los valores promocionados son precios base <strong>+ 15% IVA</strong> (el IVA no viene incluido en la tarifa publicada).
             </p>
           </div>
         </div>

@@ -201,7 +201,7 @@ export default function HeroSection({ onOpenChat }: HeroSectionProps) {
               className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-brand-emerald hover:bg-brand-pine text-white font-bold text-xs sm:text-sm shadow-swiss-md transition-all"
             >
               <Calculator className="w-4 h-4" />
-              <span>Ver Precios ($35–$119/m) y Calcular Ahorro</span>
+              <span>Ver Precios ($35–$119/m + IVA) y Calcular Ahorro</span>
               <ArrowUpRight className="w-4 h-4" />
             </a>
             <button

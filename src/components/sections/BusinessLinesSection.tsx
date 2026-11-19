@@ -119,7 +119,7 @@ export default function BusinessLinesSection() {
               href="#tarifario-calculadora"
               className="self-start lg:self-auto inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-brand-emeraldSoft hover:bg-brand-emeraldLight text-brand-pine border border-brand-emerald/30 text-xs font-bold transition-all"
             >
-              <span>Desde $35/mes (Individual) o $69/mes (Suite Completa)</span>
+              <span>Desde $35/mes + IVA (Individual) o $69/mes + IVA (Suite Completa)</span>
               <ArrowUpRight className="w-4 h-4 text-brand-emerald" />
             </a>
           </div>

@@ -32,7 +32,8 @@ Todo módulo o suite de Grupo Volia incluye un **Asistente / Copiloto de IA Inte
 4. **CRM Inteligente, Pipeline Kanban & Automatización Inngest:** Embudo comercial, cobranza automatizada y debida diligencia UAFE.
 5. **Marketing Ops IA, Calendario Editorial & ROAS Tracker:** Campañas generadas con IA conectadas a ventas reales.
 
-#### Tarifas (2 Modalidades a elección del cliente):
+#### Tarifas (2 Modalidades a elección del cliente — TODOS LOS VALORES SON BASE + 15% IVA ECUADOR):
+- **Regla importante:** Siempre aclara que todos los precios promocionados son valores base **+ IVA** (no viene incluido).
 - **Paquete 1: Módulo Individual PYME** (Ej: Contabilidad SRI + Retenciones + IA, o Inventario + IA, o CRM + IA):
   - **Modalidad B (Membresía Mensual):** Diseño e implementación inicial de $120 USD + Mensualidad de $35 USD/mes (incluye Nube + API IA + actualizaciones normativas SRI).
   - **Modalidad A (Compra de Licencia):** Pago único de $490 USD (diseño ya incluido) + $19 USD/mes (Nube y API IA) + $140 USD/año de actualización SRI desde el Año 2.
