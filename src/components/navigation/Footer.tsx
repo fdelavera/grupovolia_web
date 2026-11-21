@@ -1,8 +1,34 @@
 "use client";
 
-import { ArrowUpRight, FileDown } from "lucide-react";
+import { useState } from "react";
+import { ArrowUpRight, FileDown, ShieldCheck, X } from "lucide-react";
+
+const LEGAL_DISCLAIMERS = [
+  {
+    title: "1. Responsabilidad Tributaria SRI & Normativa NIIF",
+    text: "Grupo Volia provee la infraestructura tecnológica para generación XML v2.0.0, firma XAdES-BES (.p12), RIDE PDF personalizado, Libro Diario NIIF y pre-reportes ATS/103/104. La declaración final en el portal del SRI y la validación contable/fiscal corresponden exclusivamente al Contribuyente y su Contador General autorizado.",
+  },
+  {
+    title: "2. Oráculo IA, Proyecciones Financieras y No Asesoría Bursátil",
+    text: "Los reportes temporales del Oráculo IA (5m–24h), simuladores Quant Sentinel FP&A y titulares de mercado/insumos constituyen herramientas informativas y analíticas operativas. No constituyen asesoría de inversión regulada ni recomendación bursátil o de compra/venta de valores.",
+  },
+  {
+    title: "3. Privacidad, LOPDP Ecuador & Bóveda Criptográfica AES-256-GCM",
+    text: "Cumplimos con la Ley Orgánica de Protección de Datos Personales (LOPDP) de Ecuador. Las firmas electrónicas .p12, notas clínicas CIE-10 y expedientes confidenciales se cifran con AES-256-GCM y aislamiento estricto multi-tenant (Row Level Security). Grupo Volia nunca comercializa ni entrena modelos públicos con datos privados del cliente.",
+  },
+  {
+    title: "4. Política de Facturación Ilimitada & Uso Justo de Cuota IA",
+    text: "Los planes Suite incluyen emisión ilimitada de facturas electrónicas SRI ($0 extra por documento) sujeto a uso empresarial legítimo. Las consultas analíticas al Copiloto IA corporativo cuentan con 1,500 interacciones/mes incluidas por empresa, mientras el enrutador de ayuda UI y noticias RSS operan a 0 tokens.",
+  },
+  {
+    title: "5. Implementación SLA (4 Semanas / 3 Revisiones) & Propiedad 100% de Datos",
+    text: "Cada implementación personalizada contempla hasta 4 semanas de parametrización White-Label y 3 rondas de ajuste previas a producción. El cliente conserva el 100% de la propiedad sobre su base SQL, XML autorizados, RIDE PDFs y respaldos exportables en todo momento.",
+  },
+];
 
 export default function Footer() {
+  const [legalModalOpen, setLegalModalOpen] = useState(false);
+
   return (
     <footer className="bg-swiss-pine text-slate-300 py-14 text-xs">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -124,15 +150,104 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-slate-400">
+        {/* Resumen visible de Disclaimers Legales & LOPDP */}
+        <div className="pt-6 pb-6 border-b border-white/10 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4 text-[11px] text-slate-300/90">
+          <div className="max-w-4xl leading-relaxed space-y-1">
+            <div className="font-bold text-white flex items-center gap-1.5">
+              <ShieldCheck className="w-3.5 h-3.5 text-brand-emeraldBright" />
+              <span>Avisos Legales, Disclaimers SRI / NIIF / Oráculo IA &amp; Cumplimiento LOPDP Ecuador:</span>
+            </div>
+            <p className="text-slate-400">
+              Las herramientas contables, proformas y Oráculos IA operan como apoyo tecnológico operativo (no constituyen asesoría tributaria ni bursátil regulada). Tus datos, XML SRI y firmas `.p12` están aislados bajo RLS y cifrados con AES-256-GCM bajo propiedad 100% del cliente.
+            </p>
+          </div>
+          <button
+            type="button"
+            onClick={() => setLegalModalOpen(true)}
+            className="px-3.5 py-2 rounded-xl bg-white/10 hover:bg-brand-emerald text-white font-bold text-[11px] shrink-0 transition-colors border border-white/15"
+          >
+            Leer Disclaimers, Privacidad LOPDP y Términos SLA
+          </button>
+        </div>
+
+        <div className="pt-7 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-slate-400">
           <div>
             © {new Date().getFullYear()} Grupo Volia. Todos los derechos reservados.
           </div>
-          <div>
-            Ingeniería Agéntica, ERP/SRI, Inventarios Conectados & Oráculos Cuantitativos.
+          <div className="flex flex-wrap items-center gap-3">
+            <span>Ingeniería Agéntica, ERP/SRI, Inventarios Conectados &amp; Oráculos Cuantitativos.</span>
+            <a
+              href="https://app.grupovolia.com/seguridad"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-brand-emeraldBright hover:underline font-semibold"
+            >
+              Centro Legal &amp; Seguridad PDF
+            </a>
           </div>
         </div>
       </div>
+
+      {legalModalOpen && (
+        <div
+          className="fixed inset-0 z-50 bg-slate-950/60 backdrop-blur-xs flex items-center justify-center p-4"
+          onClick={() => setLegalModalOpen(false)}
+        >
+          <div
+            className="w-full max-w-2xl max-h-[85vh] bg-white text-swiss-pine rounded-3xl shadow-2xl border border-slate-200 flex flex-col overflow-hidden"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="px-6 py-4 bg-swiss-canvas border-b border-slate-200 flex items-center justify-between gap-3">
+              <div className="flex items-center gap-2">
+                <ShieldCheck className="w-5 h-5 text-brand-emerald" />
+                <div>
+                  <h3 className="text-sm font-extrabold text-swiss-pine">
+                    Disclaimers Oficiales, Privacidad LOPDP &amp; Términos SLA
+                  </h3>
+                  <p className="text-[11px] text-slate-500">
+                    Grupo Volia S.A.S. · Transparencia Jurídica, Técnica y Tributaria
+                  </p>
+                </div>
+              </div>
+              <button
+                type="button"
+                onClick={() => setLegalModalOpen(false)}
+                className="p-1.5 rounded-xl hover:bg-slate-200 text-slate-500"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            </div>
+            <div className="p-6 overflow-y-auto space-y-4 text-xs leading-relaxed">
+              {LEGAL_DISCLAIMERS.map((d) => (
+                <div key={d.title} className="p-4 rounded-2xl bg-swiss-canvas border border-slate-200 space-y-1">
+                  <div className="font-extrabold text-swiss-pine">{d.title}</div>
+                  <p className="text-slate-600">{d.text}</p>
+                </div>
+              ))}
+              <div className="pt-2 flex flex-wrap gap-2">
+                <a
+                  href="https://app.grupovolia.com/api/docs/kit?kit=privacy_security"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-brand-emerald text-white font-bold"
+                >
+                  <FileDown className="w-3.5 h-3.5" />
+                  <span>Descargar Dossier Privacidad &amp; LOPDP (PDF)</span>
+                </a>
+                <a
+                  href="https://app.grupovolia.com/api/docs/kit?kit=client_contract"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-swiss-pine text-white font-bold"
+                >
+                  <FileDown className="w-3.5 h-3.5" />
+                  <span>Contrato Marco &amp; Onboarding (PDF)</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </footer>
   );
 }

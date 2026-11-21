@@ -53,10 +53,10 @@ export default function GrupoVoliaChatModal({
 
       const btnWidth = btnRef.current?.offsetWidth || 210;
       const btnHeight = btnRef.current?.offsetHeight || 48;
-      const maxPosX = 24;
-      const maxPosY = 24;
-      const minPosX = -(window.innerWidth - btnWidth - 24);
-      const minPosY = -(window.innerHeight - btnHeight - 24);
+      const minPosX = -16;
+      const maxPosX = Math.max(0, window.innerWidth - btnWidth - 32);
+      const maxPosY = 16;
+      const minPosY = -Math.max(0, window.innerHeight - btnHeight - 32);
 
       newX = Math.max(minPosX, Math.min(newX, maxPosX));
       newY = Math.max(minPosY, Math.min(newY, maxPosY));
@@ -94,10 +94,10 @@ export default function GrupoVoliaChatModal({
       let newY = e.clientY - chatDragStart.current.y;
 
       const rect = chatRef.current.getBoundingClientRect();
-      const maxPosX = 24;
-      const maxPosY = 24;
-      const minPosX = -(window.innerWidth - rect.width - 24);
-      const minPosY = -(window.innerHeight - rect.height - 24);
+      const minPosX = -16;
+      const maxPosX = Math.max(0, window.innerWidth - rect.width - 32);
+      const maxPosY = 16;
+      const minPosY = -Math.max(0, window.innerHeight - rect.height - 32);
 
       newX = Math.max(minPosX, Math.min(newX, maxPosX));
       newY = Math.max(minPosY, Math.min(newY, maxPosY));
@@ -170,10 +170,10 @@ export default function GrupoVoliaChatModal({
 
   return (
     <>
-      {/* Draggable Floating Action Button */}
+      {/* Draggable Floating Action Button (Bottom-Left) */}
       {!isOpen && (
         <div
-          className="fixed bottom-6 right-6 z-50 flex flex-col items-end"
+          className="fixed bottom-5 left-5 z-50 flex flex-col items-start"
           style={{ transform: `translate(${btnPos.x}px, ${btnPos.y}px)`, touchAction: "none" }}
         >
           <button
@@ -184,9 +184,17 @@ export default function GrupoVoliaChatModal({
             onPointerUp={handleBtnPointerUp}
             style={{ touchAction: "none" }}
             title="Arrastra para mover o toca para hablar con Anna"
-            className="flex items-center gap-2.5 px-4 py-3.5 rounded-full bg-swiss-pine hover:bg-brand-pine border border-brand-emerald/40 text-white shadow-swiss-lg transition-shadow cursor-move select-none"
+            className="flex items-center gap-2.5 px-4 py-3 rounded-full bg-swiss-pine hover:bg-brand-pine border border-brand-emerald/40 text-white shadow-swiss-lg transition-shadow cursor-move select-none"
           >
-            <Sparkles className="w-4 h-4 text-brand-emeraldBright animate-pulse pointer-events-none" />
+            <div className="w-6 h-6 rounded-full bg-white p-0.5 flex items-center justify-center shrink-0 pointer-events-none">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/assets/branding/logo_grupovolia_isotipo_clean.png"
+                alt="Grupo Volia"
+                className="w-full h-full object-contain"
+              />
+            </div>
+            <Sparkles className="w-3.5 h-3.5 text-brand-emeraldBright animate-pulse pointer-events-none" />
             <span className="text-xs font-bold tracking-wide pointer-events-none">
               Hablar con Anna IA
             </span>
@@ -196,10 +204,10 @@ export default function GrupoVoliaChatModal({
         </div>
       )}
 
-      {/* Draggable Chat Window */}
+      {/* Draggable Chat Window (Bottom-Left Default, Movable Anywhere) */}
       {isOpen && (
         <div
-          className="fixed bottom-6 right-6 z-50 flex flex-col items-end"
+          className="fixed bottom-5 left-5 z-50 flex flex-col items-start"
           style={{ transform: `translate(${chatPos.x}px, ${chatPos.y}px)`, touchAction: "none" }}
         >
           <div
