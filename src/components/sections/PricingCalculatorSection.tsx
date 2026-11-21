@@ -30,11 +30,11 @@ export default function PricingCalculatorSection({ onSelectPlan }: PricingCalcul
       modB: { setup: 120, monthly: 35 },
       modA: { license: 490, cloudMonthly: 19, annualSriYear2: 140 },
       features: [
-        "1 Módulo a elección (Contabilidad SRI + RIDE PDF Personalizado con tu Logo, Inventario API, o CRM)",
+        "Facturación SRI, Clientes y Productos/Asientos Ilimitados en tu módulo elegido (sin topes de folios)",
+        "1 Módulo a elección (Contabilidad SRI + RIDE PDF Personalizado con tu Logo, Inventario API, o CRM LOPDP)",
         "Envío automático de Factura PDF + XML al email de tus clientes y botón 1-Clic para WhatsApp Web/Móvil",
         "Incluye Copiloto IA Interno integrado para tu equipo (nombre personalizable · 1,500 consultas/mes)",
-        "Personalización en 1 mes con hasta 3 revisiones previas a la entrega",
-        "Actualizaciones normativas SRI incluidas dentro de la membresía mensual",
+        "Personalización en 1 mes (hasta 3 revisiones) + actualizaciones normativas SRI incluidas",
       ],
     },
     pyme: {
@@ -45,11 +45,11 @@ export default function PricingCalculatorSection({ onSelectPlan }: PricingCalcul
       modB: { setup: 240, monthly: 69 },
       modA: { license: 890, cloudMonthly: 25, annualSriYear2: 220 },
       features: [
-        "Los 5 Módulos Integrados: Contabilidad SRI (RIDE PDF con tu Logo, Auto-Email, 1-Clic WhatsApp & Retenciones) + Inventario API POS + Finanzas NIIF + CRM + Marketing Ops",
+        "Facturas Electrónicas SRI Ilimitadas, Productos Kardex Ilimitados y Asientos Contables NIIF Ilimitados (sin paquetes ni cobros extra por folio)",
+        "Los 5 Módulos Integrados: Contabilidad SRI (RIDE PDF con tu Logo, Auto-Email, 1-Clic WhatsApp & Retenciones) + Inventario API POS + Finanzas NIIF + CRM LOPDP + Marketing Ops",
         "Copiloto IA Interno integrado para empleados y gerencia (con el nombre que elijas)",
-        "1,500 interacciones mensuales de IA incluidas",
-        "Personalización a tu marca en 1 mes (incluye hasta 3 revisiones previas a entrega final)",
-        "Actualizaciones normativas SRI/NIIF 100% incluidas en membresía",
+        "1,500 interacciones mensuales de IA incluidas (Oráculo de Mercados & RSS optimizado aparte)",
+        "Personalización a tu marca en 1 mes (incluye hasta 3 revisiones) + actualizaciones normativas SRI/NIIF 100% incluidas",
       ],
     },
     corp: {
@@ -60,11 +60,11 @@ export default function PricingCalculatorSection({ onSelectPlan }: PricingCalcul
       modB: { setup: 450, monthly: 119 },
       modA: { license: 1490, cloudMonthly: 39, annualSriYear2: 350 },
       features: [
-        "Base de datos dedicada con aislamiento total, múltiples sucursales y bodegas de inventario",
+        "Facturas SRI, Bodegas, Productos Kardex y Asientos NIIF 100% Ilimitados en servidor dedicado",
+        "Base de datos dedicada con aislamiento total, múltiples sucursales y usuarios ilimitados",
         "Conexión API con sistemas de ventas/POS en Ecuador y múltiples puntos de emisión SRI",
-        "Copiloto IA Pro Interno entrenado con tu inventario en vivo y alertas UAFE",
-        "Personalización en 1 mes (hasta 3 revisiones) + soporte prioritario ejecutivo",
-        "Actualizaciones normativas SRI/NIIF incluidas sin costo adicional en membresía",
+        "Copiloto IA Pro Interno entrenado con tu inventario en vivo y alertas UAFE (con control de cuota)",
+        "Personalización en 1 mes (hasta 3 revisiones) + soporte prioritario + actualizaciones SRI/NIIF incluidas",
       ],
     },
   };
