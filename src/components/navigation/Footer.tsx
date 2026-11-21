@@ -234,15 +234,6 @@ export default function Footer() {
                   <FileDown className="w-3.5 h-3.5" />
                   <span>Descargar Dossier Privacidad &amp; LOPDP (PDF)</span>
                 </a>
-                <a
-                  href="https://app.grupovolia.com/api/docs/kit?kit=client_contract"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-swiss-pine text-white font-bold"
-                >
-                  <FileDown className="w-3.5 h-3.5" />
-                  <span>Contrato Marco &amp; Onboarding (PDF)</span>
-                </a>
               </div>
             </div>
           </div>
