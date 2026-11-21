@@ -48,7 +48,10 @@ Genera un diagnóstico ejecutivo estructurado en JSON con exactamente este forma
         const match = raw.match(/\{[\s\S]*\}/);
         if (match) {
           const parsed = JSON.parse(match[0]);
-          return NextResponse.json({ analysis: parsed, source: "gemini-live" });
+          return NextResponse.json({
+            analysis: parsed,
+            source: "argon-engine-live",
+          });
         }
       } catch (e) {
         console.warn("Quant Oracle fallback activated:", e);

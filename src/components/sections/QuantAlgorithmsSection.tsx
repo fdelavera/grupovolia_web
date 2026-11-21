@@ -42,7 +42,7 @@ export default function QuantAlgorithmsSection() {
       label: "Agroexportación & Commodities",
       icon: Ship,
       defaultVol: "120000",
-      desc: "Monitoreo en tiempo real de futuros internacionales (Cacao NY, Camarón, Café, Banano), cruce de noticias climáticas/logísticas con Gemini y ventanas óptimas de fijación de precios.",
+      desc: "Monitoreo en tiempo real de futuros internacionales (Cacao NY, Camarón, Café, Banano), cruce de noticias climáticas/logísticas con motores Argon/Hydrogen y ventanas óptimas de fijación de precios.",
     },
     {
       id: "Inmobiliarias, Constructoras & Promotoras",
@@ -65,7 +65,7 @@ export default function QuantAlgorithmsSection() {
     scoutSignal:
       "Escaneo continuo de precios de reposición de proveedores, aranceles y rotación diaria por categoría frente a su media móvil exponencial (EMA-9).",
     strategistReasoning:
-      "El módulo AI Strategist (Gemini) cruza el ritmo de ventas con costos de importación para detectar qué productos deben subir margen un +4% y cuáles requieren liquidación rápida para liberar caja.",
+      "El módulo AI Strategist (Argon) cruza el ritmo de ventas con costos de importación para detectar qué productos deben subir margen un +4% y cuáles requieren liquidación rápida para liberar caja.",
     architectAllocation:
       "Sobre un volumen de $45,000 USD/mes, Position Architect reasigna el presupuesto de compras hacia el 20% de SKUs que generan el 78% del flujo de efectivo libre.",
     sentinelRule:
@@ -137,7 +137,7 @@ export default function QuantAlgorithmsSection() {
           </div>
           <div className="p-4 rounded-2xl bg-swiss-canvas border border-slate-200">
             <div className="text-xs font-mono text-brand-pine font-bold">ETAPA 2 · 1B_AI_STRATEGIST</div>
-            <div className="text-sm font-bold text-swiss-pine mt-1">Análisis de Catalizadores (Gemini)</div>
+            <div className="text-sm font-bold text-swiss-pine mt-1">Análisis de Catalizadores (Argon / Hydrogen)</div>
             <p className="text-xs text-slate-600 mt-1">
               Cruza noticias económicas, clima, aranceles y estacionalidad para clasificar oportunidades de alta convicción.
             </p>
@@ -235,7 +235,7 @@ export default function QuantAlgorithmsSection() {
                 {loading ? (
                   <>
                     <Loader2 className="w-4 h-4 animate-spin" />
-                    <span>Ejecutando Apex Quant Engine con Gemini...</span>
+                    <span>Ejecutando Apex Quant Engine con Argon...</span>
                   </>
                 ) : (
                   <>

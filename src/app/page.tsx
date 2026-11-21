@@ -5,6 +5,7 @@ import Navbar from "@/components/navigation/Navbar";
 import HeroSection from "@/components/sections/HeroSection";
 import DualAgentSection from "@/components/sections/DualAgentSection";
 import BusinessLinesSection from "@/components/sections/BusinessLinesSection";
+import SecurityLopdpSection from "@/components/sections/SecurityLopdpSection";
 import QuantAlgorithmsSection from "@/components/sections/QuantAlgorithmsSection";
 import PricingCalculatorSection from "@/components/sections/PricingCalculatorSection";
 import FounderCredentialsSection from "@/components/sections/FounderCredentialsSection";
@@ -29,6 +30,7 @@ export default function HomePage() {
         <HeroSection onOpenChat={() => setChatOpen(true)} />
         <DualAgentSection />
         <BusinessLinesSection />
+        <SecurityLopdpSection />
         <QuantAlgorithmsSection />
         <PricingCalculatorSection onSelectPlan={handleSelectPlan} />
         <FounderCredentialsSection />
