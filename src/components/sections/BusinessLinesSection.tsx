@@ -26,11 +26,11 @@ export default function BusinessLinesSection() {
       icon: Landmark,
       features: [
         "Firma electrónica nativa XAdES-BES con archivo .p12 directo a los servidores SOAP del SRI (Recepción y Autorización en segundos).",
-        "Emisión ilimitada de Facturas, Liquidaciones de Compra, Notas de Crédito y Comprobantes de Retención.",
-        "Activación de Retención del IVA y Renta en la Fuente para proveedores nacionales (30%, 70%, 100%) con asiento contable automático.",
-        "Exportación automática del Anexo Transaccional Simplificado (ATS) en XML validado, RIDE en PDF y Libro Diario de doble partida.",
+        "Facturación SRI con RIDE PDF 100% Personalizado a tu Marca: incluye tu propio logotipo, colores corporativos, código de barras SRI de 49 dígitos y casilla de Información Adicional (ideal para diagnósticos de reembolso médico SaludSA/BMI u órdenes de compra).",
+        "Envío automático de PDF personalizado + XML al correo electrónico del cliente y botón 1-Clic para compartir directo en WhatsApp Web o celular normal (sin WhatsApp Business API).",
+        "Activación de Retención del IVA y Renta en la Fuente para proveedores nacionales (30%, 70%, 100%), Notas de Crédito 04 y exportación automática del Anexo Transaccional Simplificado (ATS) en XML validado.",
       ],
-      techStack: "XAdES-BES · SOAP SRI · Retenciones IVA Proveedores · ATS XML",
+      techStack: "XAdES-BES · RIDE Personalizado + Auto-Email · 1-Clic WhatsApp · ATS XML",
     },
     {
       badge: "MÓDULO 2 · CONTROL DE STOCK & CONEXIÓN POS",

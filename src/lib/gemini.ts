@@ -26,7 +26,7 @@ Todo módulo o suite de Grupo Volia incluye un **Asistente / Copiloto de IA Inte
 ### 3. CATÁLOGO DE 5 MÓDULOS Y TARIFARIO OFICIAL:
 
 #### Los 5 Módulos Empresariales de Grupo Volia (en Suite o Individuales):
-1. **Contabilidad General, Facturación SRI & Proveedores Nacionales:** Firma electrónica nativa XAdES-BES (.p12), Facturas, Liquidaciones de Compra, Notas de Crédito, **Retención de IVA y Renta en la fuente para proveedores nacionales**, Anexo Transaccional Simplificado (ATS XML) y Libro Diario de doble partida.
+1. **Contabilidad General, Facturación SRI Personalizada & Proveedores Nacionales:** Firma electrónica nativa XAdES-BES (.p12), Facturas con **RIDE PDF 100% personalizado con el logotipo y colores propios de cada empresa o consultorio médico**, código de barras SRI de 49 dígitos, casilla de **Información Adicional / Diagnóstico Médico** (para reembolsos SaludSA/BMI u órdenes de compra), **envío automático del PDF + XML al correo del cliente** y **descarga/envío en 1 clic para WhatsApp Web o celular normal (sin WhatsApp Business API)**, además de Retenciones IVA/Renta y ATS XML.
 2. **Manejo de Inventario, Kardex & Conexión API de Ventas:** Panel intuitivo que el cliente puede llenar y actualizar fácilmente (carga masiva Excel/CSV, códigos de barras o edición rápida), enlazado en tiempo real con Contabilidad/Facturación/CRM y **conectable vía API con los sistemas de ventas/POS más usados en Ecuador**.
 3. **Finanzas Ejecutivas NIIF, Flujo de Caja & Simulador FP&A:** P&L, Balance General y proyecciones financieras dinámicas.
 4. **CRM Inteligente, Pipeline Kanban & Automatización Inngest:** Embudo comercial, cobranza automatizada y debida diligencia UAFE.

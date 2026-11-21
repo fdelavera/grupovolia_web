@@ -30,11 +30,11 @@ export default function PricingCalculatorSection({ onSelectPlan }: PricingCalcul
       modB: { setup: 120, monthly: 35 },
       modA: { license: 490, cloudMonthly: 19, annualSriYear2: 140 },
       features: [
-        "1 Módulo a elección (Contabilidad SRI + Retención IVA Proveedores, Inventario API, o CRM)",
-        "Incluye Copiloto IA Interno integrado para tu equipo (nombre personalizable)",
-        "Cuota incluida de 1,500 interacciones de IA / mes",
+        "1 Módulo a elección (Contabilidad SRI + RIDE PDF Personalizado con tu Logo, Inventario API, o CRM)",
+        "Envío automático de Factura PDF + XML al email de tus clientes y botón 1-Clic para WhatsApp Web/Móvil",
+        "Incluye Copiloto IA Interno integrado para tu equipo (nombre personalizable · 1,500 consultas/mes)",
         "Personalización en 1 mes con hasta 3 revisiones previas a la entrega",
-        "Actualizaciones de normativas incluidas dentro de la membresía mensual",
+        "Actualizaciones normativas SRI incluidas dentro de la membresía mensual",
       ],
     },
     pyme: {
@@ -45,7 +45,7 @@ export default function PricingCalculatorSection({ onSelectPlan }: PricingCalcul
       modB: { setup: 240, monthly: 69 },
       modA: { license: 890, cloudMonthly: 25, annualSriYear2: 220 },
       features: [
-        "Los 5 Módulos Integrados: Contabilidad SRI (con Retención IVA Proveedores) + Inventario API POS + Finanzas NIIF + CRM + Marketing Ops",
+        "Los 5 Módulos Integrados: Contabilidad SRI (RIDE PDF con tu Logo, Auto-Email, 1-Clic WhatsApp & Retenciones) + Inventario API POS + Finanzas NIIF + CRM + Marketing Ops",
         "Copiloto IA Interno integrado para empleados y gerencia (con el nombre que elijas)",
         "1,500 interacciones mensuales de IA incluidas",
         "Personalización a tu marca en 1 mes (incluye hasta 3 revisiones previas a entrega final)",
