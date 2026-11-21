@@ -178,20 +178,22 @@ export default function HeroSection({ onOpenChat }: HeroSectionProps) {
             <span>GRUPO VOLIA · ECUADOR, LATINOAMÉRICA & EE.UU.</span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl lg:text-[54px] font-extrabold tracking-tight text-swiss-pine leading-[1.08]">
-            Infraestructura Empresarial,{" "}
-            <span className="text-brand-emerald">ERP/SRI</span> &{" "}
-            <span className="underline decoration-brand-emerald/40 decoration-4 underline-offset-4">
-              Oráculos Cuantitativos
+          <h1 className="text-3xl sm:text-5xl lg:text-[52px] font-extrabold tracking-tight text-swiss-pine leading-[1.08]">
+            Contabilidad SRI, Inventario e{" "}
+            <span className="text-brand-emerald">IA Empresarial</span>
+            <span className="block text-2xl sm:text-3xl lg:text-[34px] font-bold text-slate-700 mt-2">
+              — Tan Fácil de Usar como{" "}
+              <span className="underline decoration-brand-emerald/50 decoration-4 underline-offset-4 text-swiss-pine">
+                WhatsApp
+              </span>
             </span>
           </h1>
 
           <p className="mt-5 text-sm sm:text-base lg:text-lg text-slate-600 leading-relaxed max-w-3xl mx-auto">
-            Arquitectura financiera autónoma para PYMEs y corporativos: Facturación Electrónica SRI con{" "}
-            <strong className="text-swiss-pine">Retención de IVA a Proveedores</strong>,{" "}
-            <strong className="text-swiss-pine">Manejo de Inventario conectado por API</strong>, Estados NIIF, CRM Automatizado,{" "}
-            <strong className="text-swiss-pine">Copiloto de IA Interno incluido</strong>, algoritmos{" "}
-            <strong className="text-brand-emerald">VWAP / EMA-9</strong> y Producción Audiovisual IA con Estándares Internacionales.
+            Tecnología de vanguardia hecha humana para <strong className="text-swiss-pine">10 industrias en Ecuador, Latinoamérica y EE.UU.</strong>{" "}
+            (médicos, colegios, importadoras, comercios, restaurantes, constructoras y más):{" "}
+            <strong className="text-brand-emerald">Facturación SRI e Inventario 100% Ilimitados</strong> con tu propio logo, envíos en 1 clic a correo/WhatsApp, cifrado legal{" "}
+            <strong className="text-swiss-pine">LOPDP AES-256</strong> y Asistente IA en español sencillo.
           </p>
 
           {/* Clean Action Bar */}
@@ -210,8 +212,41 @@ export default function HeroSection({ onOpenChat }: HeroSectionProps) {
               className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white hover:bg-brand-emeraldSoft text-swiss-pine border border-slate-300 hover:border-brand-emerald font-bold text-xs sm:text-sm shadow-sm transition-all"
             >
               <Bot className="w-4 h-4 text-brand-emerald" />
-              <span>Consultar con Anna IA</span>
+              <span>Pregúntale a Anna IA</span>
             </button>
+          </div>
+
+          {/* 4-Pillar Trust Bar for non-tech Ecuadorian business owners */}
+          <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-left">
+            {[
+              {
+                title: "Súper Fácil de Usar",
+                desc: "Pantalla limpia en español claro. Tu personal aprende en minutos sin saber de informática.",
+              },
+              {
+                title: "Migración Incluida",
+                desc: "Subimos tus productos y facturas desde Excel, Contífico, Alegra o SRI sin duplicados.",
+              },
+              {
+                title: "SRI e Ítems Ilimitados",
+                desc: "Emite las facturas, retenciones y proformas que quieras sin paquetes por folios.",
+              },
+              {
+                title: "Blindaje LOPDP AES-256",
+                desc: "Datos clínicos, escolares y contables cifrados bajo estándares bancarios.",
+              },
+            ].map((item) => (
+              <div
+                key={item.title}
+                className="p-3.5 rounded-2xl bg-swiss-canvas border border-slate-200/90 flex items-start gap-2.5"
+              >
+                <CheckCircle2 className="w-4 h-4 text-brand-emerald shrink-0 mt-0.5" />
+                <div>
+                  <div className="text-xs font-extrabold text-swiss-pine">{item.title}</div>
+                  <div className="text-[11px] text-slate-600 leading-snug mt-0.5">{item.desc}</div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
 

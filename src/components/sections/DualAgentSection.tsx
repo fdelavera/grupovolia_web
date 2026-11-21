@@ -12,26 +12,46 @@ import {
 } from "lucide-react";
 
 export default function DualAgentSection() {
-  const [selectedIndustry, setSelectedIndustry] = useState<"comercio" | "inmobiliaria" | "servicios">("comercio");
+  const [selectedIndustry, setSelectedIndustry] = useState<
+    "comercio" | "medico" | "colegio" | "restaurante" | "agro" | "inmobiliaria"
+  >("comercio");
 
   const industryExamples = {
     comercio: {
-      label: "Comercio / Importadora / Ferretería",
-      internalUser: "Copiloto, ¿cómo cerró nuestro margen neto, qué stock está bajo y qué retenciones del SRI vencen?",
+      label: "Comercio / Importadora / Tienda",
+      internalUser: "Oye, ¿cuál fue mi ganancia este mes, qué productos se están acabando y qué debo pagar al SRI?",
       internalBot:
-        "Resumen Gerencial NIIF: Tus ventas subieron +14.2% ($8,420 USD) con margen bruto del 38.4%. Inventario: 3 SKUs bajaron del stock mínimo y requieren reposición. SRI: Emitidas 64 facturas XAdES-BES y 5 retenciones de IVA en la fuente a proveedores nacionales; tu declaración de IVA vence el día 28 y el ATS XML ya está cuadrado.",
+        "Resumen claro: Vendiste $8,420 USD (+14.2% vs. mes pasado) con margen de 38.4%. Inventario: 3 productos clave bajaron del mínimo y toca reponer esta semana. SRI: Emitiste 64 facturas electrónicas sin errores y tu declaración vence el 28 (el archivo ATS XML ya está listo para subir).",
+    },
+    medico: {
+      label: "Consultorio Médico / Odontología",
+      internalUser: "¿Cuántos pacientes atendí esta semana, enviaste el RIDE con CIE-10 a SaludSA y qué reactivos caducan pronto?",
+      internalBot:
+        "Atenciones: 34 consultas esta semana ($2,720 USD facturados a 0% IVA). Todas las facturas salieron automáticamente con código CIE-10 y PDF personalizado para reembolso SaludSA/BMI. Alerta de bodega: 2 cajas de reactivos caducan en 48 días (ya agendado aviso al visitador médico).",
+    },
+    colegio: {
+      label: "Escuela / Colegio / Academia",
+      internalUser: "¿Qué representantes deben pensiones de este mes y cuánto recaudamos hoy?",
+      internalBot:
+        "Hoy recaudaste $3,850 USD en pensiones (facturadas a 0% IVA con el nombre del alumno impreso en el RIDE). Tienes 9 representantes pendientes de pago este mes; si quieres, te preparo un mensaje cordial para enviarles recordatorio.",
+    },
+    restaurante: {
+      label: "Restaurante / Cafetería / Catering",
+      internalUser: "¿Por qué subió el costo de mi plato estrella y cómo cerró la caja de Datafast ayer?",
+      internalBot:
+        "Ojo en cocina: El costo de tus ingredientes subió de 31% a 36.8% por el precio de la proteína; conviene ajustar $0.75 el PVP o negociar lote semanal. Caja de ayer cuadrada al centavo: $1,140 en ventas netas descontada la comisión Datafast.",
+    },
+    agro: {
+      label: "Agroindustria / Camaronera / Cacao",
+      internalUser: "¿Cómo están las compras con Liquidación 03 a productores y los precios de cacao/fletes hoy?",
+      internalBot:
+        "Emitidas 18 Liquidaciones de Compra 03 cuadradas al día. El Oráculo Argon reporta estabilidad en cacao NY y flete marítimo en Guayaquil esta semana; tu inventario de balanceado e insumos alcanza para 24 días.",
     },
     inmobiliaria: {
-      label: "Inmobiliaria / Constructora / Promotora",
-      internalUser: "Necesito el estado de flujo de obra, alerta UAFE del mes y la campaña de correo para inversionistas.",
+      label: "Inmobiliaria / Constructora (UAFE)",
+      internalUser: "Necesito el flujo de obra del trimestre y revisar si algún abono pasó el tope UAFE de $10,000.",
       internalBot:
-        "Reporte Listo: 1) El flujo de caja proyectado cubre el 100% de los hitos de obra del trimestre. 2) Reporte UAFE: 0 operaciones inusuales pendientes; 2 reservas superaron los $10,000 USD con debida diligencia completa. 3) Ya redacté los 4 correos mensuales con proyección de plusvalía para tus 320 leads en el CRM.",
-    },
-    servicios: {
-      label: "Clínica / Consultora / Estudio Profesional",
-      internalUser: "Explícame en sencillo por qué bajó la utilidad neta este mes aunque facturamos igual.",
-      internalBot:
-        "En español sencillo: Facturaste $11,200 USD (igual que el mes pasado), pero la utilidad neta bajó $680 USD porque renovaste pólizas anuales y aplicaste retenciones de IVA a proveedores de insumos (+22% en Gastos Operativos). La buena noticia: tu costo de adquisición bajó un 18% y el próximo mes no tendrás ese gasto extraordinario.",
+        "Reporte listo: El flujo de caja cubre el 100% de las planillas de obra del trimestre. UAFE: 2 reservas superaron los $10,000 en 30 días y ya tienen ficha KYC completa y archivo XML RESU generado.",
     },
   };
 

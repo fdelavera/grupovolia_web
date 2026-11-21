@@ -29,8 +29,9 @@ export default function Navbar({ onOpenChat }: NavbarProps) {
   }, []);
 
   const navLinks = [
-    { href: "#lineas-negocio", label: "Plataforma & Inventario", icon: Layers },
-    { href: "#algoritmos-cuantitativos", label: "Oráculos Quant", icon: Cpu },
+    { href: "#lineas-negocio", label: "Módulos ERP", icon: Layers },
+    { href: "#seguridad-lopdp", label: "10 Industrias & LOPDP", icon: ShieldCheck },
+    { href: "#algoritmos-cuantitativos", label: "Oráculos IA", icon: Cpu },
     { href: "#doble-agente", label: "Copiloto IA", icon: Bot },
     { href: "#tarifario-calculadora", label: "Precios", icon: Calculator },
     { href: "#credenciales", label: "Empresa", icon: ShieldCheck },

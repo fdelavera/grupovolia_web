@@ -22,6 +22,7 @@ export default function ContactSection({
 }: ContactSectionProps) {
   const [name, setName] = useState("");
   const [company, setCompany] = useState("");
+  const [industry, setIndustry] = useState("Comercio / Importadora / Retail");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [packageInterest, setPackageInterest] = useState(
@@ -47,7 +48,7 @@ export default function ContactSection({
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           name,
-          company,
+          company: company ? `${company} (${industry})` : industry,
           email,
           phone,
           packageInterest,
@@ -274,6 +275,28 @@ export default function ContactSection({
 
               <div>
                 <label className="block text-xs font-mono font-semibold text-slate-600 mb-1.5">
+                  Industria / Giro de tu Negocio (10 Plantillas Listas)
+                </label>
+                <select
+                  value={industry}
+                  onChange={(e) => setIndustry(e.target.value)}
+                  className="w-full bg-swiss-canvas border border-slate-300 rounded-xl px-3.5 py-3 text-xs sm:text-sm text-swiss-pine focus:outline-none focus:border-brand-emerald focus:bg-white"
+                >
+                  <option value="Consultorio Médico / Clínica / Odontología">Consultorio Médico / Clínica / Odontología</option>
+                  <option value="Escuela / Colegio / Academia / Instituto">Escuela / Colegio / Academia / Instituto</option>
+                  <option value="Comercio / Importadora / Retail">Comercializadora / Importadora / Tienda / Mayorista</option>
+                  <option value="Constructora / Inmobiliaria (UAFE)">Constructora / Inmobiliaria (UAFE)</option>
+                  <option value="Restaurante / Cafetería / Catering">Restaurante / Cafetería / Catering</option>
+                  <option value="Agroindustria / Camaronera / Cacao">Agroindustria / Camaronera / Cacaotera</option>
+                  <option value="Taller Automotriz / Serviteca / Flotas">Taller Automotriz / Serviteca / Flotas</option>
+                  <option value="Farmacia / Salud ARCSA / Estética">Farmacia / Distribuidora ARCSA / Spa</option>
+                  <option value="Gimnasio / Club de Membresías">Gimnasio / Club de Membresías</option>
+                  <option value="Estudio Contable / Legal / Agencia">Estudio Contable / Legal / Servicios Profesionales</option>
+                </select>
+              </div>
+
+              <div>
+                <label className="block text-xs font-mono font-semibold text-slate-600 mb-1.5">
                   Cuéntanos brevemente sobre tu empresa o requerimiento *
                 </label>
                 <textarea
@@ -281,7 +304,7 @@ export default function ContactSection({
                   required
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
-                  placeholder="Ej: Somos una empresa comercial en Guayaquil, manejamos inventario de 800 SKUs, emitimos facturas en el SRI con retenciones a proveedores y queremos conectar nuestro POS..."
+                  placeholder="Ej: Queremos facturación SRI con nuestro logo, manejo de inventario fácil de usar y migración desde nuestro sistema actual..."
                   className="w-full bg-swiss-canvas border border-slate-300 rounded-xl px-4 py-3 text-xs sm:text-sm text-swiss-pine focus:outline-none focus:border-brand-emerald focus:bg-white"
                 />
               </div>
