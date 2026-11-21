@@ -15,6 +15,7 @@ import {
   Sparkles,
   ShieldCheck,
 } from "lucide-react";
+import { TechGlossaryBar, TechTerm } from "@/components/ui/TechTermPopover";
 
 interface HeroSectionProps {
   onOpenChat: () => void;
@@ -192,8 +193,8 @@ export default function HeroSection({ onOpenChat }: HeroSectionProps) {
           <p className="mt-5 text-sm sm:text-base lg:text-lg text-slate-600 leading-relaxed max-w-3xl mx-auto">
             Tecnología de vanguardia hecha humana para <strong className="text-swiss-pine">10 industrias en Ecuador, Latinoamérica y EE.UU.</strong>{" "}
             (médicos, colegios, importadoras, comercios, restaurantes, constructoras y más):{" "}
-            <strong className="text-brand-emerald">Facturación SRI e Inventario 100% Ilimitados</strong> con tu propio logo, envíos en 1 clic a correo/WhatsApp, cifrado legal{" "}
-            <strong className="text-swiss-pine">LOPDP AES-256</strong> y Asistente IA en español sencillo.
+            <strong className="text-brand-emerald">Facturación SRI e Inventario 100% Ilimitados</strong> con tu propio logo (<TechTerm termKey="RIDE" label="RIDE PDF" /> y firma <TechTerm termKey="XAdES-BES" />), envíos en 1 clic a correo/WhatsApp, cifrado legal{" "}
+            <TechTerm termKey="LOPDP" /> (<TechTerm termKey="AES-256-GCM" label="AES-256" />) y Asistente IA en español sencillo.
           </p>
 
           {/* Clean Action Bar */}
@@ -214,6 +215,10 @@ export default function HeroSection({ onOpenChat }: HeroSectionProps) {
               <Bot className="w-4 h-4 text-brand-emerald" />
               <span>Pregúntale a Anna IA</span>
             </button>
+          </div>
+
+          <div className="mt-5 max-w-3xl mx-auto">
+            <TechGlossaryBar terms={["LOPDP", "AES-256-GCM", "NIIF", "ARCSA", "CIE-10", "UAFE"]} />
           </div>
 
           {/* 4-Pillar Trust Bar for non-tech Ecuadorian business owners */}

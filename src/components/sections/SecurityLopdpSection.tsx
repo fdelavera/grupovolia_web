@@ -12,6 +12,7 @@ import {
   Sparkles,
   ArrowUpRight,
 } from "lucide-react";
+import { TechGlossaryBar, TechTerm } from "@/components/ui/TechTermPopover";
 
 interface IndustryCardSpec {
   id: string;
@@ -271,11 +272,11 @@ export default function SecurityLopdpSection() {
               <Scale className="w-5 h-5" />
             </div>
             <h3 className="text-base font-extrabold text-swiss-pine">
-              Protección Legal LOPDP Ecuador
+              Protección Legal <TechTerm termKey="LOPDP" /> Ecuador
             </h3>
             <p className="text-xs text-slate-600 leading-relaxed">
               Tratamiento estricto bajo la Ley Orgánica de Protección de Datos Personales para{" "}
-              <strong>datos sensibles de salud</strong> (diagnósticos CIE-10, recetas, aseguradoras), fichas escolares de menores y retención documental SRI / UAFE.
+              <strong>datos sensibles de salud</strong> (diagnósticos <TechTerm termKey="CIE-10" />, recetas, aseguradoras), fichas escolares de menores y control sanitario <TechTerm termKey="ARCSA" /> o <TechTerm termKey="UAFE" />.
             </p>
           </div>
 
@@ -284,7 +285,7 @@ export default function SecurityLopdpSection() {
               <Lock className="w-5 h-5" />
             </div>
             <h3 className="text-base font-extrabold text-swiss-pine">
-              Cifrado AES-256-GCM en Bóveda
+              Cifrado <TechTerm termKey="AES-256-GCM" label="AES-256-GCM" /> en Bóveda
             </h3>
             <p className="text-xs text-slate-600 leading-relaxed">
               Las notas clínicas privadas, acuerdos comerciales y tu certificado electrónico{" "}
@@ -298,10 +299,10 @@ export default function SecurityLopdpSection() {
               <Database className="w-5 h-5" />
             </div>
             <h3 className="text-base font-extrabold text-swiss-pine">
-              Aislamiento Bancario RLS + Auditoría
+              Aislamiento Bancario <TechTerm termKey="RLS" /> + Auditoría
             </h3>
             <p className="text-xs text-slate-600 leading-relaxed">
-              49 tablas PostgreSQL con <strong>Row Level Security (RLS)</strong> estricto por empresa, bitácora forense inmutable y cero mezcla de información entre compañías.
+              49 tablas PostgreSQL con <strong>Row Level Security (RLS)</strong> estricto por empresa, bitácora forense inmutable y cálculo contable bajo <TechTerm termKey="NIIF" /> y <TechTerm termKey="SENAE" />.
             </p>
             <div className="pt-1 inline-flex items-center gap-1.5 text-[11px] font-bold text-brand-pine">
               <HeartPulse className="w-3.5 h-3.5 text-brand-emerald" />
@@ -309,6 +310,11 @@ export default function SecurityLopdpSection() {
             </div>
           </div>
         </div>
+
+        <TechGlossaryBar
+          title="Haz clic en cualquier término legal, contable o técnico para ver su significado en palabras sencillas:"
+          terms={["LOPDP", "AES-256-GCM", "RLS", "CIE-10", "ARCSA", "UAFE", "SENAE", "NIIF", "Kardex"]}
+        />
       </div>
     </section>
   );

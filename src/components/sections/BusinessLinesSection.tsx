@@ -15,6 +15,7 @@ import {
   Award,
   Boxes,
 } from "lucide-react";
+import { TechGlossaryBar } from "@/components/ui/TechTermPopover";
 
 export default function BusinessLinesSection() {
   const [selectedModuleIndex, setSelectedModuleIndex] = useState(0);
@@ -102,6 +103,12 @@ export default function BusinessLinesSection() {
             Contrátanos por un módulo individual, activa la{" "}
             <strong className="text-swiss-pine">Suite Completa PYME (con Inventario y Retenciones SRI integrados)</strong>, o impulsa tu marca con producción audiovisual y consultoría financiera asistida por IA.
           </p>
+          <div className="mt-6 text-left">
+            <TechGlossaryBar
+              title="Glosario fácil (haz clic en cualquier sigla):"
+              terms={["XAdES-BES", "RIDE", "ATS", "Kardex", "API", "NIIF", "ROAS"]}
+            />
+          </div>
         </div>
 
         {/* LÍNEA 1: LOS 5 MÓDULOS EMPRESARIALES B2B */}
