@@ -26,8 +26,8 @@ const LEGAL_DISCLAIMERS = [
     text: "La vigencia legal del contrato SaaS es anual con cancelación anticipada sin penalización conforme a la Cláusula Undécima. Cada implementación personalizada contempla hasta 4 semanas de parametrización White-Label y 3 rondas de ajuste previas a producción. El cliente conserva el 100% de la propiedad sobre su base SQL, XML autorizados, RIDE PDFs y respaldos exportables en todo momento.",
   },
   {
-    title: "6. Descargo de Responsabilidad de IA y Revisión Humana Obligatoria",
-    text: "Todo contenido, cálculo, clasificación tributaria, proforma, alerta operativa o sugerencia generado mediante Inteligencia Artificial (incluyendo Anna IA, Copiloto IA Interno, Proformas IA y Oráculo IA) puede contener errores o imprecisiones y requiere siempre revisión y validación final de un ser humano (contador, profesional responsable o gerencia autorizada) antes de su emisión o ejecución definitiva.",
+    title: "6. Descargo de Responsabilidad de IA, Nómina RRHH y Revisión Humana Obligatoria",
+    text: "Todo contenido, cálculo contable/laboral (roles de pago IESS, recargos 25%/50%/100%, utilidades 15%, actas de finiquito y feriados detectados por Radar IA), proforma o sugerencia generado por software o Inteligencia Artificial puede contener errores o imprecisiones y requiere siempre revisión y validación final de un ser humano (contador, jefe de RRHH o gerencia autorizada) antes de su pago, declaración en IESS/SUT/SRI o ejecución definitiva.",
   },
 ];
 
@@ -59,7 +59,7 @@ export default function Footer() {
               </div>
             </div>
             <p className="text-xs text-slate-300/90 leading-relaxed max-w-md">
-              Boutique de Ingeniería Agéntica, Soluciones Empresariales (ERP, Facturación Electrónica SRI con Retenciones, Inventario Conectado vía API, Finanzas NIIF, CRM), Motores Algorítmicos Cuantitativos y Producción Audiovisual con IA.
+              Boutique de Ingeniería Agéntica y Suite Empresarial de 10 Módulos Interconectados (Facturación SRI Auto-Retry, Inventario Kardex, Finanzas NIIF &amp; Oráculo Multi-Bolsa, CRM 10 Giros LOPDP, Project Manager, Marketing Ops, UAFE, Portal B2B, Copiloto IA y RRHH Ecuador con App Empleados White-Label).
             </p>
             <div className="text-[11px] font-mono text-slate-400 space-y-1">
               <div>Fundador &amp; CEO: Francisco de la Vera · www.grupovolia.com</div>

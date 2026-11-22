@@ -42,9 +42,9 @@ const FOUR_CLOSING_REASONS = [
   {
     number: "02",
     icon: Layers,
-    title: "10 Giros con Demos Especializados en Vivo",
+    title: "10 Módulos Interconectados (incl. RRHH Ecuador) & 10 Demos Vivos",
     badge: "Cierre visual al instante",
-    desc: "No muestras un ERP genérico aburrido. Llegas a la cita con 10 demos vivos adaptados al lenguaje de cada industria en Ecuador: Médicos (CIE-10), Colegios, Importadoras/Retail, Constructoras (UAFE), Restaurantes (Food Cost), Agro/Camaroneras, Talleres Automotrices, Farmacias (ARCSA), Gimnasios y Estudios Contables.",
+    desc: "No muestras un ERP genérico aburrido. Llegas a la cita con 10 módulos independientes e interconectados (incluyendo el nuevo Módulo 10 RRHH Ecuador + App Empleados 100% White-Label, Radar Feriados IA y Biométricos) y 10 demos vivos adaptados al lenguaje de cada industria en Ecuador.",
     highlight: "El dueño de negocio ve su propia operación resuelta en los primeros 3 minutos.",
   },
   {

@@ -18,68 +18,77 @@ export default function PricingCalculatorSection({ onSelectPlan }: PricingCalcul
   const [modalityView, setModalityView] = useState<"B" | "A">("B");
   const [calcPackage, setCalcPackage] = useState<"individual" | "pyme" | "corp">("pyme");
   const [calcMonths, setCalcMonths] = useState<12 | 24>(12);
+  const [employeeCount, setEmployeeCount] = useState<number>(15);
   const [competitorMonthly, setCompetitorMonthly] = useState<number>(280);
   const [referredClients, setReferredClients] = useState<number>(5);
 
   const packages = {
     individual: {
       name: "1. Módulo Individual PYME",
-      subtitle: "Elige 1 Módulo: Contabilidad SRI (con Retenciones IVA), Inventario API, o CRM + IA",
+      subtitle: "Elige 1 de los 10 Módulos: Contabilidad SRI, Inventario Kardex, CRM LOPDP, Project Manager o RRHH Ecuador",
       badge: "Entrada Rápida",
       highlight: false,
       modB: { setup: 120, monthly: 35 },
       modA: { license: 490, cloudMonthly: 19, annualSriYear2: 140 },
       features: [
-        "Facturación SRI, Clientes y Productos/Asientos Ilimitados en tu módulo elegido (sin topes de folios)",
-        "1 Módulo a elección (Contabilidad SRI + RIDE PDF Personalizado con tu Logo, Inventario API, o CRM LOPDP)",
-        "Envío automático de Factura PDF + XML al email de tus clientes y botón 1-Clic para WhatsApp Web/Móvil",
-        "Incluye Copiloto IA Interno integrado para tu equipo (nombre personalizable · 1,500 consultas/mes)",
-        "Personalización en 1 mes (hasta 3 revisiones) + actualizaciones normativas SRI incluidas",
+        "1 Módulo independiente a elección (opera 100% autónomo sin errores y listo para escalar a los 10 módulos)",
+        "Facturación SRI ilimitada con Auto-Retry y RIDE PDF White-Label, o Inventario Kardex, o RRHH + App Empleados White-Label",
+        "Migración Inteligente IA con vista previa editable manualmente desde Excel, Contífico, Perseo, IESS o Buk",
+        "Incluye Copiloto IA Interno integrado para tu equipo (nombre y logo personalizables · 1,500 consultas/mes)",
+        "Personalización en 1 mes (hasta 3 revisiones) + actualizaciones normativas SRI/IESS incluidas",
       ],
     },
     pyme: {
-      name: "2. SUITE COMPLETA PYME",
-      subtitle: "Contabilidad SRI + Retenciones + Inventario Conectado + Finanzas NIIF + CRM + Marketing + Copiloto IA",
+      name: "2. SUITE COMPLETA PYME (10 MÓDULOS)",
+      subtitle: "SRI Auto-Retry + Inventario + Finanzas/Oráculo + CRM 10 Giros + Project Manager + Marketing + Portal B2B + RRHH (hasta 25 colaboradores) + IA",
       badge: "MÁS ELEGIDO · ESTRELLA",
       highlight: true,
       modB: { setup: 240, monthly: 69 },
       modA: { license: 890, cloudMonthly: 25, annualSriYear2: 220 },
       features: [
-        "Facturas Electrónicas SRI Ilimitadas, Productos Kardex Ilimitados y Asientos Contables NIIF Ilimitados (sin paquetes ni cobros extra por folio)",
-        "Los 5 Módulos Integrados: Contabilidad SRI (RIDE PDF con tu Logo, Auto-Email, 1-Clic WhatsApp & Retenciones) + Inventario API POS + Finanzas NIIF + CRM LOPDP + Marketing Ops",
-        "Copiloto IA Interno integrado para empleados y gerencia (con el nombre que elijas)",
-        "1,500 interacciones mensuales de IA incluidas (Oráculo de Mercados & RSS optimizado aparte)",
-        "Personalización a tu marca en 1 mes (incluye hasta 3 revisiones) + actualizaciones normativas SRI/NIIF 100% incluidas",
+        "Facturas Electrónicas SRI Ilimitadas ($0 por documento), Productos Kardex Ilimitados y Asientos Contables NIIF Ilimitados",
+        "Los 10 Módulos Interconectados: Contabilidad SRI, Inventario Escáner, Finanzas/Oráculo Multi-Bolsa, CRM 10 Giros LOPDP, Project Manager & Agenda, Marketing Ops, UAFE, Portal B2B, IA y Módulo 10 RRHH Ecuador",
+        "Incluye Módulo 10 RRHH (hasta 25 colaboradores): Nómina IESS/Independientes, Sobretiempo 25/50/100%, Radar Feriados IA, Offboarding inmutable y App Empleados 100% White-Label",
+        "Migración Inteligente IA editable desde todos tus sistemas anteriores + 1,500 consultas/mes en tu Copiloto IA",
+        "Personalización a tu marca en 1 mes (hasta 3 revisiones) + actualizaciones normativas SRI, NIIF y Código del Trabajo incluidas",
       ],
     },
     corp: {
       name: "3. Suite Corporativa / Multisucursal",
-      subtitle: "Base de Datos Dedicada + Inventario Multibodega + Usuarios Ilimitados + Copiloto IA Pro",
+      subtitle: "Base Dedicada + 10 Módulos + RRHH Ilimitado Multi-Cantón & Biométricos + Usuarios Ilimitados + IA Pro",
       badge: "Mediana Empresa & Grupos",
       highlight: false,
       modB: { setup: 450, monthly: 119 },
       modA: { license: 1490, cloudMonthly: 39, annualSriYear2: 350 },
       features: [
-        "Facturas SRI, Bodegas, Productos Kardex y Asientos NIIF 100% Ilimitados en servidor dedicado",
-        "Base de datos dedicada con aislamiento total, múltiples sucursales y usuarios ilimitados",
-        "Conexión API con sistemas de ventas/POS en Ecuador y múltiples puntos de emisión SRI",
-        "Copiloto IA Pro Interno entrenado con tu inventario en vivo y alertas UAFE (con control de cuota)",
-        "Personalización en 1 mes (hasta 3 revisiones) + soporte prioritario + actualizaciones SRI/NIIF incluidas",
+        "Facturas SRI, Bodegas, Productos Kardex, Colaboradores RRHH y Usuarios 100% Ilimitados en servidor dedicado",
+        "Módulo 10 RRHH Corporativo: múltiples sucursales/cantones (feriados locales simultáneos), Webhook Biométrico ZKTeco/Hikvision y App Empleados White-Label ilimitada",
+        "Base de datos dedicada con aislamiento total, múltiples puntos de emisión SRI y conexión API POS Ecuador",
+        "Copiloto IA Pro Interno + Radar UAFE RESU + Oráculo Multi-Bolsa (BVQ/BVG Ecuador + Global)",
+        "Personalización en 1 mes (hasta 3 revisiones) + soporte prioritario + actualizaciones normativas incluidas",
       ],
     },
   };
 
   const selectedPkg = packages[calcPackage];
 
+  // Costo tradicional real en Ecuador: ERP/CRM/Facturero + Software de RRHH por empleado (Buk/Nómina360 ~$4.50/emp) + Setup tradicional ($2,500)
+  const hrSoftwareCompetitorMonthly = Math.round(employeeCount * 4.5);
+  const combinedCompetitorMonthly = competitorMonthly + hrSoftwareCompetitorMonthly;
+  const traditionalSetupFee = employeeCount >= 10 ? 2500 : 1200;
+
   const totalModB = selectedPkg.modB.setup + selectedPkg.modB.monthly * calcMonths;
   const totalModA =
     selectedPkg.modA.license +
     selectedPkg.modA.cloudMonthly * calcMonths +
     (calcMonths > 12 ? selectedPkg.modA.annualSriYear2 : 0);
-  const totalCompetitor = 600 + competitorMonthly * calcMonths;
+  const totalCompetitor = traditionalSetupFee + combinedCompetitorMonthly * calcMonths;
 
   const savingsModB = Math.max(0, totalCompetitor - totalModB);
   const savingsModA = Math.max(0, totalCompetitor - totalModA);
+
+  // Ganancia operativa mensual estimada por interconexión (horas ahorradas en nómina, recargos 25/50/100%, SRI Auto-Retry, Kardex y conciliación)
+  const estimatedMonthlyOperationalGain = Math.round(180 + employeeCount * 18);
 
   const partnerUpfrontTotal = referredClients * 60;
   const partnerMonthlyRecurring = referredClients * 12.4;
@@ -251,8 +260,8 @@ export default function PricingCalculatorSection({ onSelectPlan }: PricingCalcul
               <strong className="text-brand-emerald">1 mes (4 semanas)</strong> e incluye{" "}
               <strong className="text-brand-emerald">hasta 3 revisiones</strong> previas a la entrega final.<br />
               • <strong className="text-swiss-pine">Cambios posteriores a la entrega:</strong> Cualquier modificación o requerimiento nuevo solicitado luego de la entrega final se factura de manera independiente.<br />
-              • <strong className="text-swiss-pine">Actualizaciones de normativas (SRI / NIIF):</strong> ¡Están <strong>100% incluidas sin costo adicional</strong> dentro de tu paquete de membresía mensual!<br />
-              • <strong className="text-swiss-pine">Impuestos (IVA Ecuador):</strong> Todos los valores promocionados son precios base <strong>+ 15% IVA</strong> (el IVA no viene incluido en la tarifa publicada).
+              • <strong className="text-swiss-pine">Actualizaciones de normativas (SRI / NIIF / Código del Trabajo):</strong> ¡Están <strong>100% incluidas sin costo adicional</strong> dentro de tu paquete de membresía mensual!<br />
+              • <strong className="text-swiss-pine">Impuestos (IVA Ecuador):</strong> Todos los valores promocionados son precios base <strong>+ IVA legalmente vigente</strong> (el IVA no viene incluido en la tarifa publicada).
             </p>
           </div>
         </div>
@@ -402,22 +411,44 @@ export default function PricingCalculatorSection({ onSelectPlan }: PricingCalcul
               </div>
             </div>
 
-            <div className="mb-6">
-              <div className="flex justify-between text-xs mb-1.5">
-                <span className="text-slate-600">
-                  3. Gasto mensual en proveedores tradicionales (ERP + Inventario + CRM + Chatbot):
-                </span>
-                <strong className="text-brand-crimson font-mono">${competitorMonthly} USD / mes</strong>
+            <div className="space-y-4 mb-6">
+              <div>
+                <div className="flex justify-between text-xs mb-1.5">
+                  <span className="text-slate-600">
+                    3. Colaboradores en tu empresa (RRHH + Nómina IESS/Servicios + App White-Label):
+                  </span>
+                  <strong className="text-brand-emerald font-mono">
+                    {employeeCount} personas (ahorra ~${hrSoftwareCompetitorMonthly}/m en Buk/Nómina360)
+                  </strong>
+                </div>
+                <input
+                  type="range"
+                  min={1}
+                  max={80}
+                  step={1}
+                  value={employeeCount}
+                  onChange={(e) => setEmployeeCount(Number(e.target.value))}
+                  className="w-full accent-brand-emerald cursor-pointer"
+                />
               </div>
-              <input
-                type="range"
-                min={120}
-                max={650}
-                step={10}
-                value={competitorMonthly}
-                onChange={(e) => setCompetitorMonthly(Number(e.target.value))}
-                className="w-full accent-brand-emerald cursor-pointer"
-              />
+
+              <div>
+                <div className="flex justify-between text-xs mb-1.5">
+                  <span className="text-slate-600">
+                    4. Gasto mensual en sistemas tradicionales separados (ERP + Inventario + CRM + Proyectos):
+                  </span>
+                  <strong className="text-brand-crimson font-mono">${competitorMonthly} USD / mes</strong>
+                </div>
+                <input
+                  type="range"
+                  min={120}
+                  max={650}
+                  step={10}
+                  value={competitorMonthly}
+                  onChange={(e) => setCompetitorMonthly(Number(e.target.value))}
+                  className="w-full accent-brand-emerald cursor-pointer"
+                />
+              </div>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5">
@@ -453,16 +484,35 @@ export default function PricingCalculatorSection({ onSelectPlan }: PricingCalcul
 
               <div className="p-4 rounded-2xl bg-slate-100 border border-slate-200">
                 <div className="text-[10px] font-mono text-slate-500 font-bold uppercase">
-                  COMPETENCIA TRADICIONAL
+                  ERP + RRHH TRADICIONAL
                 </div>
                 <div className="text-2xl font-extrabold text-slate-400 line-through font-mono mt-1 tabular-nums">
                   ${totalCompetitor.toLocaleString()}
                 </div>
                 <div className="text-[11px] text-slate-500 mt-0.5">
-                  En {calcMonths} meses ($600 setup + ${competitorMonthly}/m)
+                  En {calcMonths} meses (${traditionalSetupFee.toLocaleString()} setup + ${combinedCompetitorMonthly}/m)
                 </div>
                 <div className="mt-2 pt-2 border-t border-slate-200 text-[11px] text-slate-500">
-                  Sin Copiloto IA Interno incluido
+                  Sin App Empleados WL ni Copiloto IA
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-4 p-3.5 rounded-2xl bg-swiss-pine text-white flex flex-wrap items-center justify-between gap-2 text-xs">
+              <div>
+                <div className="text-[10px] font-mono text-brand-emeraldBright font-bold uppercase">
+                  GANANCIA OPERATIVA ESTIMADA POR INTERCONEXIÓN (10 MÓDULOS + IA)
+                </div>
+                <p className="text-slate-200 mt-0.5">
+                  Horas liberadas en nómina IESS, cálculo automático 25%/50%/100%, SRI Auto-Retry, Kardex y conciliación.
+                </p>
+              </div>
+              <div className="text-right font-mono">
+                <div className="text-lg font-extrabold text-brand-emeraldBright tabular-nums">
+                  +${estimatedMonthlyOperationalGain.toLocaleString()} / mes
+                </div>
+                <div className="text-[10px] text-slate-300">
+                  (~${(estimatedMonthlyOperationalGain * calcMonths).toLocaleString()} en {calcMonths} meses)
                 </div>
               </div>
             </div>

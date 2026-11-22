@@ -184,10 +184,10 @@ export default function HeroSection({ onOpenChat }: HeroSectionProps) {
           </div>
 
           <h1 className="text-3xl sm:text-5xl lg:text-[52px] font-extrabold tracking-tight text-swiss-pine leading-[1.08]">
-            Contabilidad SRI, Inventario e{" "}
+            Contabilidad SRI, RRHH, Inventario e{" "}
             <span className="text-brand-emerald">IA Empresarial</span>
             <span className="block text-2xl sm:text-3xl lg:text-[34px] font-bold text-slate-700 mt-2">
-              — Tan Fácil de Usar como{" "}
+              — 10 Módulos Interconectados, Tan Fáciles como{" "}
               <span className="underline decoration-brand-emerald/50 decoration-4 underline-offset-4 text-swiss-pine">
                 WhatsApp
               </span>
@@ -195,9 +195,10 @@ export default function HeroSection({ onOpenChat }: HeroSectionProps) {
           </h1>
 
           <p className="mt-5 text-sm sm:text-base lg:text-lg text-slate-600 leading-relaxed max-w-3xl mx-auto">
-            Tecnología de vanguardia hecha humana con <strong className="text-swiss-pine">10 demos vivos por industria</strong> listos para mostrar al instante en Ecuador, Latinoamérica y EE.UU. (médicos, colegios, importadoras, comercios, restaurantes, constructoras y más):{" "}
-            <strong className="text-brand-emerald">Facturación Inteligente SRI e Inventario 100% Ilimitados</strong> con tu propio logo (<TechTerm termKey="RIDE" label="RIDE PDF" /> y firma <TechTerm termKey="XAdES-BES" />),{" "}
-            <strong className="text-swiss-pine">Reintento Automático ante caídas del SRI</strong> en segundo plano sin intervención del usuario, cifrado legal{" "}
+            Tecnología de vanguardia hecha humana con <strong className="text-swiss-pine">10 módulos independientes e interconectados</strong> y <strong className="text-swiss-pine">10 demos vivos por industria</strong> listos al instante:{" "}
+            <strong className="text-brand-emerald">Facturación SRI Ilimitada con Reintento Automático</strong> (<TechTerm termKey="RIDE" label="RIDE PDF" /> y firma <TechTerm termKey="XAdES-BES" />),{" "}
+            <strong className="text-swiss-pine">Módulo 10 RRHH Ecuador + App Empleados 100% White-Label</strong> (Nómina IESS/Servicios, Sobretiempo 25/50/100%, Radar Feriados IA y Biométricos),{" "}
+            <strong className="text-swiss-pine">Migración Inteligente IA editable</strong>, cifrado{" "}
             <TechTerm termKey="LOPDP" /> (<TechTerm termKey="AES-256-GCM" label="AES-256" />) y Asistente IA en español sencillo.
           </p>
 
@@ -281,8 +282,8 @@ export default function HeroSection({ onOpenChat }: HeroSectionProps) {
                 highlight: false,
               },
               {
-                title: "Fácil de Usar + Migración Incluida",
-                desc: "Tan simple como WhatsApp. Subimos tus productos y facturas desde Excel, Contífico, Alegra o SRI sin duplicados.",
+                title: "Migración Inteligente IA + 10 Módulos",
+                desc: "Migra datos de todos los módulos desde Excel, Contífico, Perseo, IESS o Buk con IA y edición manual. Cada módulo funciona solo o interconectado sin fallos.",
                 highlight: false,
               },
               {

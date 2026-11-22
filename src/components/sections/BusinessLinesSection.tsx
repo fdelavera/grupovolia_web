@@ -14,6 +14,12 @@ import {
   Layers,
   Award,
   Boxes,
+  FolderKanban,
+  ShieldAlert,
+  Globe,
+  Bot,
+  UserCheck,
+  Network,
 } from "lucide-react";
 import { TechGlossaryBar } from "@/components/ui/TechTermPopover";
 
@@ -23,63 +29,123 @@ export default function BusinessLinesSection() {
   const erpModules = [
     {
       badge: "MÓDULO 1 · CUMPLIMIENTO TRIBUTARIO ECUADOR",
-      title: "Contabilidad SRI, Facturación & Retención IVA Proveedores",
+      title: "Contabilidad SRI, Auto-Retry & Retención Proveedores",
       icon: Landmark,
       features: [
-        "Firma electrónica nativa XAdES-BES con archivo .p12 directo a los servidores SOAP del SRI (Recepción y Autorización en segundos).",
-        "Facturación SRI con RIDE PDF 100% Personalizado a tu Marca: logotipo, colores corporativos, código de barras SRI de 49 dígitos y casilla de Información Adicional / Diagnóstico Médico.",
-        "Envío automático de PDF personalizado + XML al correo electrónico del cliente y botón 1-Clic para compartir directo en WhatsApp Web o celular normal (sin WhatsApp Business API).",
-        "Suite Contable NIIF completa: Retenciones 07, Compras XML, Liquidaciones de Compra 03, CxC/CxP, Asiento Manual de Partida Doble, Activos Fijos, Préstamos, Plan de Cuentas, ATS XML y Migración Histórica sin duplicar envíos al SRI.",
+        "Firma electrónica nativa XAdES-BES con archivo .p12 directo al SRI con Reintento Automático en segundo plano si los servidores del SRI se caen.",
+        "Facturación SRI 100% ilimitada ($0 por documento) con RIDE PDF personalizado a tu marca: logotipo, colores corporativos, código de barras de 49 dígitos y diagnóstico/notas adicionales.",
+        "Envío automático de PDF + XML al correo del cliente y botón 1-Clic para WhatsApp Web o celular normal.",
+        "Suite Contable NIIF completa: Retenciones 07, Compras XML, Liquidaciones 03, CxC/CxP, Partida Doble automática desde Ventas/Inventario/RRHH, Activos Fijos, ATS XML y Migración Histórica IA.",
       ],
-      techStack: "XAdES-BES · RIDE Personalizado + Auto-Email · 1-Clic WhatsApp · ATS XML",
+      techStack: "XAdES-BES · Auto-Retry SRI · RIDE White-Label · ATS / 103 / 104",
     },
     {
-      badge: "MÓDULO 2 · CONTROL DE STOCK & CONEXIÓN POS",
-      title: "Manejo de Inventario, Kardex & Conexión API de Ventas",
+      badge: "MÓDULO 2 · CONTROL DE STOCK, ESCÁNER & POS",
+      title: "Inventario Multibodega, Kardex CPP & Escáner Móvil",
       icon: Boxes,
       features: [
-        "Panel intuitivo para que tu equipo llene y actualice productos, precios, lotes, bodegas y costos en segundos (carga individual o masiva vía Excel/CSV).",
-        "Enlazado automáticamente con Facturación SRI, Contabilidad (costo de ventas / Kardex) y Agente IA #1 (consulta stock real antes de cotizar).",
-        "Arquitectura abierta conectable por API o Webhook con los sistemas de ventas, POS y facturadores más usados en Ecuador.",
-        "Alertas automáticas de stock mínimo, productos de baja rotación y márgenes reales por SKU.",
+        "Kardex atómico Costo Promedio Ponderado (NIIF NIC 2) con escáner móvil de códigos de barras CODE128 y carga masiva inteligente desde Excel, Contífico, Alegra o Perseo.",
+        "Enlazado automáticamente con Facturación SRI, Contabilidad (COGS automático) y Copiloto IA (alerta quiebres de stock y caducidad ARCSA).",
+        "Cálculo de Landed Cost aduanero SENAE (FOB, flete, seguro, DAI, FODINFA, ISD) y recetas/Food Cost % para restaurantes.",
+        "Webhooks firmados HMAC-SHA256 conectables con Loyverse, WooCommerce, PayPhone, Deuna! y POS usados en Ecuador.",
       ],
-      techStack: "Kardex en Tiempo Real · Carga Excel/CSV · API REST POS Ecuador · Sync ERP",
+      techStack: "Kardex NIIF NIC 2 · Escáner CODE128 · Landed Cost SENAE · API POS",
     },
     {
-      badge: "MÓDULO 3 · DIRECCIÓN FINANCIERA & ORÁCULO IA",
-      title: "Finanzas Ejecutivas NIIF, Simulador FP&A & Oráculo de Mercados e Insumos",
+      badge: "MÓDULO 3 · DIRECCIÓN FINANCIERA & ORÁCULO MULTI-BOLSA",
+      title: "Finanzas NIIF, Bancos EC & Oráculo Bursátil + Insumos",
       icon: BarChart3,
       features: [
-        "Estado de Resultados (P&L) bajo normativa NIIF, Balance General y Flujo de Efectivo en tiempo real.",
-        "Simulador interactivo de proyecciones financieras (FP&A): ajusta precios, costos fijos y metas de ventas con sliders dinámicos.",
-        "Oráculo IA Temporal en Plataforma (cada 5m, 10m, 15m, 30m, 1h, 4h o diario): los boletines se consultan en vivo dentro del sistema sin depender de correos, impulsados por Argon, Hydrogen, Neon y Carbon (AI Ultra).",
-        "Rastreo inteligente de insumos y productos clave importados (chips/GPUs, aires acondicionados, vehículos Nissan, reactivos médicos, acciones individuales) con historial completo en el panel.",
+        "Estado de Resultados (P&L) NIIF, Balance General, Flujo de Caja (con previsión automática de Nómina e IESS día 15 desde RRHH) y simulador Quant Sentinel FP&A.",
+        "Conciliación bancaria Ecuador (CSV/Excel de Pichincha, Guayaquil, Produbanco, Pacífico y Bolivariano) y liquidación de lotes Datafast/Medianet.",
+        "Oráculo IA Multi-Bolsa en vivo dentro del panel: Bolsa de Valores de Quito y Guayaquil (BVQ/BVG acciones y renta fija) + LATAM, NYSE/NASDAQ y mercados globales con enlaces a fuentes.",
+        "Rastreo inteligente de insumos clave importados, fletes y noticias de tu industria a 0 tokens mediante feeds RSS + motores Argon/Hydrogen/Neon.",
       ],
-      techStack: "NIIF P&L · Argon / Hydrogen / Neon IA · Oráculo En Vivo · Rastreo Insumos",
+      techStack: "NIIF P&L · BVQ/BVG + Global · Bancos EC CSV · Quant Sentinel FP&A",
     },
     {
-      badge: "MÓDULO 4 · CRECIMIENTO, 10 INDUSTRIAS & PROTECCIÓN LOPDP",
-      title: "CRM Multi-Industria (10 Sectores EC), Pacientes/Clientes AES-256 & Proveedores",
+      badge: "MÓDULO 4 · CRECIMIENTO, 10 INDUSTRIAS & BLINDAJE LOPDP",
+      title: "CRM 10 Giros PYME Ecuador & Expedientes Cifrados LOPDP",
       icon: Users,
       features: [
-        "Tablero Kanban visual e Inngest Workflows para automatizar seguimiento comercial, cotizaciones, cobranza y reactivación.",
-        "Adaptable a 10 Industrias PYME EC (Médicos CIE-10, Colegios, Importadoras SENAE, Constructoras UAFE, Agro/Camaroneras, Farmacias ARCSA, Talleres, Restaurantes Food Cost %, Gimnasios y Estudios).",
-        "Protección legal LOPDP Ecuador y seguridad técnica AES-256-GCM: historial clínico, recetas, fichas escolares y notas financieras confidenciales cifradas extremo a extremo.",
-        "Directorio de Proveedores/Visitadores Médicos sincronizado a retenciones SRI y alertas preventivas UAFE.",
+        "Embudo Kanban comercial y automatizaciones Inngest de seguimiento, cotizaciones, cobranza y reactivación.",
+        "Adaptable en 1 clic a 10 Industrias PYME EC (Clínicas CIE-10, Colegios, Importadoras SENAE, Constructoras UAFE, Agro/Camaroneras, Farmacias ARCSA, Talleres, Restaurantes, Gimnasios y Estudios).",
+        "Cifrado bancario AES-256-GCM en cumplimiento de la LOPDP Ecuador: historias clínicas, recetas, fichas escolares y notas financieras protegidas extremo a extremo.",
+        "Directorio 360° de Clientes/Pacientes y Proveedores sincronizado con Facturación y Retenciones SRI.",
       ],
-      techStack: "LOPDP AES-256-GCM · 10 Giros Verticales · Landed Cost / ARCSA · UAFE",
+      techStack: "LOPDP AES-256-GCM · 10 Giros Verticales · 14 Switches On/Off",
     },
     {
-      badge: "MÓDULO 5 · ADQUISICIÓN MULTICANAL & ROAS FINANCIERO",
-      title: "Marketing Ops IA: Meta, YouTube, TikTok, WhatsApp API & Afiliados NIIF",
+      badge: "MÓDULO 5 · EJECUCIÓN DE EQUIPO & CALENDARIO SINCRONIZADO",
+      title: "Project Manager Enterprise (4 Modos) & Agenda Google/Outlook",
+      icon: FolderKanban,
+      features: [
+        "Módulo independiente del CRM con 4 modos de dependencia: Proyectos Independientes, Subproyectos Padre-Hijo, Secuenciales Fin-a-Inicio y Co-dependientes Sincronizados.",
+        "Alterna en 1 clic entre Tablero estilo Monday (presupuesto USD y subtareas), Kanban de 5 columnas y Mapa/Gantt visual.",
+        "Agenda sincronizada con Google Calendar, Microsoft Outlook/365 y Apple Calendar (.ics) con protección anti-choques.",
+        "Interconectado con RRHH: las vacaciones aprobadas bloquean la agenda automáticamente y las horas de turnos etiquetados a proyectos suman costo laboral real al presupuesto.",
+      ],
+      techStack: "Tablero Monday · Kanban · Gantt · Google/Outlook Sync · Costeo RRHH",
+    },
+    {
+      badge: "MÓDULO 6 · ADQUISICIÓN MULTICANAL, COMMS & AFILIADOS",
+      title: "Marketing Ops IA, Comunicados Internos & Afiliados NIIF",
       icon: Megaphone,
       features: [
-        "Calendario mensual con IA de 30 días, guiones de Reels/TikTok y boletines corporativos en 1 clic.",
-        "Integración nativa con campañas de Meta Ads, YouTube/Google Ads y TikTok Ads, conectando atribución de leads con ventas reales en el reporte de Finanzas (ROAS y CPL en vivo).",
-        "Envíos por Correo Corporativo y WhatsApp Masivo (con soporte oficial de Meta WhatsApp Cloud API o enlace directo 1-clic a WhatsApp Web).",
-        "Gestión completa de PR/Influencers y programa de Partners/Afiliados con contabilización automática de ventas y comisiones en Contabilidad NIIF.",
+        "Calendario editorial IA de 30 días, campañas Meta/YouTube/TikTok y envíos por correo o WhatsApp API con ROAS y CPL ligados a tus ventas reales en Finanzas.",
+        "Pestaña de Comunicaciones Internas conectada directo a la App White-Label de Empleados para lanzar campañas, promociones y avisos corporativos al equipo.",
+        "Gestión de PR/Influencers y programa de Partners/Afiliados en doble vía contable (comisiones por pagar y depósitos detectados desde extractos bancarios).",
+        "Funciona de manera autónoma si contratas solo Marketing, o enlazado con Finanzas, Contabilidad y RRHH.",
       ],
-      techStack: "Meta/YT/TikTok ROAS · WhatsApp Cloud API · Afiliados NIIF · Contenido IA",
+      techStack: "Meta/YT/TikTok ROAS · WhatsApp API · Comms Internas · Afiliados NIIF",
+    },
+    {
+      badge: "MÓDULO 7 · PREVENCIÓN ANTILAVADO ECUADOR",
+      title: "Radar Preventivo UAFE ($10,000) & XML SISLAFT RESU",
+      icon: ShieldAlert,
+      features: [
+        "Monitoreo automático de operaciones y abonos acumulados iguales o superiores a $10,000 USD en ventanas móviles de 30 días por cliente.",
+        "Ideal para constructoras, inmobiliarias, concesionarios, joyerías y sectores obligados ante la UAFE en Ecuador.",
+        "Matriz KYC / PEP integrada al expediente del cliente sin doble digitación.",
+        "Generación directa del archivo XML mensual RESU / NO-RESU listo para validación del Oficial de Cumplimiento.",
+      ],
+      techStack: "Umbral $10k/30d · Matriz KYC/PEP · Exportador XML RESU/NO-RESU",
+    },
+    {
+      badge: "MÓDULO 8 · AUTOSERVICIO CLIENTES & PROVEEDORES",
+      title: "Portal B2B White-Label 24/7 (/portal/tu-empresa)",
+      icon: Globe,
+      features: [
+        "Ventanilla digital con la marca y colores de tu empresa para que clientes descarguen sus XML y RIDE PDF autorizados del SRI sin llamar a oficina.",
+        "Consulta en línea de saldos de vales y créditos en tienda (vigencia 365 días bajo NIIF 15).",
+        "Buzón digital para que tus proveedores suban sus facturas XML y descarguen sus Retenciones 07 al instante.",
+        "Aislamiento estricto por empresa (Row Level Security) y cero exposición de datos de otros clientes.",
+      ],
+      techStack: "Portal White-Label · Descarga RIDE/XML · Buzón Proveedores 24/7",
+    },
+    {
+      badge: "MÓDULO 9 · INTELIGENCIA ARTIFICIAL CORPORATIVA",
+      title: "Copiloto IA Flotante y Movible (Personalizable a tu Marca)",
+      icon: Bot,
+      features: [
+        "Asistente IA integrado dentro de tus módulos con nombre y logotipo 100% personalizables para tu empresa (1,500 consultas/mes incluidas).",
+        "Detecta el usuario conectado y su rol (Dueño, Contadora, Ventas, Bodega) respetando permisos granulares y guardrails definidos por gerencia.",
+        "Sube tus reglamentos, catálogos o listas de precios (.txt/.md/.csv/.json) para que tu equipo consulte procedimientos en español sencillo.",
+        "Las preguntas de guía UI ('¿dónde hago...?') y titulares RSS operan a 0 tokens sin consumir tu cuota mensual.",
+      ],
+      techStack: "Guardrails 3 Capas · Docs Propios · Permisos por Rol · 0-Token UI Help",
+    },
+    {
+      badge: "MÓDULO 10 · NUEVO · TALENTO HUMANO ECUADOR & APP WHITE-LABEL",
+      title: "RRHH Ecuador, Nómina IESS/Servicios, Radar Feriados IA & App Empleados",
+      icon: UserCheck,
+      features: [
+        "Califica desde el Paso 0 si el personal es Relación de Dependencia (IESS), Independiente con factura RIMPE, Comisionista de Corretaje o NO COMISIONISTA ($0) para socios/gerentes.",
+        "Horarios departamentales con clasificación automática de sobretiempo +25% nocturno, +50% suplementario y +100% extraordinario/feriado + Radar IA Dominical de feriados nacionales, puentes y fiestas cantonales (incl. Cuenca y Manta).",
+        "App Web Instalable (PWA) 100% White-Label (/empleado/tu-empresa) solo con TU marca (sin logo Grupo Volia), enlaces únicos por empleado, switch maestro para activar/apagar Marcación Móvil GPS (OFF por defecto) y conexión con relojes biométricos ZKTeco/Hikvision.",
+        "Offboarding legal sin borrado de datos (archivo permanente + cálculo y PDF de Acta de Finiquito), Utilidades 15%, TXT Bancos EC (Pichincha/Guayaquil/Produbanco), RDEP CSV y Migración Inteligente IA con edición manual antes de confirmar.",
+      ],
+      techStack: "IESS + RIMPE · 25/50/100% + Feriados IA · App WL · Biométricos · Finiquito",
     },
   ];
 
@@ -111,29 +177,41 @@ export default function BusinessLinesSection() {
           </div>
         </div>
 
-        {/* LÍNEA 1: LOS 5 MÓDULOS EMPRESARIALES B2B */}
+        {/* LÍNEA 1: LOS 10 MÓDULOS EMPRESARIALES B2B INTERCONECTADOS */}
         <div className="swiss-card rounded-3xl p-6 sm:p-10 mb-10">
-          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-6 mb-8 border-b border-slate-200">
+          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-6 mb-6 border-b border-slate-200">
             <div>
               <span className="text-xs font-mono uppercase tracking-wider text-brand-emerald font-bold">
-                LÍNEA DE NEGOCIO 1 · SOFTWARE EMPRESARIAL B2B (ERP / INVENTARIO / SRI / CRM)
+                LÍNEA DE NEGOCIO 1 · SUITE EMPRESARIAL B2B (10 MÓDULOS INTERCONECTADOS · MIGRACIÓN IA)
               </span>
               <h3 className="text-2xl sm:text-3xl font-bold text-swiss-pine mt-1">
-                5 Módulos Conectados (Juntos en Suite o por Separado)
+                10 Módulos Independientes e Interconectados (Juntos en Suite o por Separado)
               </h3>
             </div>
             <a
               href="#tarifario-calculadora"
               className="self-start lg:self-auto inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-brand-emeraldSoft hover:bg-brand-emeraldLight text-brand-pine border border-brand-emerald/30 text-xs font-bold transition-all"
             >
-              <span>Desde $35/mes + IVA (Individual) o $69/mes + IVA (Suite Completa)</span>
+              <span>Desde $35/mes + IVA (Individual) o $69/mes + IVA (Suite 10 Módulos)</span>
               <ArrowUpRight className="w-4 h-4 text-brand-emerald" />
             </a>
           </div>
 
+          {/* Callout Interconexión Segura + Migración Inteligente IA */}
+          <div className="mb-7 p-4 rounded-2xl bg-brand-emeraldSoft/60 border border-brand-emerald/30 flex flex-col md:flex-row items-start md:items-center justify-between gap-3 text-xs">
+            <div className="flex items-start gap-2.5">
+              <Network className="w-5 h-5 text-brand-emerald shrink-0 mt-0.5" />
+              <p className="text-slate-700 leading-relaxed">
+                <strong className="text-swiss-pine">Interconexión Segura sin Dependencias Forzadas:</strong>{" "}
+                Si contratas 1, 3 o los 10 módulos, cada módulo opera sin errores por sí solo; cuando activas varios, se hablan en vivo (ej.{" "}
+                <strong>RRHH</strong> asienta la nómina en <strong>Contabilidad NIIF</strong>, proyecta el IESS en <strong>Finanzas</strong>, bloquea vacaciones en <strong>Agenda</strong>, imputa costos a <strong>Proyectos</strong> y recibe avisos de <strong>Marketing</strong> en la <strong>App Empleados White-Label</strong>). Además, <strong>todos tus datos históricos son migrables con IA y editables manualmente</strong> antes de confirmar.
+              </p>
+            </div>
+          </div>
+
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             {/* Module Selector Tabs */}
-            <div className="lg:col-span-5 space-y-2.5">
+            <div className="lg:col-span-5 space-y-2 max-h-[540px] overflow-y-auto pr-1">
               {erpModules.map((mod, idx) => {
                 const Icon = mod.icon;
                 const isSelected = idx === selectedModuleIndex;

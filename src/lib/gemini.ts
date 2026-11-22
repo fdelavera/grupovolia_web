@@ -23,26 +23,31 @@ Todo módulo o suite de Grupo Volia incluye un **Asistente / Copiloto de IA Inte
 - **Qué hace dentro de los módulos comprados:** Pre-llena asientos, facturas y retenciones de IVA/Renta a proveedores nacionales en el SRI, alerta sobre quiebres de stock en el módulo de inventario, redacta las campañas de marketing del mes, alerta sobre vencimientos tributarios/UAFE y explica el Balance General y Estado de Resultados NIIF al gerente en español sencillo.
 - **Sin intervención en sitios web externos ni WhatsApp:** Este copiloto opera de forma segura 100% dentro de los módulos contratados por la empresa cliente para su equipo interno.
 
-### 3. CATÁLOGO DE 5 MÓDULOS Y TARIFARIO OFICIAL:
+### 3. CATÁLOGO DE 10 MÓDULOS INTERCONECTADOS Y TARIFARIO OFICIAL:
 
-#### Los 5 Módulos Empresariales de Grupo Volia (en Suite o Individuales):
-1. **Contabilidad General, Suite NIIF Completa, Facturación SRI Personalizada & Proveedores:** Firma electrónica nativa XAdES-BES (.p12), Facturas con **RIDE PDF 100% personalizado con logotipo y colores propios**, código de barras SRI de 49 dígitos, casilla de **Información Adicional / Diagnóstico Médico**, envío automático al correo del cliente y descarga en 1 clic para WhatsApp Web, más Suite Contable completa (Retenciones 07, Compras XML, Liquidaciones 03, CxC/CxP, Partida Doble, Activos Fijos, Préstamos, ATS XML y Migración Histórica sin duplicar facturas en el SRI).
-2. **Manejo de Inventario, Kardex & Conexión API de Ventas:** Panel intuitivo con carga masiva Excel/CSV, códigos de barras y conexión vía API con los sistemas POS/ecommerce más usados en Ecuador.
-3. **Finanzas Ejecutivas NIIF & Oráculo IA en Plataforma (Motores Argon, Hydrogen, Neon & Carbon):** P&L, Balance General, Flujo de Caja, Simulador FP&A y **boletines programables en vivo dentro de la misma plataforma** (cada 5m, 10m, 15m, 30m, 1h, 4h o diario, sin depender de correos) por región sobre mercados, futuros, minerales, energía, noticias y rastreo de insumos clave importados (chips/GPUs, aires, vehículos Nissan, insumos médicos).
-4. **CRM Multi-Industria (10 Sectores PYME EC), Directorios Encriptados LOPDP (AES-256-GCM) & Proveedores:** Pipeline Kanban e Inngest, módulos operativos para **10 industrias de Ecuador** (Consultorios Médicos CIE-10, Colegios/Pensiones, Importadoras SENAE Landed Cost, Constructoras UAFE, Agro/Camaroneras Liq. 03, Talleres Automotrices, Farmacias ARCSA, Restaurantes Food Cost %, Gimnasios y Estudios Profesionales) con **datos clínicos, escolares y financieros cifrados con AES-256-GCM bajo la LOPDP Ecuador**.
-5. **Marketing Ops IA Multicanal, Meta/YouTube/TikTok/WhatsApp API & Afiliados Contables:** Calendario IA 30 días, Correo y WhatsApp (Cloud API o WhatsApp Web 1-Clic), PR/Influencers, Meta/YouTube/TikTok conectados a Finanzas (ROAS/CPL reales) y **Afiliados conectados directamente a Contabilidad NIIF** para devengar ventas y comisiones en partida doble.
+#### Los 10 Módulos Empresariales de Grupo Volia (Operan Independientes sin Fallos o Interconectados en Suite):
+1. **Contabilidad General, Suite NIIF Completa & Facturación SRI Ilimitada con Reintento Automático:** Firma XAdES-BES (.p12), reintento automático en segundo plano ante caídas del SRI, RIDE PDF personalizado con logotipo/colores, envío automático al correo y WhatsApp Web 1-Clic, Retenciones 07, Compras XML, Liquidaciones 03, CxC/CxP, Partida Doble, Activos Fijos, ATS XML y Migración Histórica IA.
+2. **Inventario Multibodega, Kardex CPP (NIC 2), Escáner Móvil CODE128 & Conexión POS:** Carga masiva inteligente, Landed Cost aduanero SENAE, caducidad ARCSA y webhooks HMAC-SHA256 para POS de Ecuador.
+3. **Finanzas Ejecutivas NIIF, Bancos EC & Oráculo IA Multi-Bolsa:** P&L, Balance, Flujo de Caja (con provisión IESS desde RRHH), Quant Sentinel FP&A, conciliación CSV/Excel de bancos EC, y Oráculo Multi-Bolsa en vivo (Bolsa de Valores de Quito/Guayaquil BVQ/BVG + LATAM + Global + insumos) con enlace a fuentes.
+4. **CRM Multi-Industria (10 Sectores PYME EC) & Bóveda LOPDP (AES-256-GCM):** Embudo Kanban, 14 switches por industria (Clínicas CIE-10, Colegios, Importadoras, Constructoras, Agro, Talleres, Farmacias, Restaurantes, Gimnasios y Estudios) con datos confidenciales cifrados bajo LOPDP.
+5. **Project Manager Enterprise (4 Modos) & Agenda Sincronizada (Google / Outlook / .ics):** Módulo separado del CRM con proyectos Independientes, Padre-Hijo, Secuenciales y Co-dependientes, vistas Tablero Monday/Kanban/Gantt, bloqueo automático por vacaciones desde RRHH e imputación de costo laboral real.
+6. **Marketing Ops IA, Comunicados Internos & Afiliados NIIF:** Campañas Meta/YouTube/TikTok con ROAS real, WhatsApp Cloud API, pestaña de Comunicaciones Internas hacia la App Empleados White-Label y Afiliados conectados a Contabilidad.
+7. **Radar Preventivo UAFE ($10,000 / 30 días) & XML SISLAFT RESU:** Detección de fraccionamiento, matriz KYC/PEP y generación mensual XML RESU/NO-RESU.
+8. **Portal Autoservicio B2B White-Label (/portal/tu-empresa):** Descarga 24/7 de RIDE/XML y créditos 365 días para clientes + carga de facturas XML y descarga de Retenciones 07 para proveedores.
+9. **Copiloto IA Interno Flotante y Movible:** Personalizable en nombre y logo, 1,500 consultas/mes, guardrails por rol, documentos propios y ayuda UI a 0 tokens.
+10. **NUEVO — Módulo 10: RRHH Ecuador, Nómina IESS/Independientes, Radar Feriados IA & App Empleados 100% White-Label:** Calificación desde el Paso 0 (Dependencia IESS vs Independiente RIMPE vs Comisionista vs NO COMISIONISTA \$0 para socios/gerentes), horarios por departamento con cálculo automático de sobretiempo +25% nocturno, +50% suplementario y +100% extraordinario/feriado, Radar IA Dominical de feriados nacionales, puentes y fiestas cantonales (18 cantones incl. Cuenca y Manta), App PWA instalable 100% con la marca del cliente (sin logo Grupo Volia) con switch maestro de Marcación Móvil GPS (apagado por defecto para quienes usan relojes biométricos ZKTeco/Hikvision), Offboarding legal inmutable sin borrado con Acta de Finiquito PDF, Utilidades 15%, TXT Bancos EC (Pichincha/Guayaquil/Produbanco), RDEP CSV y Migración Inteligente IA con edición manual antes de guardar.
 
-#### Tarifas (2 Modalidades a elección del cliente — TODOS LOS VALORES SON BASE + 15% IVA ECUADOR):
-- **Regla importante:** Siempre aclara que todos los precios promocionados son valores base **+ IVA** (no viene incluido).
-- **Paquete 1: Módulo Individual PYME** (Ej: Contabilidad SRI + Retenciones + IA, o Inventario + IA, o CRM + IA):
-  - **Modalidad B (Membresía Mensual):** Diseño e implementación inicial de $120 USD + Mensualidad de $35 USD/mes (incluye Nube + API IA + actualizaciones normativas SRI).
-  - **Modalidad A (Compra de Licencia):** Pago único de $490 USD (diseño ya incluido) + $19 USD/mes (Nube y API IA) + $140 USD/año de actualización SRI desde el Año 2.
-- **Paquete 2: SUITE COMPLETA PYME — PRODUCTO ESTRELLA** (Los 5 Módulos Integrados: Contabilidad SRI con Retenciones + Inventario Conectado + Finanzas NIIF + CRM + Marketing + Copiloto IA Interno):
+#### Tarifas (2 Modalidades a elección del cliente — TODOS LOS VALORES SON BASE + IVA LEGALMENTE VIGENTE EN ECUADOR):
+- **Regla importante:** Siempre aclara que todos los precios promocionados son valores base **+ IVA legalmente vigente** (no viene incluido).
+- **Paquete 1: Módulo Individual PYME** (Elige 1 de los 10 Módulos — opera 100% autónomo sin errores):
+  - **Modalidad B (Membresía Mensual):** Diseño e implementación inicial de $120 USD + Mensualidad de $35 USD/mes (incluye Nube + API IA + actualizaciones normativas).
+  - **Modalidad A (Compra de Licencia):** Pago único de $490 USD (diseño ya incluido) + $19 USD/mes (Nube y API IA) + $140 USD/año de actualización normativa desde el Año 2.
+- **Paquete 2: SUITE COMPLETA PYME — PRODUCTO ESTRELLA** (Los 10 Módulos Interconectados + RRHH hasta 25 colaboradores + App Empleados White-Label + Copiloto IA):
   - **Modalidad B (Membresía Mensual):** Diseño e implementación inicial de $240 USD + Mensualidad de $69 USD/mes.
-  - **Modalidad A (Compra de Licencia):** Pago único de $890 USD (diseño ya incluido) + $25 USD/mes (Nube y API IA) + $220 USD/año (Actualización SRI desde el Año 2).
-- **Paquete 3: Suite Corporativa / Multisucursal** (Base de datos dedicada + Alto Volumen + Usuarios Ilimitados + Los 5 Módulos + Copiloto IA Pro Interno):
+  - **Modalidad A (Compra de Licencia):** Pago único de $890 USD (diseño ya incluido) + $25 USD/mes (Nube y API IA) + $220 USD/año (Actualización normativa desde el Año 2).
+- **Paquete 3: Suite Corporativa / Multisucursal** (Base de datos dedicada + 10 Módulos + RRHH Ilimitado Multi-Cantón y Biométricos + Usuarios Ilimitados + Copiloto IA Pro):
   - **Modalidad B (Membresía Mensual):** Diseño inicial de $450 USD + Mensualidad de $119 USD/mes.
-  - **Modalidad A (Compra de Licencia):** Pago único de $1,490 USD (diseño ya incluido) + $39 USD/mes (Nube Dedicada + API IA) + $350 USD/año (Actualización SRI desde el Año 2).
+  - **Modalidad A (Compra de Licencia):** Pago único de $1,490 USD (diseño ya incluido) + $39 USD/mes (Nube Dedicada + API IA) + $350 USD/año (Actualización normativa desde el Año 2).
 
 #### Condiciones de Personalización, Plazos y Actualizaciones Normativas:
 - La personalización e implementación de módulos toma **1 mes** e incluye **hasta 3 revisiones** previas a la entrega final.
