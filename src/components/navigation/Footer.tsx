@@ -1,12 +1,13 @@
 "use client";
 
 import { useState } from "react";
-import { ArrowUpRight, FileDown, ShieldCheck, X } from "lucide-react";
+import Link from "next/link";
+import { ArrowUpRight, Briefcase, FileDown, ShieldCheck, X } from "lucide-react";
 
 const LEGAL_DISCLAIMERS = [
   {
-    title: "1. Responsabilidad Tributaria SRI & Normativa NIIF",
-    text: "Grupo Volia provee la infraestructura tecnológica para generación XML v2.0.0, firma XAdES-BES (.p12), RIDE PDF personalizado, Libro Diario NIIF y pre-reportes ATS/103/104. La declaración final en el portal del SRI y la validación contable/fiscal corresponden exclusivamente al Contribuyente y su Contador General autorizado.",
+    title: "1. Responsabilidad Tributaria SRI, Reintento Automático & Normativa NIIF",
+    text: "Grupo Volia provee la infraestructura tecnológica de Facturación Inteligente con Reintento Automático SRI (reintento automático en segundo plano ante intermitencias o caídas del portal del SRI), generación XML v2.0.0, firma XAdES-BES (.p12), RIDE PDF personalizado, Libro Diario NIIF y pre-reportes ATS/103/104. La declaración final en el portal del SRI y la validación contable/fiscal corresponden exclusivamente al Contribuyente y su Contador General autorizado.",
   },
   {
     title: "2. Oráculo IA, Proyecciones Financieras y No Asesoría Bursátil",
@@ -21,8 +22,12 @@ const LEGAL_DISCLAIMERS = [
     text: "Los planes Suite incluyen emisión ilimitada de facturas electrónicas SRI ($0 extra por documento) sujeto a uso empresarial legítimo. Las consultas analíticas al Copiloto IA corporativo cuentan con 1,500 interacciones/mes incluidas por empresa, mientras el enrutador de ayuda UI y noticias RSS operan a 0 tokens.",
   },
   {
-    title: "5. Implementación SLA (4 Semanas / 3 Revisiones) & Propiedad 100% de Datos",
-    text: "Cada implementación personalizada contempla hasta 4 semanas de parametrización White-Label y 3 rondas de ajuste previas a producción. El cliente conserva el 100% de la propiedad sobre su base SQL, XML autorizados, RIDE PDFs y respaldos exportables en todo momento.",
+    title: "5. Vigencia Anual Sin Penalización (Cláusula Undécima), SLA & Propiedad 100% de Datos",
+    text: "La vigencia legal del contrato SaaS es anual con cancelación anticipada sin penalización conforme a la Cláusula Undécima. Cada implementación personalizada contempla hasta 4 semanas de parametrización White-Label y 3 rondas de ajuste previas a producción. El cliente conserva el 100% de la propiedad sobre su base SQL, XML autorizados, RIDE PDFs y respaldos exportables en todo momento.",
+  },
+  {
+    title: "6. Descargo de Responsabilidad de IA y Revisión Humana Obligatoria",
+    text: "Todo contenido, cálculo, clasificación tributaria, proforma, alerta operativa o sugerencia generado mediante Inteligencia Artificial (incluyendo Anna IA, Copiloto IA Interno, Proformas IA y Oráculo IA) puede contener errores o imprecisiones y requiere siempre revisión y validación final de un ser humano (contador, profesional responsable o gerencia autorizada) antes de su emisión o ejecución definitiva.",
   },
 ];
 
@@ -68,29 +73,29 @@ export default function Footer() {
             </div>
             <ul className="space-y-2">
               <li>
-                <a href="#doble-agente" className="hover:text-brand-emeraldBright transition-colors">
+                <Link href="/#doble-agente" className="hover:text-brand-emeraldBright transition-colors">
                   Copiloto IA Interno
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#lineas-negocio" className="hover:text-brand-emeraldBright transition-colors">
+                <Link href="/#lineas-negocio" className="hover:text-brand-emeraldBright transition-colors">
                   Suites ERP, Inventario, SRI & CRM
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#algoritmos-cuantitativos" className="hover:text-brand-emeraldBright transition-colors">
+                <Link href="/#algoritmos-cuantitativos" className="hover:text-brand-emeraldBright transition-colors">
                   Motores Algorítmicos & Oráculos
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#tarifario-calculadora" className="hover:text-brand-emeraldBright transition-colors">
+                <Link href="/#tarifario-calculadora" className="hover:text-brand-emeraldBright transition-colors">
                   Tarifario y Calculadora de Ahorro
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#credenciales" className="hover:text-brand-emeraldBright transition-colors">
+                <Link href="/#credenciales" className="hover:text-brand-emeraldBright transition-colors">
                   Misión, Visión y Respaldo
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -105,9 +110,25 @@ export default function Footer() {
                 href="https://app.grupovolia.com/login"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-slate-200 hover:text-brand-emeraldBright transition-colors"
+                className="inline-flex items-center gap-1.5 text-slate-200 hover:text-brand-emeraldBright transition-colors font-semibold"
               >
-                <span>Acceso Clientes / Panel Grupo Volia</span>
+                <span>Acceso Clientes / Panel ERP</span>
+                <ArrowUpRight className="w-3.5 h-3.5" />
+              </a>
+              <Link
+                href="/vendedores"
+                className="inline-flex items-center gap-1.5 text-brand-emeraldBright hover:underline font-semibold"
+              >
+                <Briefcase className="w-3.5 h-3.5" />
+                <span>Programa para Vendedores (Bienvenida y Beneficios)</span>
+              </Link>
+              <a
+                href="https://app.grupovolia.com/ventas"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-slate-200 hover:text-brand-emeraldBright transition-colors font-semibold"
+              >
+                <span>Acceso Fuerza Comercial (Web App /ventas)</span>
                 <ArrowUpRight className="w-3.5 h-3.5" />
               </a>
               <a
@@ -158,7 +179,7 @@ export default function Footer() {
               <span>Avisos Legales, Disclaimers SRI / NIIF / Oráculo IA &amp; Cumplimiento LOPDP Ecuador:</span>
             </div>
             <p className="text-slate-400">
-              Las herramientas contables, proformas y Oráculos IA operan como apoyo tecnológico operativo (no constituyen asesoría tributaria ni bursátil regulada). Tus datos, XML SRI y firmas `.p12` están aislados bajo RLS y cifrados con AES-256-GCM bajo propiedad 100% del cliente.
+              Las herramientas contables, proformas y sugerencias de IA pueden contener errores o imprecisiones y requieren siempre revisión y validación final de un ser humano (no constituyen asesoría tributaria ni bursátil regulada). Tus datos, XML SRI y firmas `.p12` están aislados bajo RLS y cifrados con AES-256-GCM bajo propiedad 100% del cliente. Vigencia anual SaaS con cancelación anticipada sin penalización (Cláusula Undécima).
             </p>
           </div>
           <button

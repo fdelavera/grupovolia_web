@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import {
   CheckCircle2,
   ArrowUpRight,
@@ -14,6 +15,9 @@ import {
   FileText,
   Sparkles,
   ShieldCheck,
+  Briefcase,
+  LogIn,
+  RefreshCw,
 } from "lucide-react";
 import { TechGlossaryBar, TechTerm } from "@/components/ui/TechTermPopover";
 
@@ -191,61 +195,115 @@ export default function HeroSection({ onOpenChat }: HeroSectionProps) {
           </h1>
 
           <p className="mt-5 text-sm sm:text-base lg:text-lg text-slate-600 leading-relaxed max-w-3xl mx-auto">
-            Tecnología de vanguardia hecha humana para <strong className="text-swiss-pine">10 industrias en Ecuador, Latinoamérica y EE.UU.</strong>{" "}
-            (médicos, colegios, importadoras, comercios, restaurantes, constructoras y más):{" "}
-            <strong className="text-brand-emerald">Facturación SRI e Inventario 100% Ilimitados</strong> con tu propio logo (<TechTerm termKey="RIDE" label="RIDE PDF" /> y firma <TechTerm termKey="XAdES-BES" />), envíos en 1 clic a correo/WhatsApp, cifrado legal{" "}
+            Tecnología de vanguardia hecha humana con <strong className="text-swiss-pine">10 demos vivos por industria</strong> listos para mostrar al instante en Ecuador, Latinoamérica y EE.UU. (médicos, colegios, importadoras, comercios, restaurantes, constructoras y más):{" "}
+            <strong className="text-brand-emerald">Facturación Inteligente SRI e Inventario 100% Ilimitados</strong> con tu propio logo (<TechTerm termKey="RIDE" label="RIDE PDF" /> y firma <TechTerm termKey="XAdES-BES" />),{" "}
+            <strong className="text-swiss-pine">Reintento Automático ante caídas del SRI</strong> en segundo plano sin intervención del usuario, cifrado legal{" "}
             <TechTerm termKey="LOPDP" /> (<TechTerm termKey="AES-256-GCM" label="AES-256" />) y Asistente IA en español sencillo.
           </p>
 
-          {/* Clean Action Bar */}
-          <div className="mt-7 flex flex-wrap items-center justify-center gap-3">
-            <a
-              href="#tarifario-calculadora"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-brand-emerald hover:bg-brand-pine text-white font-bold text-xs sm:text-sm shadow-swiss-md transition-all"
-            >
-              <Calculator className="w-4 h-4" />
-              <span>Ver Precios ($35–$119/m + IVA) y Calcular Ahorro</span>
-              <ArrowUpRight className="w-4 h-4" />
-            </a>
-            <button
-              type="button"
-              onClick={onOpenChat}
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white hover:bg-brand-emeraldSoft text-swiss-pine border border-slate-300 hover:border-brand-emerald font-bold text-xs sm:text-sm shadow-sm transition-all"
-            >
-              <Bot className="w-4 h-4 text-brand-emerald" />
-              <span>Pregúntale a Anna IA</span>
-            </button>
+          {/* Differentiated Action Bar: Empresas/Clientes vs Vendedores */}
+          <div className="mt-8 grid grid-cols-1 lg:grid-cols-12 gap-3 max-w-5xl mx-auto text-left">
+            {/* Audience 1: Para Empresas / Clientes */}
+            <div className="lg:col-span-8 p-3.5 rounded-2xl bg-swiss-canvas border border-slate-200/90 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+              <div>
+                <div className="text-[10px] font-mono font-bold uppercase tracking-wider text-brand-emerald">
+                  Para Empresas / Clientes
+                </div>
+                <div className="text-xs font-semibold text-slate-600">
+                  Explora precios, 10 demos vivos por industria o ingresa a tu ERP
+                </div>
+              </div>
+              <div className="flex flex-wrap items-center gap-2 shrink-0">
+                <a
+                  href="#tarifario-calculadora"
+                  className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-brand-emerald hover:bg-brand-pine text-white font-bold text-xs shadow-swiss-md transition-all"
+                >
+                  <Calculator className="w-3.5 h-3.5" />
+                  <span>Ver Precios y Demos de 10 Industrias</span>
+                  <ArrowUpRight className="w-3.5 h-3.5" />
+                </a>
+                <a
+                  href="https://app.grupovolia.com/app"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 px-3.5 py-2.5 rounded-xl bg-white hover:bg-brand-emeraldSoft text-swiss-pine border border-slate-300 hover:border-brand-emerald font-bold text-xs shadow-sm transition-all"
+                >
+                  <LogIn className="w-3.5 h-3.5 text-brand-emerald" />
+                  <span>Acceso Clientes</span>
+                </a>
+                <button
+                  type="button"
+                  onClick={onOpenChat}
+                  className="inline-flex items-center gap-1.5 px-3.5 py-2.5 rounded-xl bg-brand-emeraldSoft hover:bg-brand-emeraldLight text-brand-pine border border-brand-emerald/30 font-bold text-xs transition-all"
+                >
+                  <Bot className="w-3.5 h-3.5 text-brand-emerald" />
+                  <span>Anna IA</span>
+                </button>
+              </div>
+            </div>
+
+            {/* Audience 2: ¿Quieres Vender Grupo Volia? */}
+            <div className="lg:col-span-4 p-3.5 rounded-2xl bg-swiss-pine text-white border border-swiss-pine flex flex-col justify-between gap-2.5 shadow-swiss-md">
+              <div>
+                <div className="text-[10px] font-mono font-bold uppercase tracking-wider text-brand-emeraldBright">
+                  ¿Quieres Vender Grupo Volia?
+                </div>
+                <div className="text-xs text-slate-200">
+                  Únete como Asesor o Líder de Célula Comercial
+                </div>
+              </div>
+              <Link
+                href="/vendedores"
+                className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-brand-emeraldBright hover:bg-brand-emerald text-swiss-pine hover:text-white font-extrabold text-xs transition-all"
+              >
+                <Briefcase className="w-3.5 h-3.5" />
+                <span>Portal de Bienvenida para Vendedores</span>
+                <ArrowUpRight className="w-3.5 h-3.5" />
+              </Link>
+            </div>
           </div>
 
           <div className="mt-5 max-w-3xl mx-auto">
             <TechGlossaryBar terms={["LOPDP", "AES-256-GCM", "NIIF", "ARCSA", "CIE-10", "UAFE"]} />
           </div>
 
-          {/* 4-Pillar Trust Bar for non-tech Ecuadorian business owners */}
+          {/* 4-Pillar Trust Bar */}
           <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-left">
             {[
               {
-                title: "Súper Fácil de Usar",
-                desc: "Pantalla limpia en español claro. Tu personal aprende en minutos sin saber de informática.",
+                title: "Facturación Inteligente SRI · Reintento Auto",
+                desc: "Emisión ilimitada ($0 extra por documento). Si el SRI se cae, la suite reintenta sola en segundo plano hasta autorizar sin intervención del usuario.",
+                highlight: true,
               },
               {
-                title: "Migración Incluida",
-                desc: "Subimos tus productos y facturas desde Excel, Contífico, Alegra o SRI sin duplicados.",
+                title: "10 Demos Vivos por Industria",
+                desc: "Demos especializados listos para mostrar al instante: salud, colegios, retail, constructoras, restaurantes, agro, talleres, farmacias y más.",
+                highlight: false,
               },
               {
-                title: "SRI e Ítems Ilimitados",
-                desc: "Emite las facturas, retenciones y proformas que quieras sin paquetes por folios.",
+                title: "Fácil de Usar + Migración Incluida",
+                desc: "Tan simple como WhatsApp. Subimos tus productos y facturas desde Excel, Contífico, Alegra o SRI sin duplicados.",
+                highlight: false,
               },
               {
-                title: "Blindaje LOPDP AES-256",
-                desc: "Datos clínicos, escolares y contables cifrados bajo estándares bancarios.",
+                title: "Blindaje LOPDP AES-256-GCM",
+                desc: "Datos clínicos, escolares, firmas .p12 y contables cifrados bajo estándares bancarios y aislamiento multi-tenant.",
+                highlight: false,
               },
             ].map((item) => (
               <div
                 key={item.title}
-                className="p-3.5 rounded-2xl bg-swiss-canvas border border-slate-200/90 flex items-start gap-2.5"
+                className={`p-3.5 rounded-2xl border flex items-start gap-2.5 ${
+                  item.highlight
+                    ? "bg-brand-emeraldSoft/70 border-brand-emerald/40"
+                    : "bg-swiss-canvas border-slate-200/90"
+                }`}
               >
-                <CheckCircle2 className="w-4 h-4 text-brand-emerald shrink-0 mt-0.5" />
+                {item.highlight ? (
+                  <RefreshCw className="w-4 h-4 text-brand-emerald shrink-0 mt-0.5" />
+                ) : (
+                  <CheckCircle2 className="w-4 h-4 text-brand-emerald shrink-0 mt-0.5" />
+                )}
                 <div>
                   <div className="text-xs font-extrabold text-swiss-pine">{item.title}</div>
                   <div className="text-[11px] text-slate-600 leading-snug mt-0.5">{item.desc}</div>
@@ -295,6 +353,15 @@ export default function HeroSection({ onOpenChat }: HeroSectionProps) {
                   </span>
                   <span className="px-2 py-0.5 rounded-full bg-brand-emerald text-white font-mono font-bold text-[10px]">
                     En Línea ✓
+                  </span>
+                </div>
+                <div className="flex items-center justify-between px-3 py-2 rounded-xl bg-swiss-canvas border border-slate-200">
+                  <span className="text-xs font-medium text-slate-700 flex items-center gap-1.5">
+                    <RefreshCw className="w-3.5 h-3.5 text-brand-emerald" />
+                    Reintento Auto SRI
+                  </span>
+                  <span className="px-2 py-0.5 rounded-full bg-brand-emerald text-white font-mono font-bold text-[10px]">
+                    2do Plano ✓
                   </span>
                 </div>
                 <div className="flex items-center justify-between px-3 py-2 rounded-xl bg-swiss-canvas border border-slate-200">
