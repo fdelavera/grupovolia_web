@@ -151,7 +151,7 @@ export default function GrupoVoliaChatModal({
           {
             role: "assistant",
             content:
-              "Puedo enviarte la cotización directa en la sección de Contacto o al correo info@grupovolia.com.",
+              "Puedo enviarte la cotización directa en la sección de Contacto/Calendario o vía ventas@grupovolia.com e info@grupovolia.com.",
           },
         ]);
       }

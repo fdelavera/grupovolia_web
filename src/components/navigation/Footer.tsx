@@ -61,8 +61,11 @@ export default function Footer() {
             <p className="text-xs text-slate-300/90 leading-relaxed max-w-md">
               Boutique de Ingeniería Agéntica, Soluciones Empresariales (ERP, Facturación Electrónica SRI con Retenciones, Inventario Conectado vía API, Finanzas NIIF, CRM), Motores Algorítmicos Cuantitativos y Producción Audiovisual con IA.
             </p>
-            <div className="text-[11px] font-mono text-slate-400">
-              Fundador & CEO: Francisco de la Vera · www.grupovolia.com
+            <div className="text-[11px] font-mono text-slate-400 space-y-1">
+              <div>Fundador &amp; CEO: Francisco de la Vera · www.grupovolia.com</div>
+              <div className="text-brand-emeraldBright">
+                ventas@grupovolia.com · info@grupovolia.com · soporte@grupovolia.com
+              </div>
             </div>
           </div>
 

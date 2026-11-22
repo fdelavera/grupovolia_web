@@ -7,8 +7,10 @@ import {
   ArrowUpRight,
   Award,
   Briefcase,
+  Calendar,
   CheckCircle2,
   Clock,
+  ExternalLink,
   FileCheck2,
   FileSignature,
   Layers,
@@ -26,6 +28,7 @@ import {
 import Navbar from "@/components/navigation/Navbar";
 import Footer from "@/components/navigation/Footer";
 import GrupoVoliaChatModal from "@/components/chat/GrupoVoliaChatModal";
+import { buildGoogleCalendarBookingUrl } from "@/lib/calendar-booking";
 
 const FOUR_CLOSING_REASONS = [
   {
@@ -86,7 +89,21 @@ export default function VendedoresPage() {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [experience, setExperience] = useState("");
+  const [interviewDate, setInterviewDate] = useState(() => {
+    const d = new Date(Date.now() + 86_400_000);
+    return d.toISOString().slice(0, 10);
+  });
+  const [interviewTime, setInterviewTime] = useState("10:00");
+  const [lastInterviewUrl, setLastInterviewUrl] = useState<string | null>(null);
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+
+  const interviewCalendarUrl = buildGoogleCalendarBookingUrl({
+    title: `Entrevista Fuerza Comercial Grupo Volia — ${fullName || "Postulante"}`,
+    dateStr: interviewDate,
+    timeStr: interviewTime,
+    channelEmail: "ventas@grupovolia.com",
+    details: `Rol: ${roleType}\nCiudad: ${city}\nPostulante: ${fullName || "-"} (${email || "-"})\nCanal: ventas@grupovolia.com`,
+  });
 
   const handleApplicationSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -104,10 +121,14 @@ export default function VendedoresPage() {
           phone,
           packageInterest: `Postulación: ${roleType}`,
           modality: "Portal /vendedores — Fuerza Comercial Ecuador",
+          bookingDate: interviewDate,
+          bookingTime: interviewTime,
+          bookingChannel: "ventas@grupovolia.com",
           message: `Rol solicitado: ${roleType}\nCiudad / Cobertura: ${city}\n\nExperiencia y perfil comercial:\n${experience}`,
         }),
       });
       if (res.ok) {
+        setLastInterviewUrl(interviewCalendarUrl);
         setStatus("success");
         setFullName("");
         setEmail("");
@@ -496,14 +517,20 @@ export default function VendedoresPage() {
                     </div>
                     <div>
                       <div className="text-xs font-bold text-swiss-pine">
-                        Correo Directo de Reclutamiento Comercial
+                        Correo Oficial de Reclutamiento Comercial
                       </div>
                       <a
-                        href="mailto:fdelavera@gmail.com?subject=Postulaci%C3%B3n%20Fuerza%20Comercial%20Grupo%20Volia%20S.A.S."
+                        href="mailto:ventas@grupovolia.com?subject=Postulaci%C3%B3n%20Fuerza%20Comercial%20Grupo%20Volia%20S.A.S."
                         className="text-xs font-mono font-bold text-brand-emerald hover:underline"
                       >
-                        fdelavera@gmail.com
+                        ventas@grupovolia.com
                       </a>
+                      <div className="text-[11px] text-slate-500 mt-0.5">
+                        Consultas corporativas:{" "}
+                        <a href="mailto:info@grupovolia.com" className="font-mono hover:underline">
+                          info@grupovolia.com
+                        </a>
+                      </div>
                     </div>
                   </div>
 
@@ -629,6 +656,41 @@ export default function VendedoresPage() {
                     />
                   </div>
 
+                  <div className="p-3.5 rounded-2xl bg-emerald-50/70 border border-brand-emerald/30 space-y-2.5 text-xs">
+                    <div className="font-bold text-swiss-pine flex items-center gap-1.5">
+                      <Calendar className="w-4 h-4 text-brand-emerald" />
+                      <span>Sugerir Fecha / Hora para Entrevista &amp; Capacitación (UTC-5)</span>
+                    </div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                      <input
+                        type="date"
+                        value={interviewDate}
+                        onChange={(e) => setInterviewDate(e.target.value)}
+                        className="w-full bg-white border border-slate-300 rounded-xl px-3 py-2 font-mono text-xs"
+                      />
+                      <select
+                        value={interviewTime}
+                        onChange={(e) => setInterviewTime(e.target.value)}
+                        className="w-full bg-white border border-slate-300 rounded-xl px-3 py-2 font-mono text-xs"
+                      >
+                        {["09:00", "10:00", "11:00", "14:00", "15:00", "16:00"].map((slot) => (
+                          <option key={slot} value={slot}>
+                            {slot} (45 min · ventas@grupovolia.com)
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+                    <a
+                      href={interviewCalendarUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-[11px] font-bold text-brand-pine hover:underline"
+                    >
+                      <span>Pre-agendar entrevista directo en Google Calendar</span>
+                      <ExternalLink className="w-3 h-3" />
+                    </a>
+                  </div>
+
                   <button
                     type="submit"
                     disabled={status === "sending"}
@@ -648,19 +710,33 @@ export default function VendedoresPage() {
                   </button>
 
                   {status === "success" && (
-                    <div className="p-4 rounded-2xl bg-brand-emeraldSoft border border-brand-emerald/30 text-xs text-brand-pine flex items-start gap-2.5">
-                      <CheckCircle2 className="w-4 h-4 text-brand-emerald shrink-0 mt-0.5" />
-                      <div>
-                        <strong>¡Postulación enviada con éxito!</strong> Revisaremos tu perfil y te contactaremos pronto con el enlace de capacitación y los siguientes pasos.
+                    <div className="p-4 rounded-2xl bg-brand-emeraldSoft border border-brand-emerald/30 text-xs text-brand-pine space-y-2">
+                      <div className="flex items-start gap-2.5">
+                        <CheckCircle2 className="w-4 h-4 text-brand-emerald shrink-0 mt-0.5" />
+                        <div>
+                          <strong>¡Postulación enviada con éxito!</strong> Revisaremos tu perfil y te contactaremos desde <strong>ventas@grupovolia.com</strong> para coordinar la capacitación de 45 min y tu acceso a <code className="font-mono">/ventas</code>.
+                        </div>
                       </div>
+                      {lastInterviewUrl && (
+                        <a
+                          href={lastInterviewUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-swiss-pine text-white font-bold"
+                        >
+                          <Calendar className="w-3.5 h-3.5 text-emerald-300" />
+                          <span>Confirmar Entrevista en Google Calendar</span>
+                          <ExternalLink className="w-3 h-3" />
+                        </a>
+                      )}
                     </div>
                   )}
 
                   {status === "error" && (
                     <div className="p-4 rounded-2xl bg-red-50 border border-red-200 text-xs text-red-700">
                       Hubo un inconveniente al enviar el formulario. Por favor escríbenos directamente a{" "}
-                      <a href="mailto:fdelavera@gmail.com" className="font-bold underline">
-                        fdelavera@gmail.com
+                      <a href="mailto:ventas@grupovolia.com" className="font-bold underline">
+                        ventas@grupovolia.com
                       </a>
                       .
                     </div>

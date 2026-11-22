@@ -9,7 +9,14 @@ import {
   Globe2,
   Mail,
   Sparkles,
+  Calendar,
+  ExternalLink,
 } from "lucide-react";
+import {
+  buildGoogleCalendarBookingUrl,
+  PUBLIC_BOOKING_CHANNELS,
+  type PublicBookingChannel,
+} from "@/lib/calendar-booking";
 
 interface ContactSectionProps {
   preselectedPackage?: string;
@@ -30,12 +37,28 @@ export default function ContactSection({
   );
   const [modality, setModality] = useState("Modalidad B: Membresía Mensual");
   const [message, setMessage] = useState("");
+  const [bookingChannel, setBookingChannel] =
+    useState<PublicBookingChannel>("ventas@grupovolia.com");
+  const [bookingDate, setBookingDate] = useState(() => {
+    const d = new Date(Date.now() + 86_400_000);
+    return d.toISOString().slice(0, 10);
+  });
+  const [bookingTime, setBookingTime] = useState("10:00");
+  const [lastBookedUrl, setLastBookedUrl] = useState<string | null>(null);
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
 
   useEffect(() => {
     if (preselectedPackage) setPackageInterest(preselectedPackage);
     if (preselectedModality) setModality(preselectedModality);
   }, [preselectedPackage, preselectedModality]);
+
+  const calendarUrl = buildGoogleCalendarBookingUrl({
+    title: `Cita / Demo Grupo Volia — ${company || name || "Prospecto B2B"}`,
+    dateStr: bookingDate,
+    timeStr: bookingTime,
+    channelEmail: bookingChannel,
+    details: `Canal: ${bookingChannel}\nEmpresa: ${company || industry}\nContacto: ${name || "Por confirmar"} (${email || "-"})\nSolución: ${packageInterest}`,
+  });
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -54,9 +77,13 @@ export default function ContactSection({
           packageInterest,
           modality,
           message,
+          bookingDate,
+          bookingTime,
+          bookingChannel,
         }),
       });
       if (res.ok) {
+        setLastBookedUrl(calendarUrl);
         setStatus("success");
         setName("");
         setCompany("");
@@ -116,11 +143,20 @@ export default function ContactSection({
                   <Mail className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="text-sm font-bold text-swiss-pine">Contacto Ejecutivo Directo</h3>
-                  <p className="text-xs text-slate-600 mt-1">
-                    Corporativo: <strong className="text-brand-emerald">info@grupovolia.com</strong>
-                    <br />
-                    Dirección General: <strong className="text-swiss-pine">fdelavera@grupovolia.com</strong>
+                  <h3 className="text-sm font-bold text-swiss-pine">Canales Oficiales Directos</h3>
+                  <p className="text-xs text-slate-600 mt-1 space-y-0.5 leading-relaxed">
+                    <span className="block">
+                      Comercial &amp; Demos:{" "}
+                      <strong className="text-brand-emerald">ventas@grupovolia.com</strong>
+                    </span>
+                    <span className="block">
+                      Información &amp; Alianzas:{" "}
+                      <strong className="text-swiss-pine">info@grupovolia.com</strong>
+                    </span>
+                    <span className="block">
+                      Soporte &amp; Onboarding:{" "}
+                      <strong className="text-swiss-pine">soporte@grupovolia.com</strong>
+                    </span>
                   </p>
                 </div>
               </div>
@@ -309,6 +345,81 @@ export default function ContactSection({
                 />
               </div>
 
+              {/* Separar Cita Sincronizada por Alias */}
+              <div className="p-4 rounded-2xl bg-emerald-50/70 border border-brand-emerald/30 space-y-3">
+                <div className="flex flex-wrap items-center justify-between gap-2">
+                  <div className="text-xs font-extrabold text-swiss-pine flex items-center gap-1.5">
+                    <Calendar className="w-4 h-4 text-brand-emerald" />
+                    <span>Separar Cita / Demo en Calendario (45 min · Hora Ecuador UTC-5)</span>
+                  </div>
+                  <span className="text-[10px] font-mono text-brand-pine font-bold">
+                    Invita automático al alias seleccionado
+                  </span>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                  <div>
+                    <label className="block text-[10px] font-mono font-semibold text-slate-600 mb-1">
+                      Canal / Especialista
+                    </label>
+                    <select
+                      value={bookingChannel}
+                      onChange={(e) => setBookingChannel(e.target.value as PublicBookingChannel)}
+                      className="w-full bg-white border border-slate-300 rounded-xl px-3 py-2.5 text-xs text-swiss-pine font-semibold"
+                    >
+                      {PUBLIC_BOOKING_CHANNELS.map((c) => (
+                        <option key={c.email} value={c.email}>
+                          {c.label}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                  <div>
+                    <label className="block text-[10px] font-mono font-semibold text-slate-600 mb-1">
+                      Fecha de la Cita
+                    </label>
+                    <input
+                      type="date"
+                      value={bookingDate}
+                      onChange={(e) => setBookingDate(e.target.value)}
+                      className="w-full bg-white border border-slate-300 rounded-xl px-3 py-2.5 text-xs text-swiss-pine font-mono"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-[10px] font-mono font-semibold text-slate-600 mb-1">
+                      Horario (UTC-5)
+                    </label>
+                    <select
+                      value={bookingTime}
+                      onChange={(e) => setBookingTime(e.target.value)}
+                      className="w-full bg-white border border-slate-300 rounded-xl px-3 py-2.5 text-xs text-swiss-pine font-mono"
+                    >
+                      {["09:00", "10:00", "11:00", "14:00", "15:00", "16:00", "17:00"].map((slot) => (
+                        <option key={slot} value={slot}>
+                          {slot} (45 min)
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                </div>
+
+                <div className="flex flex-wrap items-center justify-between gap-2 text-[11px]">
+                  <span className="text-slate-600">
+                    Envía tu solicitud abajo o agrega este bloque directo a tu Google Calendar:
+                  </span>
+                  <a
+                    href={calendarUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white border border-brand-emerald text-brand-pine font-bold hover:bg-emerald-50"
+                  >
+                    <Calendar className="w-3.5 h-3.5 text-brand-emerald" />
+                    <span>Agregar a Mi Google Calendar</span>
+                    <ExternalLink className="w-3 h-3" />
+                  </a>
+                </div>
+              </div>
+
               <button
                 type="submit"
                 disabled={status === "sending"}
@@ -328,25 +439,43 @@ export default function ContactSection({
               </button>
 
               {status === "success" && (
-                <div className="p-4 rounded-xl bg-brand-emeraldSoft border border-brand-emerald/40 text-brand-pine text-xs sm:text-sm flex items-center gap-2.5 font-medium">
-                  <CheckCircle2 className="w-5 h-5 text-brand-emerald shrink-0" />
-                  <span>
-                    ¡Solicitud recibida con éxito! Francisco de la Vera y el equipo de Grupo Volia se pondrán en contacto contigo a la brevedad.
-                  </span>
+                <div className="p-4 rounded-xl bg-brand-emeraldSoft border border-brand-emerald/40 text-brand-pine text-xs sm:text-sm space-y-2 font-medium">
+                  <div className="flex items-center gap-2.5">
+                    <CheckCircle2 className="w-5 h-5 text-brand-emerald shrink-0" />
+                    <span>
+                      ¡Solicitud recibida con éxito! Nuestro equipo ({bookingChannel}) responderá y confirmará tu cita a la brevedad.
+                    </span>
+                  </div>
+                  {lastBookedUrl && (
+                    <a
+                      href={lastBookedUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-swiss-pine text-white text-xs font-bold hover:bg-brand-pine"
+                    >
+                      <Calendar className="w-3.5 h-3.5 text-emerald-300" />
+                      <span>Confirmar Cita en Google Calendar ({bookingDate} {bookingTime})</span>
+                      <ExternalLink className="w-3 h-3" />
+                    </a>
+                  )}
                 </div>
               )}
 
               {status === "error" && (
                 <div className="p-4 rounded-xl bg-red-50 border border-red-200 text-red-700 text-xs sm:text-sm">
                   Hubo un inconveniente temporal al enviar el formulario. Por favor escríbenos directamente a{" "}
-                  <a href="mailto:fdelavera@grupovolia.com" className="underline font-semibold">
-                    fdelavera@grupovolia.com
+                  <a href="mailto:ventas@grupovolia.com" className="underline font-semibold">
+                    ventas@grupovolia.com
                   </a>{" "}
                   o{" "}
                   <a href="mailto:info@grupovolia.com" className="underline font-semibold">
                     info@grupovolia.com
+                  </a>{" "}
+                  (soporte técnico:{" "}
+                  <a href="mailto:soporte@grupovolia.com" className="underline font-semibold">
+                    soporte@grupovolia.com
                   </a>
-                  .
+                  ).
                 </div>
               )}
             </form>
