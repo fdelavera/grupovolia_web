@@ -57,7 +57,7 @@ export default function BusinessLinesSection() {
       icon: BarChart3,
       features: [
         "Estado de Resultados (P&L) NIIF, Balance General, Flujo de Caja (con previsión automática de Nómina e IESS día 15 desde RRHH) y simulador Quant Sentinel FP&A.",
-        "Conciliación bancaria Ecuador (CSV/Excel de Pichincha, Guayaquil, Produbanco, Pacífico y Bolivariano) y liquidación de lotes Datafast/Medianet.",
+        "Conciliación bancaria y cooperativa Ecuador (todos los Bancos Privados, Públicos, Cooperativas SEPS como JEP, Jardín Azuayo, Policía Nacional, 29 de Octubre, Oscus, Mutualistas y Red SPI) más liquidación de lotes Datafast/Medianet.",
         "Oráculo IA Multi-Bolsa en vivo dentro del panel: Bolsa de Valores de Quito y Guayaquil (BVQ/BVG acciones y renta fija) + LATAM, NYSE/NASDAQ y mercados globales con enlaces a fuentes.",
         "Rastreo inteligente de insumos clave importados, fletes y noticias de tu industria a 0 tokens mediante feeds RSS + motores Argon/Hydrogen/Neon.",
       ],
@@ -143,7 +143,7 @@ export default function BusinessLinesSection() {
         "Califica desde el Paso 0 si el personal es Relación de Dependencia (IESS), Independiente con factura RIMPE, Comisionista de Corretaje o NO COMISIONISTA ($0) para socios/gerentes.",
         "Horarios departamentales con clasificación automática de sobretiempo +25% nocturno, +50% suplementario y +100% extraordinario/feriado + Radar IA Dominical de feriados nacionales, puentes y fiestas cantonales (incl. Cuenca y Manta).",
         "App Web Instalable (PWA) 100% White-Label (/empleado/tu-empresa) solo con TU marca (sin logo Grupo Volia), enlaces únicos por empleado, switch maestro para activar/apagar Marcación Móvil GPS (OFF por defecto) y conexión con relojes biométricos ZKTeco/Hikvision.",
-        "Offboarding legal sin borrado de datos (archivo permanente + cálculo y PDF de Acta de Finiquito), Utilidades 15%, TXT Bancos EC (Pichincha/Guayaquil/Produbanco), RDEP CSV y Migración Inteligente IA con edición manual antes de confirmar.",
+        "Offboarding legal sin borrado de datos (archivo permanente + cálculo y PDF de Acta de Finiquito), Utilidades 15%, lotes TXT / SPI Interbancario para TODOS los bancos y cooperativas del Ecuador, RDEP CSV y Migración Inteligente IA con edición manual antes de confirmar.",
       ],
       techStack: "IESS + RIMPE · 25/50/100% + Feriados IA · App WL · Biométricos · Finiquito",
     },
