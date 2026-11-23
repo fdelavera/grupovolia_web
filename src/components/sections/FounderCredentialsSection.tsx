@@ -82,7 +82,7 @@ export default function FounderCredentialsSection() {
               </h3>
             </div>
             <p className="text-sm text-slate-700 leading-relaxed">
-              Democratizar la ingeniería agéntica, los sistemas contables/tributarios inteligentes, el control de inventarios conectados y la producción audiovisual con IA para que las PYMEs y corporativos de Ecuador, Latinoamérica y Estados Unidos operen con eficiencia de clase mundial a costos justos.
+              Democratizar la ingeniería agéntica, los sistemas empresariales modulares (capaces de operar de forma independiente o como una sola suite sincronizada) y la producción audiovisual con IA para que las PYMEs y corporativos de Ecuador, Latinoamérica y Estados Unidos operen con eficiencia de clase mundial a costos justos.
             </p>
           </div>
 

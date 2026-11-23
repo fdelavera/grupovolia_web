@@ -142,7 +142,7 @@ export default function BusinessLinesSection() {
       features: [
         "Califica desde el Paso 0 si el personal es Relación de Dependencia (IESS), Independiente con factura RIMPE, Comisionista de Corretaje o NO COMISIONISTA ($0) para socios/gerentes.",
         "Horarios departamentales con clasificación automática de sobretiempo +25% nocturno, +50% suplementario y +100% extraordinario/feriado + Radar IA Dominical de feriados nacionales, puentes y fiestas cantonales (incl. Cuenca y Manta).",
-        "App Web Instalable (PWA) 100% White-Label (/empleado/tu-empresa) solo con TU marca (sin logo Grupo Volia), enlaces únicos por empleado, switch maestro para activar/apagar Marcación Móvil GPS (OFF por defecto) y conexión con relojes biométricos ZKTeco/Hikvision.",
+        "App Web Instalable (PWA) con tu Marca (/empleado/tu-empresa): muestra el logotipo y colores de tu empresa (con discreto pie 'Powered by GrupoVolia.com'), enlaces únicos por colaborador, switch maestro de Marcación Móvil GPS (OFF por defecto) y conexión con relojes biométricos ZKTeco/Hikvision.",
         "Offboarding legal sin borrado de datos (archivo permanente + cálculo y PDF de Acta de Finiquito), Utilidades 15%, lotes TXT / SPI Interbancario para TODOS los bancos y cooperativas del Ecuador, RDEP CSV y Migración Inteligente IA con edición manual antes de confirmar.",
       ],
       techStack: "IESS + RIMPE · 25/50/100% + Feriados IA · App WL · Biométricos · Finiquito",
@@ -166,8 +166,8 @@ export default function BusinessLinesSection() {
             <span className="text-brand-emerald">Operar, Facturar y Escalar</span>
           </h2>
           <p className="mt-4 text-slate-600 text-sm sm:text-base">
-            Contrátanos por un módulo individual, activa la{" "}
-            <strong className="text-swiss-pine">Suite Completa PYME (con Inventario y Retenciones SRI integrados)</strong>, o impulsa tu marca con producción audiovisual y consultoría financiera asistida por IA.
+            Empieza activando solo el módulo que hoy necesitas o conecta los 10 en{" "}
+            <strong className="text-swiss-pine">una sola Suite sincronizada</strong> — cada pieza funciona igual de fluida de forma independiente o trabajando en conjunto, junto a producción audiovisual y consultoría con IA.
           </p>
           <div className="mt-6 text-left">
             <TechGlossaryBar
@@ -197,14 +197,13 @@ export default function BusinessLinesSection() {
             </a>
           </div>
 
-          {/* Callout Interconexión Segura + Migración Inteligente IA */}
+          {/* Callout Elegante: Una Sola Suite Sincronizada o Cada Módulo Independiente */}
           <div className="mb-7 p-4 rounded-2xl bg-brand-emeraldSoft/60 border border-brand-emerald/30 flex flex-col md:flex-row items-start md:items-center justify-between gap-3 text-xs">
             <div className="flex items-start gap-2.5">
               <Network className="w-5 h-5 text-brand-emerald shrink-0 mt-0.5" />
               <p className="text-slate-700 leading-relaxed">
-                <strong className="text-swiss-pine">Interconexión Segura sin Dependencias Forzadas:</strong>{" "}
-                Si contratas 1, 3 o los 10 módulos, cada módulo opera sin errores por sí solo; cuando activas varios, se hablan en vivo (ej.{" "}
-                <strong>RRHH</strong> asienta la nómina en <strong>Contabilidad NIIF</strong>, proyecta el IESS en <strong>Finanzas</strong>, bloquea vacaciones en <strong>Agenda</strong>, imputa costos a <strong>Proyectos</strong> y recibe avisos de <strong>Marketing</strong> en la <strong>App Empleados White-Label</strong>). Además, <strong>todos tus datos históricos son migrables con IA y editables manualmente</strong> antes de confirmar.
+                <strong className="text-swiss-pine">A tu medida — Juntos en una Suite Sincronizada o por Separado:</strong>{" "}
+                Cada uno de nuestros 10 módulos trabaja de manera totalmente autónoma si hoy solo necesitas resolver una prioridad (ej. Facturación SRI o solo RRHH Ecuador). Cuando decides activar varios, se sincronizan automáticamente entre sí sin doble digitación (Ventas ↔ Inventario ↔ Contabilidad ↔ Finanzas ↔ Proyectos ↔ Marketing ↔ RRHH y App Empleados), incluyendo <strong>migración asistida por IA y editable manualmente</strong>.
               </p>
             </div>
           </div>

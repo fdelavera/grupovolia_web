@@ -73,8 +73,8 @@ export default function DualAgentSection() {
           </h2>
           <p className="mt-4 text-slate-600 text-sm sm:text-base leading-relaxed">
             Cada módulo o suite de <strong className="text-swiss-pine">Grupo Volia</strong> incluye{" "}
-            <strong className="text-brand-emerald">1 Asistente de IA Interno integrado directamente en tu sistema</strong>{" "}
-            para que tus empleados, contador y gerencia trabajen al triple de velocidad — sin necesidad de tocar el código de tu página web externa ni depender de plataformas de terceros (con{" "}
+            <strong className="text-brand-emerald">1 Asistente de IA Interno integrado</strong>{" "}
+            que funciona con la misma precisión tanto si activas un único módulo independiente como si sincronizas los 10 módulos de la Suite completa — para que gerencia y equipo trabajen al triple de velocidad sin tocar tu sitio web externo (con{" "}
             <strong className="text-swiss-pine">1,500 interacciones/mes incluidas</strong>).
           </p>
         </div>

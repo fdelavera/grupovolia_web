@@ -115,7 +115,7 @@ export default function ContactSection({
             </h2>
 
             <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-              Cuéntanos qué módulos (Contabilidad SRI con Retenciones, Inventario Conectado, Finanzas, CRM o Marketing) o servicios audiovisuales necesita tu empresa. En menos de 24 horas recibirás una propuesta clara o agendaremos una demostración personalizada.
+              Cuéntanos si prefieres empezar con un módulo específico de forma independiente o activar varios integrados en una sola suite sincronizada (SRI, Inventario, Finanzas/Oráculo, CRM, Proyectos, Marketing, UAFE o RRHH Ecuador), además de servicios audiovisuales. En menos de 24 horas recibirás una propuesta clara.
             </p>
 
             {/* Coverage & Contact Card */}
@@ -172,7 +172,7 @@ export default function ContactSection({
                   Presentación Comercial PYME y Mediana Empresa (PDF)
                 </div>
                 <p className="text-xs text-slate-500 mt-0.5">
-                  Incluye 5 módulos (con Inventario y Retenciones), Copiloto IA Interno y tarifas.
+                  10 módulos que operan sincronizados en Suite o de forma independiente (incl. RRHH Ecuador), Copiloto IA y tarifas.
                 </p>
               </div>
               <a

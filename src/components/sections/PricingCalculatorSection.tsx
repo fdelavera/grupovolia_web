@@ -112,8 +112,8 @@ export default function PricingCalculatorSection({ onSelectPlan }: PricingCalcul
             <span className="text-brand-pine">Compra de Licencia</span>
           </h2>
           <p className="mt-4 text-slate-600 text-sm sm:text-base">
-            Tú eliges cómo contratar con <strong className="text-swiss-pine">Grupo Volia</strong>: empieza con una inversión inicial mínima en{" "}
-            <strong className="text-swiss-pine">Modalidad B (Membresía Mensual)</strong> o adquiere la licencia con diseño incluido en{" "}
+            Elige el ritmo de tu empresa con <strong className="text-swiss-pine">Grupo Volia</strong>: contrata un módulo independiente sin dependencias forzadas o activa la Suite sincronizada de 10 módulos bajo{" "}
+            <strong className="text-swiss-pine">Modalidad B (Membresía)</strong> o{" "}
             <strong className="text-swiss-pine">Modalidad A (Compra de Licencia)</strong>.
           </p>
 
