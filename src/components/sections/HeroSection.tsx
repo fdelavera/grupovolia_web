@@ -203,25 +203,25 @@ export default function HeroSection({ onOpenChat }: HeroSectionProps) {
           </p>
 
           {/* Differentiated Action Bar: Empresas/Clientes vs Vendedores */}
-          <div className="mt-8 grid grid-cols-1 lg:grid-cols-12 gap-3 max-w-5xl mx-auto text-left">
+          <div className="mt-8 grid grid-cols-1 lg:grid-cols-12 gap-4 max-w-5xl mx-auto text-left items-stretch">
             {/* Audience 1: Para Empresas / Clientes */}
-            <div className="lg:col-span-8 p-3.5 rounded-2xl bg-swiss-canvas border border-slate-200/90 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div className="lg:col-span-8 p-4 rounded-2xl bg-swiss-canvas border border-slate-200/90 flex flex-col justify-between gap-3.5">
               <div>
                 <div className="text-[10px] font-mono font-bold uppercase tracking-wider text-brand-emerald">
                   Para Empresas / Clientes
                 </div>
-                <div className="text-xs font-semibold text-slate-600">
+                <div className="text-xs font-semibold text-slate-600 mt-0.5">
                   Explora precios, 10 demos vivos por industria o ingresa a tu ERP
                 </div>
               </div>
-              <div className="flex flex-wrap items-center gap-2 shrink-0">
+              <div className="flex flex-wrap items-center gap-2">
                 <a
                   href="#tarifario-calculadora"
                   className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-brand-emerald hover:bg-brand-pine text-white font-bold text-xs shadow-swiss-md transition-all"
                 >
-                  <Calculator className="w-3.5 h-3.5" />
+                  <Calculator className="w-3.5 h-3.5 shrink-0" />
                   <span>Ver Precios y Demos de 10 Industrias</span>
-                  <ArrowUpRight className="w-3.5 h-3.5" />
+                  <ArrowUpRight className="w-3.5 h-3.5 shrink-0" />
                 </a>
                 <a
                   href="https://app.grupovolia.com/app"
@@ -229,7 +229,7 @@ export default function HeroSection({ onOpenChat }: HeroSectionProps) {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 px-3.5 py-2.5 rounded-xl bg-white hover:bg-brand-emeraldSoft text-swiss-pine border border-slate-300 hover:border-brand-emerald font-bold text-xs shadow-sm transition-all"
                 >
-                  <LogIn className="w-3.5 h-3.5 text-brand-emerald" />
+                  <LogIn className="w-3.5 h-3.5 text-brand-emerald shrink-0" />
                   <span>Acceso Clientes</span>
                 </a>
                 <button
@@ -237,34 +237,34 @@ export default function HeroSection({ onOpenChat }: HeroSectionProps) {
                   onClick={onOpenChat}
                   className="inline-flex items-center gap-1.5 px-3.5 py-2.5 rounded-xl bg-brand-emeraldSoft hover:bg-brand-emeraldLight text-brand-pine border border-brand-emerald/30 font-bold text-xs transition-all"
                 >
-                  <Bot className="w-3.5 h-3.5 text-brand-emerald" />
+                  <Bot className="w-3.5 h-3.5 text-brand-emerald shrink-0" />
                   <span>Anna IA</span>
                 </button>
               </div>
             </div>
 
             {/* Audience 2: ¿Quieres Vender Grupo Volia? */}
-            <div className="lg:col-span-4 p-3.5 rounded-2xl bg-swiss-pine text-white border border-swiss-pine flex flex-col justify-between gap-2.5 shadow-swiss-md">
+            <div className="lg:col-span-4 p-4 rounded-2xl bg-swiss-pine text-white border border-swiss-pine flex flex-col justify-between gap-3.5 shadow-swiss-md">
               <div>
                 <div className="text-[10px] font-mono font-bold uppercase tracking-wider text-brand-emeraldBright">
                   ¿Quieres Vender Grupo Volia?
                 </div>
-                <div className="text-xs text-slate-200">
+                <div className="text-xs text-slate-200 mt-0.5">
                   Únete como Asesor o Líder de Célula Comercial
                 </div>
               </div>
               <Link
                 href="/vendedores"
-                className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-brand-emeraldBright hover:bg-brand-emerald text-swiss-pine hover:text-white font-extrabold text-xs transition-all"
+                className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-brand-emeraldBright hover:bg-brand-emerald text-swiss-pine hover:text-white font-extrabold text-xs transition-all text-center"
               >
-                <Briefcase className="w-3.5 h-3.5" />
+                <Briefcase className="w-3.5 h-3.5 shrink-0" />
                 <span>Portal de Bienvenida para Vendedores</span>
-                <ArrowUpRight className="w-3.5 h-3.5" />
+                <ArrowUpRight className="w-3.5 h-3.5 shrink-0" />
               </Link>
             </div>
           </div>
 
-          <div className="mt-5 max-w-3xl mx-auto">
+          <div className="mt-5 max-w-5xl mx-auto">
             <TechGlossaryBar terms={["LOPDP", "AES-256-GCM", "NIIF", "ARCSA", "CIE-10", "UAFE"]} />
           </div>
 

@@ -230,16 +230,16 @@ export default function PricingCalculatorSection({ onSelectPlan }: PricingCalcul
                         : "Modalidad A (Compra de Licencia)"
                     )
                   }
-                  className={`mt-8 w-full py-3.5 rounded-xl font-bold text-xs flex items-center justify-center gap-2 transition-all ${
+                  className={`mt-8 w-full px-5 py-3.5 rounded-xl font-bold text-xs flex items-center justify-between gap-3 text-left transition-all ${
                     pkg.highlight
                       ? "bg-brand-emerald hover:bg-brand-pine text-white shadow-sm"
                       : "bg-swiss-canvas hover:bg-brand-emeraldSoft text-swiss-pine border border-slate-300 hover:border-brand-emerald"
                   }`}
                 >
-                  <span>
+                  <span className="leading-snug">
                     Elegir {pkg.name.replace(/^[0-9]\.\s*/, "")} ({modalityView === "B" ? "Mensual" : "Licencia"})
                   </span>
-                  <ArrowRight className="w-4 h-4" />
+                  <ArrowRight className="w-4 h-4 shrink-0" />
                 </a>
               </div>
             );
