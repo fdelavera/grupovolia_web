@@ -1,15 +1,17 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import {
   ArrowLeft,
   ArrowUpRight,
   Award,
   Briefcase,
+  Calculator,
   Calendar,
   CheckCircle2,
   Clock,
+  Compass,
   ExternalLink,
   FileCheck2,
   FileSignature,
@@ -24,11 +26,13 @@ import {
   Sparkles,
   TrendingUp,
   Users,
+  X,
 } from "lucide-react";
 import Navbar from "@/components/navigation/Navbar";
 import Footer from "@/components/navigation/Footer";
 import GrupoVoliaChatModal from "@/components/chat/GrupoVoliaChatModal";
 import { buildGoogleCalendarBookingUrl } from "@/lib/calendar-booking";
+import { VendedoresWelcomeTour } from "@/components/vendedores/VendedoresWelcomeTour";
 
 const FOUR_CLOSING_REASONS = [
   {
@@ -80,6 +84,32 @@ const TEN_INDUSTRIES_LIST = [
 
 export default function VendedoresPage() {
   const [chatOpen, setChatOpen] = useState(false);
+  const [tourOpen, setTourOpen] = useState(false);
+  const [showWelcomePrompt, setShowWelcomePrompt] = useState(false);
+  const [simClients, setSimClients] = useState(6);
+  const [simPlanUsd, setSimPlanUsd] = useState<35 | 69 | 119>(69);
+
+  useEffect(() => {
+    try {
+      const seen = window.localStorage.getItem("gv_vendedores_welcome_v1");
+      if (!seen) setShowWelcomePrompt(true);
+    } catch {
+      // Storage indisponible
+    }
+  }, []);
+
+  const dismissWelcomePrompt = () => {
+    setShowWelcomePrompt(false);
+    try {
+      window.localStorage.setItem("gv_vendedores_welcome_v1", new Date().toISOString());
+    } catch {
+      // Ignorar
+    }
+  };
+
+  const simInitialRef = Number((simClients * simPlanUsd * 0.25).toFixed(2));
+  const simMonthlyRef = Number((simClients * simPlanUsd * 0.18).toFixed(2));
+  const simYear1Ref = Number((simInitialRef + simMonthlyRef * 12).toFixed(2));
 
   const [fullName, setFullName] = useState("");
   const [roleType, setRoleType] = useState<"Asesor Comercial Independiente" | "Líder de Célula Comercial">(
@@ -220,11 +250,26 @@ export default function VendedoresPage() {
                     <Sparkles className="w-4 h-4" />
                     <span>Postular como Asesor / Líder Comercial</span>
                   </a>
+
+                  <button
+                    type="button"
+                    onClick={() => {
+                      dismissWelcomePrompt();
+                      setTourOpen(true);
+                    }}
+                    className="inline-flex items-center gap-2 px-4 py-3.5 rounded-xl bg-white hover:bg-brand-emeraldSoft border-2 border-brand-emerald/40 text-brand-pine font-bold text-xs sm:text-sm shadow-sm transition-all"
+                  >
+                    <Compass className="w-4 h-4 text-brand-emerald" />
+                    <span>Tour 60s · Descubre tu Oficina Móvil</span>
+                  </button>
                 </div>
               </div>
 
               {/* Right Summary Card */}
-              <div className="lg:col-span-5 swiss-card rounded-3xl p-6 sm:p-7 bg-white space-y-5">
+              <div
+                data-tour-id="vend-tour-app"
+                className="lg:col-span-5 swiss-card rounded-3xl p-6 sm:p-7 bg-white space-y-5"
+              >
                 <div className="flex items-center justify-between border-b border-slate-100 pb-4">
                   <div>
                     <div className="text-[11px] font-mono font-bold text-brand-emerald uppercase">
@@ -291,7 +336,7 @@ export default function VendedoresPage() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div data-tour-id="vend-tour-reasons" className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {FOUR_CLOSING_REASONS.map((reason) => {
                 const Icon = reason.icon;
                 return (
@@ -332,7 +377,7 @@ export default function VendedoresPage() {
             </div>
 
             {/* 10 Specialized Industries Strip */}
-            <div className="rounded-3xl bg-swiss-canvas border border-slate-200 p-6 sm:p-8 space-y-4">
+            <div data-tour-id="vend-tour-industries" className="rounded-3xl bg-swiss-canvas border border-slate-200 p-6 sm:p-8 space-y-4">
               <div className="flex flex-wrap items-center justify-between gap-3">
                 <div>
                   <div className="text-[11px] font-mono font-bold text-brand-emerald uppercase">
@@ -382,7 +427,86 @@ export default function VendedoresPage() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div data-tour-id="vend-tour-income" className="space-y-6">
+              {/* Simulador Rápido Referencial (Esquema Público 25% + 18%) */}
+              <div className="swiss-card rounded-3xl p-6 sm:p-8 bg-white border border-brand-emerald/30 space-y-4">
+                <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 pb-3">
+                  <div>
+                    <div className="inline-flex items-center gap-1.5 text-[11px] font-mono font-bold text-brand-emerald uppercase">
+                      <Calculator className="w-3.5 h-3.5" />
+                      <span>SIMULADOR REFERENCIAL DE CARTERA COMERCIAL</span>
+                    </div>
+                    <h3 className="text-lg font-extrabold text-swiss-pine mt-0.5">
+                      Proyecta tu Ingreso con Clientes Activos en Ecuador
+                    </h3>
+                  </div>
+                  <div className="flex flex-wrap gap-1.5 text-xs font-bold">
+                    {([
+                      [35, "Individual $35/m"],
+                      [69, "Suite PYME $69/m"],
+                      [119, "Corporativo $119/m"],
+                    ] as const).map(([val, lbl]) => (
+                      <button
+                        key={val}
+                        type="button"
+                        onClick={() => setSimPlanUsd(val)}
+                        className={`px-3 py-1.5 rounded-xl border transition-colors ${
+                          simPlanUsd === val
+                            ? "bg-swiss-pine text-white border-swiss-pine"
+                            : "bg-swiss-canvas text-slate-600 border-slate-200 hover:bg-slate-100"
+                        }`}
+                      >
+                        {lbl}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-center">
+                  <div className="lg:col-span-5 space-y-2">
+                    <div className="flex items-center justify-between text-xs">
+                      <span className="text-slate-600 font-semibold">Empresas Activas Cerradas:</span>
+                      <strong className="font-mono text-sm text-brand-emerald">
+                        {simClients} empresa{simClients === 1 ? "" : "s"}
+                      </strong>
+                    </div>
+                    <input
+                      type="range"
+                      min={1}
+                      max={25}
+                      value={simClients}
+                      onChange={(e) => setSimClients(Number(e.target.value))}
+                      className="w-full accent-brand-emerald cursor-pointer"
+                    />
+                    <p className="text-[11px] text-slate-500">
+                      Cálculo referencial público (25% de entrada inicial + 18% recurrente mensual sobre tarifa base sin IVA). Las condiciones contractuales finales se revisan en entrevista privada.
+                    </p>
+                  </div>
+
+                  <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-3">
+                    <div className="p-3.5 rounded-2xl bg-swiss-canvas border border-slate-200">
+                      <div className="text-[10px] font-mono uppercase text-slate-500">Cierre Inicial Ref.</div>
+                      <div className="text-lg font-extrabold font-mono text-swiss-pine mt-0.5 tabular-nums">
+                        ${simInitialRef.toLocaleString("en-US", { minimumFractionDigits: 2 })}
+                      </div>
+                    </div>
+                    <div className="p-3.5 rounded-2xl bg-emerald-50 border border-emerald-200">
+                      <div className="text-[10px] font-mono uppercase text-brand-pine">Renta Mensual Ref.</div>
+                      <div className="text-lg font-extrabold font-mono text-brand-emerald mt-0.5 tabular-nums">
+                        +${simMonthlyRef.toLocaleString("en-US", { minimumFractionDigits: 2 })}/m
+                      </div>
+                    </div>
+                    <div className="p-3.5 rounded-2xl bg-swiss-pine text-white">
+                      <div className="text-[10px] font-mono uppercase text-emerald-300">Acumulado Año 1 Ref.</div>
+                      <div className="text-lg font-extrabold font-mono mt-0.5 tabular-nums">
+                        ${simYear1Ref.toLocaleString("en-US", { minimumFractionDigits: 2 })}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               {/* Card 1: Independent Advisors */}
               <div className="swiss-card rounded-3xl p-6 sm:p-8 bg-white space-y-5">
                 <div className="flex items-center justify-between">
@@ -453,6 +577,7 @@ export default function VendedoresPage() {
                     </span>
                   </li>
                 </ul>
+              </div>
               </div>
             </div>
 
@@ -556,7 +681,7 @@ export default function VendedoresPage() {
               </div>
 
               {/* Right Application Form */}
-              <div className="lg:col-span-7 swiss-card rounded-3xl p-6 sm:p-10">
+              <div data-tour-id="vend-tour-apply" className="lg:col-span-7 swiss-card rounded-3xl p-6 sm:p-10">
                 <h3 className="text-xl font-extrabold text-swiss-pine mb-5">
                   Formulario de Postulación Comercial
                 </h3>
@@ -750,6 +875,48 @@ export default function VendedoresPage() {
 
       <Footer />
       <GrupoVoliaChatModal isOpen={chatOpen} onOpenChange={setChatOpen} />
+      <VendedoresWelcomeTour isOpen={tourOpen} onClose={() => setTourOpen(false)} />
+
+      {showWelcomePrompt && !tourOpen && (
+        <div className="fixed bottom-4 right-4 z-40 max-w-sm rounded-2xl bg-white border-2 border-brand-emerald shadow-2xl p-4 space-y-2.5 text-xs">
+          <div className="flex items-start justify-between gap-2">
+            <div className="flex items-center gap-2 font-extrabold text-swiss-pine">
+              <Compass className="w-4 h-4 text-brand-emerald shrink-0" />
+              <span>¿Evaluando unirte a Grupo Volia?</span>
+            </div>
+            <button
+              type="button"
+              onClick={dismissWelcomePrompt}
+              className="text-slate-400 hover:text-swiss-pine"
+              title="Ocultar aviso"
+            >
+              <X className="w-4 h-4" />
+            </button>
+          </div>
+          <p className="text-slate-600 leading-relaxed">
+            Descubre tu futura oficina móvil <code className="font-mono text-brand-pine">/ventas</code>, el simulador de ingresos y los 10 demos en <strong>60 segundos (5 paradas)</strong>.
+          </p>
+          <div className="flex items-center gap-2 pt-0.5">
+            <button
+              type="button"
+              onClick={() => {
+                dismissWelcomePrompt();
+                setTourOpen(true);
+              }}
+              className="px-3.5 py-2 rounded-xl bg-brand-emerald hover:bg-brand-pine text-white font-bold"
+            >
+              Iniciar Tour 60s
+            </button>
+            <button
+              type="button"
+              onClick={dismissWelcomePrompt}
+              className="px-3 py-2 rounded-xl bg-swiss-canvas border border-slate-200 text-slate-600 font-semibold hover:text-swiss-pine"
+            >
+              Más tarde
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
