@@ -59,7 +59,7 @@ export async function POST(req: NextRequest) {
     } catch {
       return NextResponse.json({
         reply:
-          "¡Hola! Soy Anna de Grupo Volia. Nuestro paquete estrella es la **Suite Completa PYME** (Contabilidad SRI con Retenciones a Proveedores + Manejo de Inventario Conectado + Finanzas NIIF + CRM + Marketing + Copiloto IA Interno personalizable) por **$69/mes** (+ $240 diseño inicial) o **$890 USD en Compra de Licencia**. La personalización toma 1 mes e incluye hasta 3 revisiones. ¿Te gustaría que te enviemos una cotización formal desde la sección de Contacto?",
+          "¡Hola! Soy Anna de Grupo Volia. Nuestro paquete estrella es la **Suite Completa PYME** (10 módulos interconectados + Contabilidad SRI ilimitada + Inventario + Finanzas NIIF + CRM + Project Manager + Portal B2B + RRHH y Colaboradores Ilimitados + Copiloto IA Interno personalizable) por **$69/mes + IVA** (+ $240 + IVA implementación inicial). Puedes pagar con tarjeta vía Stripe (sin recargo) o transferencia bancaria. ¿Te gustaría recibir una proforma personalizada desde la sección de Contacto?",
       });
     }
   }

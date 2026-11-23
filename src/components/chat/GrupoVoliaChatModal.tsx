@@ -21,7 +21,7 @@ export default function GrupoVoliaChatModal({
     {
       role: "assistant",
       content:
-        "¡Hola! Soy Anna, asesora ejecutiva de Grupo Volia. Puedo ayudarte a elegir entre nuestra Suite Completa PYME ($69/mes o $890 Licencia) con Inventario Conectado, Facturación SRI y Copiloto IA Interno para tu equipo, o cotizar producción audiovisual IA con estándares internacionales. ¿A qué se dedica tu empresa?",
+        "¡Hola! Soy Anna, asesora ejecutiva de Grupo Volia. Puedo ayudarte a elegir entre nuestra Suite Completa PYME ($69/mes + IVA con usuarios, clientes, proveedores y colaboradores RRHH ilimitados) y nuestra Suite Corporativa Multisucursal ($119/mes + IVA), o cotizar producción audiovisual IA con estándares internacionales. ¿A qué se dedica tu empresa?",
     },
   ]);
   const [input, setInput] = useState("");
@@ -117,7 +117,7 @@ export default function GrupoVoliaChatModal({
     "¿Cómo funciona el módulo de Inventario y la conexión con POS en Ecuador?",
     "¿Qué hace el Copiloto IA Interno para mis empleados y gerencia?",
     "¿Cómo funciona la personalización en 1 mes y las 3 revisiones?",
-    "¿Qué incluye la Suite Completa PYME de $69/mes vs. $890 Licencia?",
+    "¿Qué incluye la Suite Completa PYME ($69/mes + IVA) vs. Corporativa Multisucursal ($119/mes + IVA)?",
   ];
 
   useEffect(() => {

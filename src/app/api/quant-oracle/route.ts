@@ -73,7 +73,7 @@ Genera un diagnóstico ejecutivo estructurado en JSON con exactamente este forma
         sentinelRule: `Protección automática 1R: alerta inmediata en tu Dashboard administrativo si el margen bruto de una línea cae más de 2.5% bajo el VWAP semanal o si se detecta liquidez ociosa.`,
         estimatedMonthlyImpactUsd: `+$${lowImpact.toLocaleString()} a +$${highImpact.toLocaleString()} USD / mes en margen recuperado`,
         recommendedModule:
-          "Suite Completa PYME ($69/mes o $890 Licencia) + Módulo Oráculo Cuantitativo a Medida ($490 USD)",
+          "Suite Completa PYME ($69/mes + IVA) o Suite Corporativa Multisucursal ($119/mes + IVA) con Módulo Oráculo Cuantitativo a Medida ($490 USD)",
       },
     });
   } catch (error) {

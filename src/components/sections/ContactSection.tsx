@@ -33,9 +33,9 @@ export default function ContactSection({
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [packageInterest, setPackageInterest] = useState(
-    "2. Suite Completa PYME Estrella ($69/mes o $890 Licencia)"
+    "2. Suite Completa PYME Estrella ($69/mes + IVA · Usuarios y RRHH Ilimitados)"
   );
-  const [modality, setModality] = useState("Modalidad B: Membresía Mensual");
+  const [modality, setModality] = useState("Membresía SaaS Mensual — Pago con Tarjeta Stripe (0% Recargo)");
   const [message, setMessage] = useState("");
   const [bookingChannel, setBookingChannel] =
     useState<PublicBookingChannel>("ventas@grupovolia.com");
@@ -260,14 +260,14 @@ export default function ContactSection({
                     onChange={(e) => setPackageInterest(e.target.value)}
                     className="w-full bg-swiss-canvas border border-slate-300 rounded-xl px-3.5 py-3 text-xs sm:text-sm text-swiss-pine focus:outline-none focus:border-brand-emerald focus:bg-white"
                   >
-                    <option value="1. Módulo Individual PYME ($35/mes o $490 Licencia)">
-                      1. Módulo Individual PYME ($35/mes o $490)
+                    <option value="1. Módulo Individual PYME ($35/mes + IVA · Setup $120 + IVA)">
+                      1. Módulo Individual PYME ($35/mes + IVA · Setup $120 + IVA)
                     </option>
-                    <option value="2. Suite Completa PYME Estrella ($69/mes o $890 Licencia)">
-                      2. Suite Completa PYME Estrella ($69/mes o $890)
+                    <option value="2. Suite Completa PYME Estrella ($69/mes + IVA · Usuarios y RRHH Ilimitados)">
+                      2. Suite Completa PYME Estrella ($69/mes + IVA · Setup $240 + IVA)
                     </option>
-                    <option value="3. Suite Corporativa Multisucursal ($119/mes o $1,490 Licencia)">
-                      3. Suite Corporativa Multisucursal ($119/mes o $1,490)
+                    <option value="3. Suite Corporativa Multisucursal ($119/mes + IVA · Setup $250 + IVA)">
+                      3. Suite Corporativa Multisucursal ($119/mes + IVA · Setup $250 + IVA)
                     </option>
                     <option value="Oráculo Cuantitativo / Algoritmo a Medida ($490 - $1,200)">
                       Oráculo Cuantitativo / Algoritmo en Tiempo Real
@@ -286,24 +286,24 @@ export default function ContactSection({
 
                 <div>
                   <label className="block text-xs font-mono font-semibold text-slate-600 mb-1.5">
-                    Modalidad Preferida
+                    Forma de Pago / Modalidad
                   </label>
                   <select
                     value={modality}
                     onChange={(e) => setModality(e.target.value)}
                     className="w-full bg-swiss-canvas border border-slate-300 rounded-xl px-3.5 py-3 text-xs sm:text-sm text-swiss-pine focus:outline-none focus:border-brand-emerald focus:bg-white"
                   >
-                    <option value="Modalidad B: Membresía Mensual">
-                      Modalidad B: Membresía Mensual
+                    <option value="Membresía SaaS Mensual — Pago con Tarjeta Stripe (0% Recargo)">
+                      Membresía SaaS Mensual — Tarjeta Stripe (0% Recargo)
                     </option>
-                    <option value="Modalidad A: Compra de Licencia (Diseño Incluido)">
-                      Modalidad A: Compra de Licencia (Diseño Incluido)
+                    <option value="Membresía SaaS Mensual — Transferencia Bancaria GRUPOVOLIA S.A.S.">
+                      Membresía SaaS Mensual — Transferencia Bancaria Empresarial
                     </option>
-                    <option value="Modalidad C: Proyecto / Estudio / Producción Audiovisual">
-                      Modalidad C: Servicio por Proyecto o Iguala
+                    <option value="Servicio Complementario por Proyecto o Iguala">
+                      Servicio Complementario por Proyecto o Iguala
                     </option>
-                    <option value="Deseo asesoría para elegir la mejor opción">
-                      Deseo asesoría para comparar opciones
+                    <option value="Deseo asesoría para elegir el mejor plan">
+                      Deseo asesoría para elegir el mejor plan
                     </option>
                   </select>
                 </div>

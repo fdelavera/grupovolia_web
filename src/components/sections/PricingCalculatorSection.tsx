@@ -15,7 +15,6 @@ interface PricingCalculatorSectionProps {
 }
 
 export default function PricingCalculatorSection({ onSelectPlan }: PricingCalculatorSectionProps) {
-  const [modalityView, setModalityView] = useState<"B" | "A">("B");
   const [calcPackage, setCalcPackage] = useState<"individual" | "pyme" | "corp">("pyme");
   const [calcMonths, setCalcMonths] = useState<12 | 24>(12);
   const [employeeCount, setEmployeeCount] = useState<number>(15);
@@ -25,46 +24,46 @@ export default function PricingCalculatorSection({ onSelectPlan }: PricingCalcul
   const packages = {
     individual: {
       name: "1. Módulo Individual PYME",
-      subtitle: "Elige 1 de los 10 Módulos: Contabilidad SRI, Inventario Kardex, CRM LOPDP, Project Manager o RRHH Ecuador",
-      badge: "Entrada Rápida",
+      subtitle:
+        "Elige 1 de los 10 Módulos con Usuarios, Clientes y Proveedores Ilimitados (y Colaboradores Ilimitados si eliges RRHH)",
+      badge: "Entrada Rápida · 1 Módulo",
       highlight: false,
-      modB: { setup: 120, monthly: 35 },
-      modA: { license: 490, cloudMonthly: 19, annualSriYear2: 140 },
+      pricing: { setup: 120, monthly: 35 },
       features: [
         "1 Módulo independiente a elección (opera 100% autónomo sin errores y listo para escalar a los 10 módulos)",
-        "Facturación SRI ilimitada con Auto-Retry y RIDE PDF White-Label, o Inventario Kardex, o RRHH + App Empleados White-Label",
+        "Usuarios, Clientes y Proveedores 100% Ilimitados (y Colaboradores Ilimitados si contratas Módulo 10 RRHH)",
+        "Facturación SRI ilimitada con Auto-Retry y RIDE White-Label, o Inventario Kardex, o RRHH + App Empleados White-Label",
         "Migración Inteligente IA con vista previa editable manualmente desde Excel, Contífico, Perseo, IESS o Buk",
-        "Incluye Copiloto IA Interno integrado para tu equipo (nombre y logo personalizables · 1,500 consultas/mes)",
-        "Personalización en 1 mes (hasta 3 revisiones) + actualizaciones normativas SRI/IESS incluidas",
+        "Personalización en 1 mes (hasta 3 revisiones) + Copiloto IA (1,500 consultas/mes) + actualizaciones normativas SRI/IESS incluidas",
       ],
     },
     pyme: {
       name: "2. SUITE COMPLETA PYME (10 MÓDULOS)",
-      subtitle: "SRI Auto-Retry + Inventario + Finanzas/Oráculo + CRM 10 Giros + Project Manager + Marketing + Portal B2B + RRHH (hasta 25 colaboradores) + IA",
+      subtitle:
+        "1 Empresa / Matriz · Usuarios, Clientes, Proveedores y Colaboradores RRHH 100% Ilimitados · Los 10 Módulos + IA",
       badge: "MÁS ELEGIDO · ESTRELLA",
       highlight: true,
-      modB: { setup: 240, monthly: 69 },
-      modA: { license: 890, cloudMonthly: 25, annualSriYear2: 220 },
+      pricing: { setup: 240, monthly: 69 },
       features: [
-        "Facturas Electrónicas SRI Ilimitadas ($0 por documento), Productos Kardex Ilimitados y Asientos Contables NIIF Ilimitados",
-        "Los 10 Módulos Interconectados: Contabilidad SRI, Inventario Escáner, Finanzas/Oráculo Multi-Bolsa, CRM 10 Giros LOPDP, Project Manager & Agenda, Marketing Ops, UAFE, Portal B2B, IA y Módulo 10 RRHH Ecuador",
-        "Incluye Módulo 10 RRHH (hasta 25 colaboradores): Nómina IESS/Independientes, Sobretiempo 25/50/100%, Radar Feriados IA, Offboarding inmutable y App Empleados 100% White-Label",
+        "Usuarios, Clientes, Proveedores, Colaboradores RRHH y Facturas SRI ($0/doc) 100% Ilimitados en 1 matriz",
+        "Los 10 Módulos Interconectados: Contabilidad SRI, Inventario Escáner, Finanzas/Oráculo Multi-Bolsa, CRM 10 Giros LOPDP, Project Manager & Agenda, Marketing Ops, UAFE, Portal B2B, IA y Módulo 10 RRHH",
+        "Módulo 10 RRHH Ilimitado: Nómina IESS/RIMPE, Sobretiempo 25/50/100%, Radar Feriados IA, Offboarding inmutable y App Empleados 100% White-Label",
         "Migración Inteligente IA editable desde todos tus sistemas anteriores + 1,500 consultas/mes en tu Copiloto IA",
         "Personalización a tu marca en 1 mes (hasta 3 revisiones) + actualizaciones normativas SRI, NIIF y Código del Trabajo incluidas",
       ],
     },
     corp: {
-      name: "3. Suite Corporativa / Multisucursal",
-      subtitle: "Base Dedicada + 10 Módulos + RRHH Ilimitado Multi-Cantón & Biométricos + Usuarios Ilimitados + IA Pro",
-      badge: "Mediana Empresa & Grupos",
+      name: "3. Suite Corporativa Multisucursal",
+      subtitle:
+        "Operación Multisucursal & Multi-Cantón Sin Límite de Sucursales · Base Dedicada + Biométricos Multi-Sede + IA Pro",
+      badge: "Multisucursal & Multi-Cantón",
       highlight: false,
-      modB: { setup: 450, monthly: 119 },
-      modA: { license: 1490, cloudMonthly: 39, annualSriYear2: 350 },
+      pricing: { setup: 250, monthly: 119 },
       features: [
-        "Facturas SRI, Bodegas, Productos Kardex, Colaboradores RRHH y Usuarios 100% Ilimitados en servidor dedicado",
-        "Módulo 10 RRHH Corporativo: múltiples sucursales/cantones (feriados locales simultáneos), Webhook Biométrico ZKTeco/Hikvision y App Empleados White-Label ilimitada",
-        "Base de datos dedicada con aislamiento total, múltiples puntos de emisión SRI y conexión API POS Ecuador",
-        "Copiloto IA Pro Interno + Radar UAFE RESU + Oráculo Multi-Bolsa (BVQ/BVG Ecuador + Global)",
+        "Operación Multisucursal y Multi-Cantón sin límite de sucursales, múltiples bodegas y múltiples puntos de emisión SRI",
+        "Módulo 10 RRHH Corporativo: feriados cantonales simultáneos por cada ciudad, Webhook Biométrico ZKTeco/Hikvision multi-sede y App Empleados White-Label",
+        "Base de datos dedicada con aislamiento total, Usuarios y Colaboradores Ilimitados y conexión API POS Ecuador",
+        "Copiloto IA Pro Interno + Radar Preventivo UAFE RESU + Oráculo Multi-Bolsa (BVQ/BVG Ecuador + Global)",
         "Personalización en 1 mes (hasta 3 revisiones) + soporte prioritario + actualizaciones normativas incluidas",
       ],
     },
@@ -77,15 +76,10 @@ export default function PricingCalculatorSection({ onSelectPlan }: PricingCalcul
   const combinedCompetitorMonthly = competitorMonthly + hrSoftwareCompetitorMonthly;
   const traditionalSetupFee = employeeCount >= 10 ? 2500 : 1200;
 
-  const totalModB = selectedPkg.modB.setup + selectedPkg.modB.monthly * calcMonths;
-  const totalModA =
-    selectedPkg.modA.license +
-    selectedPkg.modA.cloudMonthly * calcMonths +
-    (calcMonths > 12 ? selectedPkg.modA.annualSriYear2 : 0);
+  const totalSaaS = selectedPkg.pricing.setup + selectedPkg.pricing.monthly * calcMonths;
   const totalCompetitor = traditionalSetupFee + combinedCompetitorMonthly * calcMonths;
 
-  const savingsModB = Math.max(0, totalCompetitor - totalModB);
-  const savingsModA = Math.max(0, totalCompetitor - totalModA);
+  const savingsSaaS = Math.max(0, totalCompetitor - totalSaaS);
 
   // Ganancia operativa mensual estimada por interconexión (horas ahorradas en nómina, recargos 25/50/100%, SRI Auto-Retry, Kardex y conciliación)
   const estimatedMonthlyOperationalGain = Math.round(180 + employeeCount * 18);
@@ -107,40 +101,22 @@ export default function PricingCalculatorSection({ onSelectPlan }: PricingCalcul
             <span>TARIFARIO OFICIAL · ECUADOR, LATINOAMÉRICA & EE.UU.</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-swiss-pine tracking-tight">
-            Precios Transparentes:{" "}
-            <span className="text-brand-emerald">Membresía Mensual</span> o{" "}
-            <span className="text-brand-pine">Compra de Licencia</span>
+            Planes 100% Membresía SaaS con{" "}
+            <span className="text-brand-emerald">Usuarios y Colaboradores Ilimitados</span>
           </h2>
           <p className="mt-4 text-slate-600 text-sm sm:text-base">
-            Elige el ritmo de tu empresa con <strong className="text-swiss-pine">Grupo Volia</strong>: contrata un módulo independiente sin dependencias forzadas o activa la Suite sincronizada de 10 módulos bajo{" "}
-            <strong className="text-swiss-pine">Modalidad B (Membresía)</strong> o{" "}
-            <strong className="text-swiss-pine">Modalidad A (Compra de Licencia)</strong>.
+            En <strong className="text-swiss-pine">Grupo Volia</strong> no cobramos por cada usuario adicional ni por trabajador registrado: contrata 1 módulo independiente o activa la Suite sincronizada de 10 módulos bajo{" "}
+            <strong className="text-swiss-pine">Membresía Mensual (+ IVA vigente)</strong> y paga con tarjeta vía Stripe (<strong className="text-brand-emerald">0% recargo</strong>) o transferencia bancaria empresarial.
           </p>
 
-          {/* Modality Switcher */}
-          <div className="mt-8 inline-flex p-1.5 rounded-2xl bg-white border border-slate-200 shadow-sm">
-            <button
-              type="button"
-              onClick={() => setModalityView("B")}
-              className={`px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all ${
-                modalityView === "B"
-                  ? "bg-brand-emerald text-white shadow-sm"
-                  : "text-slate-600 hover:text-swiss-pine"
-              }`}
-            >
-              Modalidad B: Membresía Mensual (Bajo Inicio)
-            </button>
-            <button
-              type="button"
-              onClick={() => setModalityView("A")}
-              className={`px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all ${
-                modalityView === "A"
-                  ? "bg-swiss-pine text-white shadow-sm"
-                  : "text-slate-600 hover:text-swiss-pine"
-              }`}
-            >
-              Modalidad A: Compra de Licencia (Diseño Incluido)
-            </button>
+          <div className="mt-6 inline-flex flex-wrap items-center justify-center gap-2 px-4 py-2.5 rounded-2xl bg-white border border-brand-emerald/30 shadow-sm text-xs text-swiss-pine">
+            <span className="px-2 py-0.5 rounded-full bg-brand-emeraldSoft text-brand-pine font-mono font-bold text-[10px]">
+              PAGOS OFICIALES
+            </span>
+            <span>
+              Tarjeta Débito / Crédito vía <strong>Stripe (sin recargo)</strong> o{" "}
+              <strong>Transferencia Bancaria GRUPOVOLIA S.A.S.</strong> (no aceptamos efectivo, cheques, PayPhone ni Deuna!).
+            </span>
           </div>
         </div>
 
@@ -173,42 +149,21 @@ export default function PricingCalculatorSection({ onSelectPlan }: PricingCalcul
                   <h3 className="text-xl font-bold text-swiss-pine mt-1">{pkg.name}</h3>
                   <p className="text-xs text-slate-500 mt-1">{pkg.subtitle}</p>
 
-                  {modalityView === "B" ? (
-                    <div className="mt-6 p-4 rounded-2xl bg-swiss-canvas border border-slate-200">
-                      <div className="flex items-baseline gap-1.5">
-                        <span className="text-3xl sm:text-4xl font-extrabold text-swiss-pine font-mono tabular-nums">
-                          ${pkg.modB.monthly}
-                        </span>
-                        <span className="text-xs text-slate-500 font-mono">USD / mes + IVA</span>
-                      </div>
-                      <div className="mt-2 pt-2 border-t border-slate-200 flex items-center justify-between text-xs">
-                        <span className="text-slate-600">Diseño e Implementación Inicial:</span>
-                        <strong className="text-brand-emerald font-mono">${pkg.modB.setup} USD + IVA (Único)</strong>
-                      </div>
-                      <div className="mt-1 text-[11px] font-semibold text-brand-pine">
-                        ✓ Actualizaciones normativas SRI, Nube y API IA incluidas
-                      </div>
+                  <div className="mt-6 p-4 rounded-2xl bg-swiss-canvas border border-slate-200">
+                    <div className="flex items-baseline gap-1.5">
+                      <span className="text-3xl sm:text-4xl font-extrabold text-swiss-pine font-mono tabular-nums">
+                        ${pkg.pricing.monthly}
+                      </span>
+                      <span className="text-xs text-slate-500 font-mono">USD / mes + IVA</span>
                     </div>
-                  ) : (
-                    <div className="mt-6 p-4 rounded-2xl bg-brand-emeraldSoft/60 border border-brand-emerald/30">
-                      <div className="flex items-baseline gap-1.5">
-                        <span className="text-3xl sm:text-4xl font-extrabold text-brand-pine font-mono tabular-nums">
-                          ${pkg.modA.license}
-                        </span>
-                        <span className="text-xs text-slate-600 font-mono">USD + IVA Licencia (Diseño Incluido)</span>
-                      </div>
-                      <div className="mt-2 pt-2 border-t border-brand-emerald/20 space-y-1 text-xs">
-                        <div className="flex justify-between">
-                          <span className="text-slate-600">Nube + API IA (1,500 consultas):</span>
-                          <strong className="text-swiss-pine font-mono">${pkg.modA.cloudMonthly} / mes + IVA</strong>
-                        </div>
-                        <div className="flex justify-between">
-                          <span className="text-slate-600">Actualización normativa SRI (Año 2+):</span>
-                          <strong className="text-slate-700 font-mono">${pkg.modA.annualSriYear2} / año + IVA</strong>
-                        </div>
-                      </div>
+                    <div className="mt-2 pt-2 border-t border-slate-200 flex items-center justify-between text-xs">
+                      <span className="text-slate-600">Diseño e Implementación Inicial:</span>
+                      <strong className="text-brand-emerald font-mono">${pkg.pricing.setup} USD + IVA (Único)</strong>
                     </div>
-                  )}
+                    <div className="mt-1 text-[11px] font-semibold text-brand-pine">
+                      ✓ Usuarios, RRHH ilimitados, SRI, Nube y API IA incluidos
+                    </div>
+                  </div>
 
                   <ul className="mt-6 space-y-3">
                     {pkg.features.map((f, i) => (
@@ -225,9 +180,7 @@ export default function PricingCalculatorSection({ onSelectPlan }: PricingCalcul
                   onClick={() =>
                     onSelectPlan?.(
                       pkg.name,
-                      modalityView === "B"
-                        ? "Modalidad B (Membresía Mensual)"
-                        : "Modalidad A (Compra de Licencia)"
+                      "Membresía SaaS Mensual — Pago con Tarjeta Stripe (0% Recargo)"
                     )
                   }
                   className={`mt-8 w-full px-5 py-3.5 rounded-xl font-bold text-xs flex items-center justify-between gap-3 text-left transition-all ${
@@ -237,7 +190,7 @@ export default function PricingCalculatorSection({ onSelectPlan }: PricingCalcul
                   }`}
                 >
                   <span className="leading-snug">
-                    Elegir {pkg.name.replace(/^[0-9]\.\s*/, "")} ({modalityView === "B" ? "Mensual" : "Licencia"})
+                    Elegir {pkg.name.replace(/^[0-9]\.\s*/, "")} (${pkg.pricing.monthly}/mes + IVA)
                   </span>
                   <ArrowRight className="w-4 h-4 shrink-0" />
                 </a>
@@ -266,18 +219,18 @@ export default function PricingCalculatorSection({ onSelectPlan }: PricingCalcul
           </div>
         </div>
 
-        {/* MODALIDAD C: SERVICIOS INTEGRALES */}
+        {/* SERVICIOS COMPLEMENTARIOS POR PROYECTO */}
         <div className="swiss-card rounded-3xl p-6 sm:p-8 mb-14">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-5 mb-6 border-b border-slate-200">
             <div>
               <span className="text-xs font-mono text-brand-emerald font-bold uppercase">
-                MODALIDAD C · SERVICIOS INTEGRALES, PRODUCCIÓN AUDIOVISUAL IA & CONSULTORÍA
+                SERVICIOS COMPLEMENTARIOS · PRODUCCIÓN AUDIOVISUAL IA &amp; CONSULTORÍA
               </span>
               <h3 className="text-xl sm:text-2xl font-bold text-swiss-pine mt-0.5">
                 Soluciones por Proyecto, Estudios de Mercado y Desarrollo a Medida
               </h3>
             </div>
-            <span className="text-xs font-mono text-slate-500">Tarifas Oficiales (USD)</span>
+            <span className="text-xs font-mono text-slate-500">Tarifas Oficiales (+ IVA según país)</span>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -361,22 +314,22 @@ export default function PricingCalculatorSection({ onSelectPlan }: PricingCalcul
               </h3>
             </div>
             <p className="text-xs text-slate-600 mb-6">
-              Compara el costo total real entre Modalidad B, Modalidad A y proveedores tradicionales por separado.
+              Compara el costo total real entre tu Membresía SaaS de Grupo Volia (con usuarios y RRHH ilimitados) vs. proveedores tradicionales por separado.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
               <div>
                 <label className="block text-xs font-mono font-semibold text-slate-600 mb-1.5">
-                  1. Selecciona tu Paquete Grupo Volia:
+                  1. Selecciona tu Plan Grupo Volia:
                 </label>
                 <select
                   value={calcPackage}
                   onChange={(e) => setCalcPackage(e.target.value as "individual" | "pyme" | "corp")}
                   className="w-full bg-white border border-slate-300 rounded-xl px-3.5 py-2.5 text-xs text-swiss-pine font-semibold focus:outline-none focus:border-brand-emerald"
                 >
-                  <option value="individual">1. Módulo Individual PYME ($35/mes o $490)</option>
-                  <option value="pyme">2. Suite Completa PYME Estrella ($69/mes o $890)</option>
-                  <option value="corp">3. Suite Corporativa Multisucursal ($119/mes o $1,490)</option>
+                  <option value="individual">1. Módulo Individual PYME ($35/mes + IVA)</option>
+                  <option value="pyme">2. Suite Completa PYME Estrella ($69/mes + IVA)</option>
+                  <option value="corp">3. Suite Corporativa Multisucursal ($119/mes + IVA)</option>
                 </select>
               </div>
 
@@ -451,34 +404,19 @@ export default function PricingCalculatorSection({ onSelectPlan }: PricingCalcul
               </div>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
               <div className="p-4 rounded-2xl bg-brand-emeraldSoft/70 border border-brand-emerald/40">
                 <div className="text-[10px] font-mono text-brand-emerald font-bold uppercase">
-                  MODALIDAD B (MENSUAL)
+                  MEMBRESÍA SAAS GRUPO VOLIA (+ IVA)
                 </div>
                 <div className="text-2xl font-extrabold text-swiss-pine font-mono mt-1 tabular-nums">
-                  ${totalModB.toLocaleString()}
+                  ${totalSaaS.toLocaleString()}
                 </div>
                 <div className="text-[11px] text-slate-600 mt-0.5">
-                  En {calcMonths} meses (${selectedPkg.modB.setup} + ${selectedPkg.modB.monthly}/m)
+                  En {calcMonths} meses (${selectedPkg.pricing.setup} setup + ${selectedPkg.pricing.monthly}/m · RRHH ilimitado)
                 </div>
                 <div className="mt-2 pt-2 border-t border-brand-emerald/20 text-xs font-bold text-brand-emerald">
-                  Ahorras ${savingsModB.toLocaleString()} USD
-                </div>
-              </div>
-
-              <div className="p-4 rounded-2xl bg-swiss-canvas border border-slate-300">
-                <div className="text-[10px] font-mono text-brand-pine font-bold uppercase">
-                  MODALIDAD A (LICENCIA)
-                </div>
-                <div className="text-2xl font-extrabold text-swiss-pine font-mono mt-1 tabular-nums">
-                  ${totalModA.toLocaleString()}
-                </div>
-                <div className="text-[11px] text-slate-600 mt-0.5">
-                  En {calcMonths} meses (${selectedPkg.modA.license} + ${selectedPkg.modA.cloudMonthly}/m)
-                </div>
-                <div className="mt-2 pt-2 border-t border-slate-200 text-xs font-bold text-brand-pine">
-                  Ahorras ${savingsModA.toLocaleString()} USD
+                  Ahorras ${savingsSaaS.toLocaleString()} USD vs. sistemas separados
                 </div>
               </div>
 

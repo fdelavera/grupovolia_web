@@ -519,13 +519,13 @@ export default function VendedoresPage() {
                   Comisión de Cierre + Ingreso Mensual Recurrente
                 </h3>
                 <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                  Ganas desde tu primer cliente con un esquema dual transparente: una comisión inicial por la implementación/licencia cerrada más un porcentaje recurrente mes a mes sobre las membresías activas de tu cartera.
+                  Ganas desde tu primer cliente con un esquema dual transparente: una comisión inicial sobre el primer cierre acreditado más un porcentaje recurrente mes a mes sobre las membresías activas de tu cartera.
                 </p>
                 <ul className="space-y-2.5 text-xs sm:text-sm text-slate-700 pt-2 border-t border-slate-100">
                   <li className="flex items-start gap-2.5">
                     <CheckCircle2 className="w-4 h-4 text-brand-emerald shrink-0 mt-0.5" />
                     <span>
-                      <strong>Doble fuente de ingreso:</strong> comisión de entrada por cierre (ej. esquema referencial desde 25% inicial + 18% recurrente mensual según modalidad y volumen) y construcción de cartera acumulativa.
+                      <strong>Doble fuente de ingreso:</strong> comisión de entrada por cierre (esquema referencial desde 25% inicial + 18% recurrente mensual según rol y volumen) y construcción de cartera acumulativa.
                     </span>
                   </li>
                   <li className="flex items-start gap-2.5">
@@ -736,9 +736,12 @@ export default function VendedoresPage() {
                         required
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
-                        placeholder="tu.correo@ejemplo.com"
+                        placeholder="tu.correo.personal@gmail.com"
                         className="w-full bg-swiss-canvas border border-slate-300 rounded-xl px-4 py-3 text-xs sm:text-sm text-swiss-pine focus:outline-none focus:border-brand-emerald focus:bg-white"
                       />
+                      <span className="block text-[10px] text-slate-500 mt-1">
+                        Usa tu correo personal (no asignamos cuentas @grupovolia.com; sincronizarás tus demos con tu propio calendario).
+                      </span>
                     </div>
                     <div>
                       <label className="block text-xs font-mono font-semibold text-slate-600 mb-1.5">

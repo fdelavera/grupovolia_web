@@ -72,7 +72,7 @@ export default function QuantAlgorithmsSection() {
       "Regla Sentinel 1R: Alerta inmediata al celular de gerencia si el margen ponderado (VWAP) de cualquier línea cae más de 2.0% o si el inventario supera 45 días de inmovilización.",
     estimatedMonthlyImpactUsd: "+$2,450 a +$4,900 USD / mes en flujo de caja y margen recuperado",
     recommendedModule:
-      "Suite Completa PYME ($69/mes o $890 Licencia) + Oráculo Algorítmico a Medida ($490 USD)",
+      "Suite Completa PYME ($69/mes + IVA) o Suite Corporativa Multisucursal ($119/mes + IVA) con Oráculo Algorítmico a Medida ($490 USD)",
   });
 
   const handleRunSimulation = async (e: React.FormEvent) => {

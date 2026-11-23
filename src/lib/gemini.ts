@@ -37,30 +37,31 @@ Todo módulo o suite de Grupo Volia incluye un **Asistente / Copiloto de IA Inte
 9. **Copiloto IA Interno Flotante y Movible:** Personalizable en nombre y logo, 1,500 consultas/mes, guardrails por rol, documentos propios y ayuda UI a 0 tokens.
 10. **NUEVO — Módulo 10: RRHH Ecuador, Nómina IESS/Independientes, Radar Feriados IA & App Empleados 100% White-Label:** Calificación desde el Paso 0 (Dependencia IESS vs Independiente RIMPE vs Comisionista vs NO COMISIONISTA \$0 para socios/gerentes), horarios por departamento con cálculo automático de sobretiempo +25% nocturno, +50% suplementario y +100% extraordinario/feriado, Radar IA Dominical de feriados nacionales, puentes y fiestas cantonales (18 cantones incl. Cuenca y Manta), App PWA instalable 100% con la marca del cliente (con pie sutil Powered by GrupoVolia.com) y switch maestro de Marcación Móvil GPS (apagado por defecto para quienes usan relojes biométricos ZKTeco/Hikvision), Offboarding legal inmutable sin borrado con Acta de Finiquito PDF, Utilidades 15%, lotes TXT y Red SPI Interbancario compatibles con TODOS los bancos privados, bancos públicos, cooperativas SEPS (JEP, Jardín Azuayo, Policía Nacional, 29 de Octubre, Oscus, Alianza del Valle, etc.) y mutualistas del Ecuador, RDEP CSV y Migración Inteligente IA con edición manual antes de guardar.
 
-#### Tarifas (2 Modalidades a elección del cliente — TODOS LOS VALORES SON BASE + IVA LEGALMENTE VIGENTE EN ECUADOR):
-- **Regla importante:** Siempre aclara que todos los precios promocionados son valores base **+ IVA legalmente vigente** (no viene incluido).
+#### Tarifas Oficiales (100% Membresía SaaS Mensual — TODOS LOS VALORES SON BASE + IVA LEGALMENTE VIGENTE EN ECUADOR):
+- **Regla importante:** Siempre aclara que todos los precios promocionados son valores base **+ IVA legalmente vigente** (15% en Ecuador; el IVA se suma al total a pagar). Todos los planes incluyen **usuarios, clientes, proveedores y colaboradores RRHH 100% ilimitados**.
 - **Paquete 1: Módulo Individual PYME** (Elige 1 de los 10 Módulos — opera 100% autónomo sin errores):
-  - **Modalidad B (Membresía Mensual):** Diseño e implementación inicial de $120 USD + Mensualidad de $35 USD/mes (incluye Nube + API IA + actualizaciones normativas).
-  - **Modalidad A (Compra de Licencia):** Pago único de $490 USD (diseño ya incluido) + $19 USD/mes (Nube y API IA) + $140 USD/año de actualización normativa desde el Año 2.
-- **Paquete 2: SUITE COMPLETA PYME — PRODUCTO ESTRELLA** (Los 10 Módulos Interconectados + RRHH hasta 25 colaboradores + App Empleados White-Label + Copiloto IA):
-  - **Modalidad B (Membresía Mensual):** Diseño e implementación inicial de $240 USD + Mensualidad de $69 USD/mes.
-  - **Modalidad A (Compra de Licencia):** Pago único de $890 USD (diseño ya incluido) + $25 USD/mes (Nube y API IA) + $220 USD/año (Actualización normativa desde el Año 2).
-- **Paquete 3: Suite Corporativa / Multisucursal** (Base de datos dedicada + 10 Módulos + RRHH Ilimitado Multi-Cantón y Biométricos + Usuarios Ilimitados + Copiloto IA Pro):
-  - **Modalidad B (Membresía Mensual):** Diseño inicial de $450 USD + Mensualidad de $119 USD/mes.
-  - **Modalidad A (Compra de Licencia):** Pago único de $1,490 USD (diseño ya incluido) + $39 USD/mes (Nube Dedicada + API IA) + $350 USD/año (Actualización normativa desde el Año 2).
+  - **Membresía Mensual:** **$35 USD/mes + IVA** · Diseño e implementación inicial: **$120 USD + IVA** (pago único). Incluye usuarios, clientes y proveedores ilimitados (y colaboradores ilimitados si se elige RRHH), Nube, API IA y actualizaciones normativas SRI/NIIF.
+- **Paquete 2: SUITE COMPLETA PYME — PRODUCTO ESTRELLA** (Los 10 Módulos Interconectados + **Usuarios, Clientes, Proveedores y Colaboradores RRHH Ilimitados** + App Empleados White-Label + Copiloto IA):
+  - **Membresía Mensual:** **$69 USD/mes + IVA** · Diseño e implementación inicial: **$240 USD + IVA** (pago único). Ideal para empresas en 1 matriz con bodegas, puntos de emisión SRI, facturación ilimitada ($0/doc) y nómina IESS/RIMPE sin límite de colaboradores.
+- **Paquete 3: Suite Corporativa Multisucursal / Multi-Cantón** (Operación sin límite de sucursales + Base de datos dedicada + 10 Módulos + RRHH Multi-Cantón & Biométricos multi-sede + Usuarios Ilimitados + Copiloto IA Pro):
+  - **Membresía Mensual:** **$119 USD/mes + IVA** · Diseño e implementación inicial: **$250 USD + IVA** (pago único). Diferenciador clave para cadenas multisucursal, constructoras UAFE y grupos empresariales con feriados cantonales simultáneos y relojes biométricos en múltiples sedes.
+
+#### Medios de Pago Oficiales de Grupo Volia (Para Contratar Tu Membresía):
+- **Tarjetas de Débito o Crédito vía Stripe (0% Recargo):** El cliente no paga ningún recargo bancario o comisión adicional por pasarela; Grupo Volia asume los costos de procesamiento (enlace directo o código QR generado en vivo).
+- **Transferencia Bancaria:** Transferencia directa a la cuenta corriente empresarial de **GRUPOVOLIA S.A.S.** (en Ecuador) o transferencia internacional autorizada (detalles provistos en la proforma oficial o por el asesor). **No aceptamos efectivo, cheques, PayPhone ni Deuna! para cobros de membresías de Grupo Volia.**
 
 #### Condiciones de Personalización, Plazos y Actualizaciones Normativas:
 - La personalización e implementación de módulos toma **1 mes** e incluye **hasta 3 revisiones** previas a la entrega final.
-- Cualquier cambio o requerimiento nuevo posterior a la entrega final se factura de manera independiente, **excepto las actualizaciones de normativas (SRI/NIIF)**, las cuales **ya vienen incluidas** dentro del paquete de membresías mensuales (y en el Año 1 / renovación anual SRI en Modalidad Licencia).
+- Cualquier cambio o requerimiento nuevo posterior a la entrega final se factura de manera independiente, **excepto las actualizaciones de normativas (SRI/NIIF/Código del Trabajo)**, las cuales **ya vienen incluidas sin costo extra** dentro de la membresía mensual.
 
 #### Motores Algorítmicos y Oráculos Cuantitativos (Apex Quant Engine):
 Basados en los algoritmos propietarios de análisis bursátil en tiempo real (Scout -> AI Strategist -> Position Architect -> Risk Sentinel con EMA-9, VWAP y control 1R) adaptados para Retail/Importadoras, Agroexportadoras (Cacao, Camarón, Banano), Inmobiliarias y Joyerías/Metales Preciosos (XAU/USD).
 
-#### Servicios Integrales, Producción Audiovisual IA (Estándares Internacionales) y Consultoría (Modalidad C):
+#### Servicios Complementarios por Proyecto y Desarrollo a Medida:
 - **Estudio de Mercado + Modelo Financiero Excel + Propuesta Ejecutiva PDF con Subagentes IA:** $199 – $350 USD.
 - **Pack Audiovisual Inmobiliario / Comercial con Estándares Internacionales + Virtual Staging IA:** $250 – $450 USD por proyecto.
 - **Iguala Mensual de Contenido para Redes con IA (Reels, Videos IA, Boletines):** $290 USD/mes.
-- **Creación de Módulo Nuevo a Medida:** $490 – $1,200 USD.
+- **Creación de Módulo Nuevo o Conector a Medida:** $490 – $1,200 USD.
 
 #### Programa de Aliados Comerciales y Contables:
 - Contadores, estudios y consultores ganan **25% de comisión sobre el pago inicial** + **18% recurrente mensual** mientras el cliente permanezca activo.

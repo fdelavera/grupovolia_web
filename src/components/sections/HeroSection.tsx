@@ -168,7 +168,7 @@ export default function HeroSection({ onOpenChat }: HeroSectionProps) {
     e.preventDefault();
     if (!quickPrompt.trim()) return;
     setQuickReply(
-      `Anna responde a "${quickPrompt}": Puedes incluirlo en nuestra Suite Completa PYME ($69/mes o $890 Licencia). Abre el chat completo con Anna para cotizar a tu medida.`
+      `Anna responde a "${quickPrompt}": Puedes incluirlo en nuestra Suite Completa PYME ($69/mes + IVA con usuarios y colaboradores ilimitados). Abre el chat completo con Anna para cotizar a tu medida.`
     );
     setQuickPrompt("");
   };
