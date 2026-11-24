@@ -196,10 +196,13 @@ export default function HeroSection({ onOpenChat }: HeroSectionProps) {
 
           <p className="mt-5 text-sm sm:text-base lg:text-lg text-slate-600 leading-relaxed max-w-3xl mx-auto">
             Tecnología de vanguardia hecha humana con <strong className="text-swiss-pine">10 módulos independientes e interconectados</strong> y <strong className="text-swiss-pine">10 demos vivos por industria</strong> listos al instante:{" "}
-            <strong className="text-brand-emerald">Facturación SRI Ilimitada con Reintento Automático</strong> (<TechTerm termKey="RIDE" label="RIDE PDF" /> y firma <TechTerm termKey="XAdES-BES" />),{" "}
+            <strong className="text-brand-emerald">Facturación SRI Ilimitada con Reintento Automático</strong>{" "}
+            <span className="whitespace-nowrap">(<TechTerm termKey="RIDE" label="RIDE PDF" /></span> y firma{" "}
+            <span className="whitespace-nowrap"><TechTerm termKey="XAdES-BES" />),</span>{" "}
             <strong className="text-swiss-pine">Módulo 10 RRHH Ecuador + App Empleados 100% White-Label</strong> (Nómina IESS/Servicios, Sobretiempo 25/50/100%, Radar Feriados IA y Biométricos),{" "}
             <strong className="text-swiss-pine">Migración Inteligente IA editable</strong>, cifrado{" "}
-            <TechTerm termKey="LOPDP" /> (<TechTerm termKey="AES-256-GCM" label="AES-256" />) y Asistente IA en español sencillo.
+            <TechTerm termKey="LOPDP" />{" "}
+            <span className="whitespace-nowrap">(<TechTerm termKey="AES-256-GCM" label="AES-256" />)</span> y Asistente IA en español sencillo.
           </p>
 
           {/* Differentiated Action Bar: Empresas/Clientes vs Vendedores */}

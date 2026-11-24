@@ -33,7 +33,7 @@ export default function Navbar({ onOpenChat }: NavbarProps) {
 
   const navLinks = [
     { href: "/#lineas-negocio", label: "Módulos ERP", icon: Layers },
-    { href: "/#seguridad-lopdp", label: "10 Industrias & LOPDP", icon: ShieldCheck },
+    { href: "/#seguridad-lopdp", label: "Industrias & LOPDP", icon: ShieldCheck },
     { href: "/#algoritmos-cuantitativos", label: "Oráculos IA", icon: Cpu },
     { href: "/#doble-agente", label: "Copiloto IA", icon: Bot },
     { href: "/#tarifario-calculadora", label: "Precios", icon: Calculator },
@@ -41,18 +41,18 @@ export default function Navbar({ onOpenChat }: NavbarProps) {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-40 px-3 sm:px-6 pt-3 sm:pt-4 pointer-events-none">
+    <header className="fixed top-0 left-0 right-0 z-40 px-2.5 sm:px-5 pt-3 sm:pt-4 pointer-events-none">
       <div
-        className={`max-w-7xl mx-auto pointer-events-auto rounded-2xl transition-all duration-300 border ${
+        className={`max-w-[1400px] mx-auto pointer-events-auto rounded-2xl transition-all duration-300 border ${
           scrolled
-            ? "bg-white/95 backdrop-blur-xl border-slate-200/90 shadow-swiss-lg py-2.5 px-4 sm:px-6"
-            : "bg-white/90 backdrop-blur-md border-slate-200/80 shadow-swiss-md py-3 px-4 sm:px-6"
+            ? "bg-white/95 backdrop-blur-xl border-slate-200/90 shadow-swiss-lg py-2 px-3 sm:px-5"
+            : "bg-white/90 backdrop-blur-md border-slate-200/80 shadow-swiss-md py-2.5 px-3 sm:px-5"
         }`}
       >
-        <div className="flex items-center justify-between gap-3">
+        <div className="flex items-center justify-between gap-2 xl:gap-3">
           {/* Brand Logo */}
-          <Link href="/" className="flex items-center gap-2.5 group shrink-0">
-            <div className="relative w-10 h-10 rounded-xl bg-white border border-slate-200/90 flex items-center justify-center overflow-hidden shadow-sm group-hover:border-brand-emerald/50 transition-all p-0.5">
+          <Link href="/" className="flex items-center gap-2 group shrink-0">
+            <div className="relative w-9 h-9 rounded-xl bg-white border border-slate-200/90 flex items-center justify-center overflow-hidden shadow-sm group-hover:border-brand-emerald/50 transition-all p-0.5">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/assets/branding/logo_grupovolia_isotipo_clean.png"
@@ -61,26 +61,26 @@ export default function Navbar({ onOpenChat }: NavbarProps) {
               />
             </div>
             <div className="flex items-center">
-              <span className="font-extrabold tracking-tight text-swiss-pine text-base sm:text-lg leading-none whitespace-nowrap">
+              <span className="font-extrabold tracking-tight text-swiss-pine text-sm sm:text-base xl:text-lg leading-none whitespace-nowrap">
                 GRUPO <span className="text-brand-emerald">VOLIA</span>
               </span>
             </div>
           </Link>
 
           {/* Desktop Navigation (Empresas Clientes) */}
-          <nav className="hidden lg:flex items-center gap-4 xl:gap-5">
+          <nav className="hidden xl:flex items-center gap-3 2xl:gap-4 min-w-0">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-xs font-semibold text-slate-600 hover:text-brand-emerald transition-colors tracking-wide whitespace-nowrap"
+                className="text-[11px] 2xl:text-xs font-semibold text-slate-600 hover:text-brand-emerald transition-colors tracking-wide whitespace-nowrap"
               >
                 {link.label}
               </Link>
             ))}
             <Link
               href="/vendedores"
-              className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-swiss-pine text-white hover:bg-brand-pine text-[11px] font-bold tracking-wide transition-colors whitespace-nowrap shadow-sm"
+              className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-swiss-pine text-white hover:bg-brand-pine text-[11px] font-bold tracking-wide transition-colors whitespace-nowrap shadow-sm shrink-0"
             >
               <Briefcase className="w-3 h-3 text-brand-emeraldBright" />
               <span>Para Vendedores</span>
@@ -88,12 +88,12 @@ export default function Navbar({ onOpenChat }: NavbarProps) {
           </nav>
 
           {/* Action CTAs */}
-          <div className="hidden sm:flex items-center gap-2 shrink-0">
+          <div className="hidden sm:flex items-center gap-1.5 xl:gap-2 shrink-0">
             <a
               href="/docs/Dossier_Comercial_GrupoVolia_SAS.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 px-2.5 py-2 rounded-xl bg-swiss-canvas hover:bg-brand-emeraldSoft border border-slate-200 hover:border-brand-emerald/40 text-xs font-semibold text-slate-700 hover:text-brand-pine transition-all"
+              className="inline-flex items-center gap-1.5 px-2.5 py-1.5 xl:py-2 rounded-xl bg-swiss-canvas hover:bg-brand-emeraldSoft border border-slate-200 hover:border-brand-emerald/40 text-xs font-semibold text-slate-700 hover:text-brand-pine transition-all whitespace-nowrap"
               title="Descargar Dossier Comercial PDF"
             >
               <FileDown className="w-3.5 h-3.5 text-brand-emerald" />
@@ -104,7 +104,7 @@ export default function Navbar({ onOpenChat }: NavbarProps) {
               href="https://app.grupovolia.com/app"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-white hover:bg-swiss-canvas border border-slate-300 hover:border-brand-emerald text-xs font-bold text-swiss-pine transition-all whitespace-nowrap"
+              className="inline-flex items-center gap-1.5 px-2.5 xl:px-3 py-1.5 xl:py-2 rounded-xl bg-white hover:bg-swiss-canvas border border-slate-300 hover:border-brand-emerald text-xs font-bold text-swiss-pine transition-all whitespace-nowrap"
               title="Acceso Clientes · Web App Grupo Volia"
             >
               <LogIn className="w-3.5 h-3.5 text-brand-emerald" />
@@ -114,7 +114,7 @@ export default function Navbar({ onOpenChat }: NavbarProps) {
             <button
               type="button"
               onClick={onOpenChat}
-              className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-brand-emeraldSoft hover:bg-brand-emeraldLight border border-brand-emerald/30 text-xs font-bold text-brand-pine transition-all whitespace-nowrap"
+              className="inline-flex items-center gap-1.5 px-2.5 xl:px-3 py-1.5 xl:py-2 rounded-xl bg-brand-emeraldSoft hover:bg-brand-emeraldLight border border-brand-emerald/30 text-xs font-bold text-brand-pine transition-all whitespace-nowrap"
             >
               <Sparkles className="w-3.5 h-3.5 text-brand-emerald" />
               <span>Anna IA</span>
@@ -122,18 +122,18 @@ export default function Navbar({ onOpenChat }: NavbarProps) {
 
             <Link
               href="/#contacto"
-              className="inline-flex items-center gap-1 px-3.5 py-2 rounded-xl bg-brand-emerald hover:bg-brand-pine text-white font-bold text-xs transition-all shadow-sm whitespace-nowrap"
+              className="inline-flex items-center gap-1 px-3 py-1.5 xl:py-2 rounded-xl bg-brand-emerald hover:bg-brand-pine text-white font-bold text-xs transition-all shadow-sm whitespace-nowrap"
             >
               <span>Cotizar</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
             </Link>
           </div>
 
-          {/* Mobile Menu Toggle */}
+          {/* Mobile & Tablet Menu Toggle (shown below xl) */}
           <button
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-2 rounded-xl bg-swiss-canvas border border-slate-200 text-slate-700 hover:text-brand-emerald"
+            className="xl:hidden p-2 rounded-xl bg-swiss-canvas border border-slate-200 text-slate-700 hover:text-brand-emerald shrink-0"
             aria-label="Abrir menú"
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -142,7 +142,7 @@ export default function Navbar({ onOpenChat }: NavbarProps) {
 
         {/* Mobile Dropdown */}
         {mobileMenuOpen && (
-          <div className="lg:hidden mt-3 pt-3 border-t border-slate-200 space-y-1.5">
+          <div className="xl:hidden mt-3 pt-3 border-t border-slate-200 space-y-1.5">
             {navLinks.map((link) => {
               const Icon = link.icon;
               return (

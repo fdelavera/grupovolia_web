@@ -289,7 +289,7 @@ export default function InvestorPerksAndFaq({
                       required
                       value={name}
                       onChange={(e) => setName(e.target.value)}
-                      placeholder="Ej. Alexander / Christian"
+                      placeholder="Ej. Sofía Mendoza / Carlos Paredes"
                       className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:border-brand-emerald"
                     />
                   </div>

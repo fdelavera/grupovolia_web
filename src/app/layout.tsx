@@ -1,5 +1,9 @@
 import type { Metadata } from "next";
+import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+
+const geistSans = Inter({ subsets: ["latin"], variable: "--font-geist-sans" });
+const geistMono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-geist-mono" });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.grupovolia.com"),
@@ -47,9 +51,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="es" suppressHydrationWarning>
+    <html lang="es" suppressHydrationWarning className={`${geistSans.variable} ${geistMono.variable}`}>
       <body
-        className="bg-white text-swiss-pine min-h-screen antialiased selection:bg-brand-emerald selection:text-white"
+        className="font-sans bg-white text-swiss-pine min-h-screen antialiased selection:bg-brand-emerald selection:text-white"
         suppressHydrationWarning
       >
         {children}
