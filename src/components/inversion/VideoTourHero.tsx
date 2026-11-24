@@ -44,7 +44,7 @@ export default function VideoTourHero() {
     {
       label: "PROMOCIÓN INICIAL",
       value: "$5,000 USD",
-      sub: "Total ronda o tramos desde $1,000",
+      sub: "Entrega única íntegra · Ecuador o USA",
     },
     {
       label: "RETORNO FIJO PACTADO",
@@ -122,10 +122,10 @@ export default function VideoTourHero() {
 
             <div className="flex flex-wrap gap-3 pt-2">
               <a
-                href="#simulador"
+                href="#condiciones"
                 className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-brand-emerald hover:bg-brand-emeraldBright hover:text-swiss-pine text-white font-bold text-sm transition-all shadow-lg"
               >
-                <span>Simular Mi Rendimiento</span>
+                <span>Ver Condiciones y Pagaré</span>
                 <ArrowUpRight className="w-4 h-4" />
               </a>
 

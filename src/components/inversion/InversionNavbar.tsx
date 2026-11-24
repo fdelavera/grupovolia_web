@@ -7,7 +7,7 @@ export default function InversionNavbar() {
   const navItems = [
     { href: "#video-demo", label: "Video (1:39)" },
     { href: "#activo-tecnologico", label: "Activo & Demos" },
-    { href: "#simulador", label: "Simulador" },
+    { href: "#condiciones", label: "Condiciones & Pagaré" },
     { href: "#respaldo", label: "Respaldo Micro1" },
     { href: "#circuitos", label: "Circuitos & FAQ" },
   ];
@@ -27,10 +27,10 @@ export default function InversionNavbar() {
                 />
               </div>
               <div className="leading-tight min-w-0">
-                <span className="font-extrabold tracking-tight text-swiss-pine text-xs sm:text-base block truncate">
+                <span className="font-extrabold tracking-tight text-swiss-pine text-xs sm:text-base block whitespace-nowrap">
                   GRUPO <span className="text-brand-emerald">VOLIA</span>
                 </span>
-                <span className="hidden sm:block text-[10px] font-mono text-brand-emerald font-bold uppercase tracking-wider">
+                <span className="hidden sm:block text-[10px] font-mono text-brand-emerald font-bold uppercase tracking-wider whitespace-nowrap">
                   Propuesta Puente · $5,000
                 </span>
               </div>

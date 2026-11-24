@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import {
   Gift,
   Landmark,
@@ -11,44 +11,23 @@ import {
   MessageCircle,
   FileDown,
   ArrowUpRight,
+  Scale,
 } from "lucide-react";
 import { INVESTOR_PERKS, INVESTMENT_FAQS } from "@/data/inversionData";
 
-interface InvestorPerksAndFaqProps {
-  selectedAmount: number;
-  selectedCircuit: "usa" | "ecuador";
-  selectedHorizonLabel: string;
-}
-
-export default function InvestorPerksAndFaq({
-  selectedAmount,
-  selectedCircuit,
-  selectedHorizonLabel,
-}: InvestorPerksAndFaqProps) {
+export default function InvestorPerksAndFaq() {
   const [openFaqIdx, setOpenFaqIdx] = useState<number | null>(0);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
-  const [amountField, setAmountField] = useState(`$${selectedAmount.toLocaleString()} USD`);
   const [circuitField, setCircuitField] = useState(
-    selectedCircuit === "usa"
-      ? "EE.UU. (Bank of America / Zelle · 0% ISD)"
-      : "Ecuador (Banco de Guayaquil Cta. Cte. #19156303)"
+    "EE.UU. (Bank of America / Zelle · 0% ISD)"
   );
   const [notes, setNotes] = useState("");
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
 
-  useEffect(() => {
-    setAmountField(`$${selectedAmount.toLocaleString()} USD`);
-    setCircuitField(
-      selectedCircuit === "usa"
-        ? "EE.UU. (Bank of America / Zelle · 0% ISD)"
-        : "Ecuador (Banco de Guayaquil Cta. Cte. #19156303)"
-    );
-  }, [selectedAmount, selectedCircuit]);
-
   const whatsappText = encodeURIComponent(
-    `Hola Francisco, vi la presentación de Grupo Volia (/inversion). Me interesa conversar sobre participar con ${amountField} vía ${circuitField} (${selectedHorizonLabel}).`
+    `Hola Francisco, revisé la presentación y el modelo de pagaré de Grupo Volia (/inversion). Me gustaría conversar sobre la propuesta vía ${circuitField}.`
   );
   const whatsappUrl = `https://wa.me/593983374133?text=${whatsappText}`;
 
@@ -65,11 +44,11 @@ export default function InvestorPerksAndFaq({
           company: "Círculo Privado / Propuesta Puente ($5k)",
           email,
           phone,
-          packageInterest: `Préstamo Puente · ${amountField}`,
-          modality: `${circuitField} · ${selectedHorizonLabel}`,
+          packageInterest: "Préstamo Puente Grupo Volia ($5,000 USD)",
+          modality: circuitField,
           message:
             notes.trim() ||
-            `Interés enviado desde www.grupovolia.com/inversion para tramo de ${amountField} vía ${circuitField}.`,
+            `Interés enviado desde www.grupovolia.com/inversion (circuito preferido: ${circuitField}).`,
         }),
       });
       if (res.ok) {
@@ -94,7 +73,7 @@ export default function InvestorPerksAndFaq({
           <div className="text-center max-w-3xl mx-auto mb-10">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-emeraldSoft border border-brand-emerald/30 text-brand-pine text-xs font-mono font-bold mb-3">
               <Gift className="w-3.5 h-3.5 text-brand-emerald" />
-              <span>VENTAJAS ADICIONALES PARA AMIGOS & FAMILIA</span>
+              <span>VENTAJAS ADICIONALES PARA AMIGOS &amp; FAMILIA</span>
             </div>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-swiss-pine tracking-tight">
               Más allá del +12% Fijo:{" "}
@@ -212,7 +191,7 @@ export default function InvestorPerksAndFaq({
               );
             })}
 
-            <div className="pt-3 flex flex-wrap gap-3">
+            <div className="pt-3 flex flex-wrap gap-2.5">
               <a
                 href="/docs/Presentacion_Prestamo_Puente_GrupoVolia_2027.pdf"
                 target="_blank"
@@ -220,7 +199,16 @@ export default function InvestorPerksAndFaq({
                 className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-swiss-pine hover:bg-brand-pine text-white text-xs font-bold transition-all"
               >
                 <FileDown className="w-4 h-4 text-brand-emeraldBright" />
-                <span>Descargar Presentación Completa (PDF)</span>
+                <span>Presentación (PDF)</span>
+              </a>
+              <a
+                href="/docs/Modelo_Pagare_Internacional_GrupoVolia_2027.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-brand-emerald hover:bg-brand-pine text-white text-xs font-bold transition-all"
+              >
+                <Scale className="w-4 h-4" />
+                <span>Modelo de Pagaré (PDF)</span>
               </a>
               <a
                 href="https://app.grupovolia.com"
@@ -241,11 +229,11 @@ export default function InvestorPerksAndFaq({
                 PASO SIGUIENTE DIRECTO CON FRANCISCO
               </span>
               <h3 className="text-2xl font-extrabold text-swiss-pine mt-1">
-                ¿Conversamos los detalles o reservamos tu tramo?
+                ¿Conversamos los detalles o revisamos condiciones?
               </h3>
               <p className="text-xs sm:text-sm text-slate-600 mt-1">
-                Escríbeme directo por WhatsApp para revisar dudas o déjame tus datos y te envío el
-                borrador del pagaré formal y el cronograma exacto.
+                Escríbeme directo por WhatsApp para revisar dudas o cualquier planteamiento, o
+                déjame tus datos y preparamos el pagaré personalizado para firma digital.
               </p>
             </div>
 
@@ -274,7 +262,7 @@ export default function InvestorPerksAndFaq({
                   ¡Confirmación recibida!
                 </div>
                 <p className="text-xs text-slate-600">
-                  Francisco recibió tu interés por correo y te contactará hoy mismo.
+                  Francisco recibió tu mensaje por correo y te contactará hoy mismo.
                 </p>
               </div>
             ) : (
@@ -311,17 +299,6 @@ export default function InvestorPerksAndFaq({
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <div>
                     <label className="block text-[11px] font-mono font-bold text-slate-500 uppercase mb-1">
-                      Monto Tentativo
-                    </label>
-                    <input
-                      type="text"
-                      value={amountField}
-                      onChange={(e) => setAmountField(e.target.value)}
-                      className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:border-brand-emerald font-bold text-swiss-pine"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-[11px] font-mono font-bold text-slate-500 uppercase mb-1">
                       Circuito Bancario
                     </label>
                     <select
@@ -337,30 +314,29 @@ export default function InvestorPerksAndFaq({
                       </option>
                     </select>
                   </div>
+                  <div>
+                    <label className="block text-[11px] font-mono font-bold text-slate-500 uppercase mb-1">
+                      WhatsApp / Teléfono (Opcional)
+                    </label>
+                    <input
+                      type="text"
+                      value={phone}
+                      onChange={(e) => setPhone(e.target.value)}
+                      placeholder="+593 / +1 ..."
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:border-brand-emerald"
+                    />
+                  </div>
                 </div>
 
                 <div>
                   <label className="block text-[11px] font-mono font-bold text-slate-500 uppercase mb-1">
-                    WhatsApp / Teléfono (Opcional)
-                  </label>
-                  <input
-                    type="text"
-                    value={phone}
-                    onChange={(e) => setPhone(e.target.value)}
-                    placeholder="+593 / +1 ..."
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:border-brand-emerald"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-[11px] font-mono font-bold text-slate-500 uppercase mb-1">
-                    Comentario o Fecha Sugerida para Conversar
+                    Comentarios, Dudas o Fecha Sugerida para Conversar
                   </label>
                   <textarea
                     rows={2}
                     value={notes}
                     onChange={(e) => setNotes(e.target.value)}
-                    placeholder="Ej. Me interesa participar con $2,500 o $5,000, conversemos esta semana..."
+                    placeholder="Ej. Revisé el video y el modelo de pagaré; me gustaría conversar condiciones esta semana..."
                     className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:border-brand-emerald"
                   />
                 </div>
@@ -384,7 +360,7 @@ export default function InvestorPerksAndFaq({
                   ) : (
                     <>
                       <Send className="w-4 h-4 text-brand-emeraldBright" />
-                      <span>Enviar Confirmación de Interés por Email</span>
+                      <span>Enviar Mensaje de Interés por Email</span>
                     </>
                   )}
                 </button>

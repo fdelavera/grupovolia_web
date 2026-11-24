@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Grupo Volia · Propuesta Puente de Promoción Inicial ($5,000 USD)",
     description:
-      "Video tour del sistema real, simulador interactivo de rendimiento (+12% fijo / hasta 28.8% APR pre-pago) y respaldo Micro1 Inc. en EE.UU.",
+      "Video tour del sistema real, condiciones oficiales (+12% fijo y pre-pago VIP desde Mayo), modelo de pagaré EC/USA y respaldo Micro1 Inc. en EE.UU.",
     url: "https://www.grupovolia.com/inversion",
     siteName: "Grupo Volia",
     locale: "es_EC",

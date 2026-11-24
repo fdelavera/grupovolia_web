@@ -288,8 +288,8 @@ export const INVESTMENT_FAQS = [
     a: "¡Ganas exactamente los mismos intereses completos (+12% / +$600 sobre $5,000) en menos tiempo! Si te liquidamos en Mayo (~5 meses) o Junio (~6 meses), recibes tu capital íntegro más el 100% de los $600 USD pactados, lo que eleva tu rentabilidad anualizada real al 24.0% – 28.8% anual sin penalidad para ti.",
   },
   {
-    q: "¿Es obligatorio prestar los $5,000 completos o se puede entrar en tramos?",
-    a: "La ronda total puente es de $5,000 USD, pero puedes financiar el monto completo o participar con un tramo desde $1,000 USD, $2,000 USD o $2,500 USD exactamente bajo las mismas condiciones proporcionales (+12% fijo total y pre-pago VIP desde Mayo). Usa el simulador de arriba para ver tus números exactos.",
+    q: "¿Qué documento legal respalda la operación y cómo se entrega el capital?",
+    a: "Se suscribe un Pagaré a la Orden / Unsecured Commercial Promissory Note redactado para aplicar tanto bajo normativa de Ecuador (Código de Comercio y COGEP) como en Estados Unidos, con firma corporativa de GRUPOVOLIA S.A.S. y garante personal solidario de Francisco de la Vera. El capital pactado se entrega de golpe en una sola transferencia íntegra para arrancar la campaña completa y fijar el cronograma desde el Día 1. Puedes leer y descargar el modelo aquí mismo.",
   },
   {
     q: "¿Cómo funciona el circuito Ecuador vs. el circuito EE.UU.?",
