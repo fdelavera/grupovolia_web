@@ -50,10 +50,10 @@ const WELCOME_STOPS: WelcomeStop[] = [
     badge: "Parada 1 · Propuesta de Valor",
     title: "4 Razones por las que Cierra Fácil en Ecuador",
     summary:
-      "Cada objeción común del empresario PYME viene resuelta de raíz: SRI ilimitado con Auto-Retry ante caídas, 10 módulos sincronizables o independientes, cifrado LOPDP AES-256-GCM y herramientas móviles.",
+      "Cada objeción común del empresario PYME viene resuelta: SRI ilimitado con Auto-Retry, 10 módulos sincronizados que reemplazan CRMs de WhatsApp de $50–$300/mes (con Inbox WhatsApp SLA, Round-Robin, segmentación por compras SRI y Ads IA), cifrado LOPDP y herramientas móviles.",
     bullets: [
-      "$0 adicional por factura electrónica emitida al SRI.",
-      "El cliente entiende el ahorro en los primeros 3 minutos de demostración.",
+      "$0 adicional por factura electrónica SRI y sin cobros por usuario extra en Suite.",
+      "El cliente entiende el ahorro frente a herramientas sueltas en los primeros 3 minutos.",
     ],
     icon: TrendingUp,
   },
