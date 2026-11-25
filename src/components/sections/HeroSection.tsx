@@ -218,13 +218,20 @@ export default function HeroSection({ onOpenChat }: HeroSectionProps) {
                 </div>
               </div>
               <div className="flex flex-wrap items-center gap-2">
-                <a
-                  href="#tarifario-calculadora"
+                <Link
+                  href="/demo"
                   className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-brand-emerald hover:bg-brand-pine text-white font-bold text-xs shadow-swiss-md transition-all"
                 >
-                  <Calculator className="w-3.5 h-3.5 shrink-0" />
-                  <span>Ver Precios y Demos de 10 Industrias</span>
+                  <Sparkles className="w-3.5 h-3.5 shrink-0" />
+                  <span>Probar Demo 24h Gratis</span>
                   <ArrowUpRight className="w-3.5 h-3.5 shrink-0" />
+                </Link>
+                <a
+                  href="#tarifario-calculadora"
+                  className="inline-flex items-center gap-1.5 px-3.5 py-2.5 rounded-xl bg-white hover:bg-brand-emeraldSoft text-swiss-pine border border-slate-300 hover:border-brand-emerald font-bold text-xs shadow-sm transition-all"
+                >
+                  <Calculator className="w-3.5 h-3.5 text-brand-emerald shrink-0" />
+                  <span>Ver Precios de 10 Módulos</span>
                 </a>
                 <a
                   href="https://app.grupovolia.com/app"

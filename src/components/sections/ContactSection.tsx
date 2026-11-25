@@ -17,6 +17,7 @@ import {
   PUBLIC_BOOKING_CHANNELS,
   type PublicBookingChannel,
 } from "@/lib/calendar-booking";
+import { getStoredAttribution, trackWebEvent } from "@/lib/attribution";
 
 interface ContactSectionProps {
   preselectedPackage?: string;
@@ -66,6 +67,9 @@ export default function ContactSection({
 
     setStatus("sending");
     try {
+      const submittedEmail = email;
+      const submittedPhone = phone;
+      const submittedPackage = packageInterest;
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -80,9 +84,16 @@ export default function ContactSection({
           bookingDate,
           bookingTime,
           bookingChannel,
+          attribution: getStoredAttribution(),
         }),
       });
       if (res.ok) {
+        trackWebEvent("Lead", {
+          contentName: submittedPackage,
+          value: 69,
+          email: submittedEmail,
+          phone: submittedPhone,
+        });
         setLastBookedUrl(calendarUrl);
         setStatus("success");
         setName("");

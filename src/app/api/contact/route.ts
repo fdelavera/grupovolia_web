@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { createClient } from "@supabase/supabase-js";
 import { Resend } from "resend";
 
 const ALLOWED_PUBLIC_ALIASES = new Set([
@@ -20,6 +21,7 @@ export async function POST(req: NextRequest) {
       bookingDate,
       bookingTime,
       bookingChannel,
+      attribution,
     } = await req.json();
 
     if (!name || !email || !message) {
@@ -40,6 +42,53 @@ export async function POST(req: NextRequest) {
         ? `${bookingDate} a las ${bookingTime} (UTC-5 Ecuador) · Canal: ${cleanAlias}`
         : `Sin fecha fija seleccionada (Canal: ${cleanAlias})`;
 
+    const attribObj =
+      attribution && typeof attribution === "object"
+        ? (attribution as Record<string, string>)
+        : {};
+    const attribTags = [
+      attribObj.utm_source ? `utm_source=${attribObj.utm_source}` : "",
+      attribObj.utm_medium ? `utm_medium=${attribObj.utm_medium}` : "",
+      attribObj.utm_campaign ? `utm_campaign=${attribObj.utm_campaign}` : "",
+      attribObj.ref ? `ref=${attribObj.ref}` : "",
+    ]
+      .filter(Boolean)
+      .join(" | ");
+
+    // Persistir siempre en CRM Supabase de GRUPOVOLIA S.A.S. antes del correo
+    const sbUrl = process.env.NEXT_PUBLIC_SUPABASE_URL?.trim();
+    const sbKey = process.env.SUPABASE_SERVICE_ROLE_KEY?.trim();
+    if (sbUrl && sbKey) {
+      try {
+        const sb = createClient(sbUrl, sbKey, { auth: { persistSession: false } });
+        const { data: gvTenant } = await sb
+          .from("tenants")
+          .select("id")
+          .eq("slug", "grupo-volia")
+          .single();
+        if (gvTenant?.id) {
+          const isCorporate = String(packageInterest || "").includes("119");
+          const isIndividual = String(packageInterest || "").includes("35");
+          const expectedUsd = isCorporate ? 119 : isIndividual ? 35 : 69;
+          await sb.from("crm_leads").insert({
+            tenant_id: gvTenant.id,
+            company_name: company || null,
+            contact_name: name,
+            email,
+            phone: phone || null,
+            expected_value: expectedUsd,
+            status: "new",
+            lead_score: 65,
+            notes: `${packageInterest || "Web"} · ${appointmentSummary}${
+              attribTags ? ` · ${attribTags}` : ""
+            }`.slice(0, 490),
+          });
+        }
+      } catch (dbErr) {
+        console.warn("[Contact CRM insert warning]:", dbErr);
+      }
+    }
+
     if (!resendApiKey) {
       console.warn("[Grupo Volia Contact Lead]", {
         name,
@@ -49,6 +98,7 @@ export async function POST(req: NextRequest) {
         packageInterest,
         modality,
         appointmentSummary,
+        attribTags,
         message,
       });
       return NextResponse.json({ success: true, mode: "development" });
@@ -61,7 +111,7 @@ export async function POST(req: NextRequest) {
       to: recipient,
       replyTo: email,
       subject: `${bookingDate ? `[Cita ${bookingDate} ${bookingTime}] ` : ""}[Lead B2B Grupo Volia · ${cleanAlias}] ${company || name} — ${packageInterest || "Consulta General"}`,
-      text: `Nuevo Lead Comercial en www.grupovolia.com:\n\nNombre: ${name}\nEmpresa: ${company || "No especificado"}\nEmail: ${email}\nTeléfono / WhatsApp: ${phone || "No especificado"}\nCanal Destino: ${cleanAlias}\nCita Solicitada: ${appointmentSummary}\nSolución de Interés: ${packageInterest || "Por definir"}\nForma de Pago / Modalidad: ${modality || "Por definir"}\n\nMensaje:\n${message}`,
+      text: `Nuevo Lead Comercial en www.grupovolia.com:\n\nNombre: ${name}\nEmpresa: ${company || "No especificado"}\nEmail: ${email}\nTeléfono / WhatsApp: ${phone || "No especificado"}\nCanal Destino: ${cleanAlias}\nCita Solicitada: ${appointmentSummary}\nAtribución / Referido: ${attribTags || "Tráfico directo"}\nSolución de Interés: ${packageInterest || "Por definir"}\nForma de Pago / Modalidad: ${modality || "Por definir"}\n\nMensaje:\n${message}`,
       html: `
         <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 620px; margin: 0 auto; padding: 28px; background-color: #FFFFFF; color: #062016; border-radius: 16px; border: 1px solid #E2E8F0;">
           <div style="border-bottom: 1px solid #E2E8F0; padding-bottom: 16px; margin-bottom: 20px;">

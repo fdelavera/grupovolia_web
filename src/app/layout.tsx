@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+import TrackingScripts from "@/components/tracking/TrackingScripts";
+import WhatsAppFloat from "@/components/ui/WhatsAppFloat";
 
 const geistSans = Inter({ subsets: ["latin"], variable: "--font-geist-sans" });
 const geistMono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-geist-mono" });
@@ -56,7 +59,11 @@ export default function RootLayout({
         className="font-sans bg-white text-swiss-pine min-h-screen antialiased selection:bg-brand-emerald selection:text-white"
         suppressHydrationWarning
       >
+        <Suspense fallback={null}>
+          <TrackingScripts />
+        </Suspense>
         {children}
+        <WhatsAppFloat />
       </body>
     </html>
   );

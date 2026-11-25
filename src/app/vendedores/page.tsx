@@ -33,6 +33,7 @@ import Footer from "@/components/navigation/Footer";
 import GrupoVoliaChatModal from "@/components/chat/GrupoVoliaChatModal";
 import { buildGoogleCalendarBookingUrl } from "@/lib/calendar-booking";
 import { VendedoresWelcomeTour } from "@/components/vendedores/VendedoresWelcomeTour";
+import { getStoredAttribution, trackWebEvent } from "@/lib/attribution";
 
 const FOUR_CLOSING_REASONS = [
   {
@@ -154,10 +155,16 @@ export default function VendedoresPage() {
           bookingDate: interviewDate,
           bookingTime: interviewTime,
           bookingChannel: "ventas@grupovolia.com",
+          attribution: getStoredAttribution(),
           message: `Rol solicitado: ${roleType}\nCiudad / Cobertura: ${city}\n\nExperiencia y perfil comercial:\n${experience}`,
         }),
       });
       if (res.ok) {
+        trackWebEvent("Lead", {
+          contentName: `vendedor_${roleType}`,
+          email,
+          phone,
+        });
         setLastInterviewUrl(interviewCalendarUrl);
         setStatus("success");
         setFullName("");
