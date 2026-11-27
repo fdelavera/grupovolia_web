@@ -275,7 +275,7 @@ export default function ContactSection({
                       1. Módulo Individual PYME ($35/mes + IVA · Setup $120 + IVA)
                     </option>
                     <option value="2. Suite Completa PYME Estrella ($69/mes + IVA · Usuarios y RRHH Ilimitados)">
-                      2. Suite Completa PYME Estrella ($69/mes + IVA · Setup $240 + IVA)
+                      2. Suite Completa PYME Estrella ($69/mes + IVA · Setup $120 + IVA)
                     </option>
                     <option value="3. Suite Corporativa Multisucursal ($119/mes + IVA · Setup $250 + IVA)">
                       3. Suite Corporativa Multisucursal ($119/mes + IVA · Setup $250 + IVA)

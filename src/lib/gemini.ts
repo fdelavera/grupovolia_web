@@ -42,7 +42,7 @@ Todo módulo o suite de Grupo Volia incluye un **Asistente / Copiloto de IA Inte
 - **Paquete 1: Módulo Individual PYME** (Elige 1 de los 10 Módulos — opera 100% autónomo sin errores):
   - **Membresía Mensual:** **$35 USD/mes + IVA** · Diseño e implementación inicial: **$120 USD + IVA** (pago único). Incluye usuarios, clientes y proveedores ilimitados (y colaboradores ilimitados si se elige RRHH), Nube, API IA y actualizaciones normativas SRI/NIIF.
 - **Paquete 2: SUITE COMPLETA PYME — PRODUCTO ESTRELLA** (Los 10 Módulos Interconectados + **Usuarios, Clientes, Proveedores y Colaboradores RRHH Ilimitados** + App Empleados White-Label + Copiloto IA):
-  - **Membresía Mensual:** **$69 USD/mes + IVA** · Diseño e implementación inicial: **$240 USD + IVA** (pago único). Ideal para empresas en 1 matriz con bodegas, puntos de emisión SRI, facturación ilimitada ($0/doc) y nómina IESS/RIMPE sin límite de colaboradores.
+  - **Membresía Mensual:** **$69 USD/mes + IVA** · Diseño e implementación inicial: **$120 USD + IVA** (pago único). Ideal para empresas en 1 matriz con bodegas, puntos de emisión SRI, facturación ilimitada ($0/doc) y nómina IESS/RIMPE sin límite de colaboradores.
 - **Paquete 3: Suite Corporativa Multisucursal / Multi-Cantón** (Operación sin límite de sucursales + Base de datos dedicada + 10 Módulos + RRHH Multi-Cantón & Biométricos multi-sede + Usuarios Ilimitados + Copiloto IA Pro):
   - **Membresía Mensual:** **$119 USD/mes + IVA** · Diseño e implementación inicial: **$250 USD + IVA** (pago único). Diferenciador clave para cadenas multisucursal, constructoras UAFE y grupos empresariales con feriados cantonales simultáneos y relojes biométricos en múltiples sedes.
 

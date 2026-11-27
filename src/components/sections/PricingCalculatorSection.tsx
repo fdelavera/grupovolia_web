@@ -43,7 +43,7 @@ export default function PricingCalculatorSection({ onSelectPlan }: PricingCalcul
         "1 Empresa / Matriz · Usuarios, Clientes, Proveedores y Colaboradores RRHH 100% Ilimitados · Los 10 Módulos + IA",
       badge: "MÁS ELEGIDO · ESTRELLA",
       highlight: true,
-      pricing: { setup: 240, monthly: 69 },
+      pricing: { setup: 120, monthly: 69 },
       features: [
         "Usuarios, Clientes, Proveedores, Colaboradores RRHH y Facturas SRI ($0/doc) 100% Ilimitados en 1 matriz",
         "Los 10 Módulos Interconectados: Contabilidad SRI, Inventario Escáner, Finanzas/Oráculo Multi-Bolsa, CRM 10 Giros LOPDP, Project Manager & Agenda, Marketing Ops, UAFE, Portal B2B, IA y Módulo 10 RRHH",
