@@ -167,7 +167,8 @@ export default function BusinessLinesSection() {
           </h2>
           <p className="mt-4 text-slate-600 text-sm sm:text-base">
             Empieza activando solo el módulo que hoy necesitas o conecta los 10 en{" "}
-            <strong className="text-swiss-pine">una sola Suite sincronizada</strong> — cada pieza funciona igual de fluida de forma independiente o trabajando en conjunto, junto a producción audiovisual y consultoría con IA.
+            <strong className="text-swiss-pine">una sola Suite sincronizada</strong> — además de nuestra consola independiente{" "}
+            <strong className="text-brand-emerald">contadores.grupovolia.com</strong> para contadores y estudios contables en Ecuador.
           </p>
           <div className="mt-6 text-left">
             <TechGlossaryBar
@@ -312,7 +313,8 @@ export default function BusinessLinesSection() {
           </div>
         </div>
 
-        {/* LÍNEAS 2 Y 3: AUDIOVISUAL ESTÁNDARES INTERNACIONALES + CONSULTORÍA */}
+        {/* LÍNEAS 2 Y 3: OCULTAS TEMPORALMENTE PARA ENFOQUE 100% EN SUITE B2B + CONSOLA CONTADORES */}
+        {false && (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-10">
           {/* Línea 2 */}
           <div className="swiss-card rounded-3xl p-6 sm:p-8 flex flex-col justify-between">
@@ -432,6 +434,7 @@ export default function BusinessLinesSection() {
             </div>
           </div>
         </div>
+        )}
 
         {/* CASO DE ÉXITO #1: VOLIA FITNESS */}
         <div className="rounded-3xl p-6 sm:p-8 bg-white border-2 border-brand-emerald/30 shadow-swiss-md flex flex-col lg:flex-row items-center justify-between gap-8">

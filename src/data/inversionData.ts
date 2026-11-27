@@ -130,6 +130,14 @@ export const SCREENSHOT_GALLERY = [
     demoUrl: "https://demo.grupovolia.com/empleado/demo-comercio",
     desc: "Vestida con el logotipo y colores de cada cliente para marcar asistencia GPS, descargar roles de pago y gestionar vacaciones.",
   },
+  {
+    id: "contadores",
+    title: "Consola Multi-Empresa Contadores",
+    badge: "Nueva Línea · contadores.grupovolia.com",
+    src: "/assets/inversion/02_contabilidad_sri.png",
+    demoUrl: "https://contadores.grupovolia.com/?demo=1",
+    desc: "Línea independiente de alto margen recurrente para contadores y estudios contables ($69/mes hasta 15 RUCs · $119/mes hasta 40 RUCs): Sociedades + Personas Naturales, Calendario SRI 9no dígito (IVA 104, Ret. 103, ATS y Renta 101/102).",
+  },
 ];
 
 export const LIVE_DEMOS = [
@@ -139,6 +147,7 @@ export const LIVE_DEMOS = [
   { label: "Agro & Camaroneras", url: "https://demo.grupovolia.com/demo/demo-agro" },
   { label: "Portal B2B Clientes", url: "https://demo.grupovolia.com/portal/demo-comercio" },
   { label: "App Empleados Móvil", url: "https://demo.grupovolia.com/empleado/demo-comercio" },
+  { label: "Consola Contadores (Multi-RUC)", url: "https://contadores.grupovolia.com/?demo=1" },
 ];
 
 export const ASSET_BREAKDOWN: AssetRow[] = [

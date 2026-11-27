@@ -21,7 +21,7 @@ export default function GrupoVoliaChatModal({
     {
       role: "assistant",
       content:
-        "¡Hola! Soy Anna, asesora ejecutiva de Grupo Volia. Puedo ayudarte a elegir entre nuestra Suite Completa PYME ($69/mes + IVA con usuarios, clientes, proveedores y colaboradores RRHH ilimitados) y nuestra Suite Corporativa Multisucursal ($119/mes + IVA), o cotizar producción audiovisual IA con estándares internacionales. ¿A qué se dedica tu empresa?",
+        "¡Hola! Soy Anna, asesora ejecutiva de Grupo Volia. Puedo ayudarte a elegir entre nuestra Suite Completa PYME ($69/mes + IVA con 10 módulos e ilimitados usuarios/RRHH), la Suite Corporativa Multisucursal ($119/mes + IVA) o nuestra nueva Consola Multi-Empresa para Contadores (contadores.grupovolia.com desde $69/mes hasta 15 RUCs). ¿A qué se dedica tu empresa o estudio?",
     },
   ]);
   const [input, setInput] = useState("");

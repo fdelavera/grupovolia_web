@@ -219,7 +219,94 @@ export default function PricingCalculatorSection({ onSelectPlan }: PricingCalcul
           </div>
         </div>
 
-        {/* SERVICIOS COMPLEMENTARIOS POR PROYECTO */}
+        {/* CONSOLA INDEPENDIENTE PARA CONTADORES Y ESTUDIOS CONTABLES */}
+        <div className="swiss-card rounded-3xl p-6 sm:p-8 mb-14 border-2 border-brand-emerald/35 bg-white">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-5 mb-6 border-b border-slate-200">
+            <div>
+              <span className="text-xs font-mono text-brand-emerald font-bold uppercase">
+                SERVICIO INDEPENDIENTE · contadores.grupovolia.com
+              </span>
+              <h3 className="text-xl sm:text-2xl font-extrabold text-swiss-pine mt-0.5">
+                Planes Consola Multi-Empresa para Contadores &amp; Estudios Contables
+              </h3>
+              <p className="text-xs text-slate-600 mt-1">
+                No es uno de los 10 módulos estándar: es una consola exclusiva para manejar <strong>Empresas/Sociedades y Personas Naturales</strong> (General, RIMPE Emprendedor y Popular) con Calendario SRI 9no dígito (IVA 104, Ret. 103, ATS y <strong>Renta 101/102</strong>).
+              </p>
+            </div>
+            <a
+              href="https://contadores.grupovolia.com/?demo=1"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="shrink-0 inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-swiss-pine hover:bg-brand-pine text-white text-xs font-extrabold transition-all"
+            >
+              <span>Probar Demo Contadores</span>
+              <ArrowRight className="w-4 h-4 text-emerald-300" />
+            </a>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div className="p-5 rounded-2xl bg-swiss-canvas border border-brand-emerald/30 flex flex-col justify-between gap-4">
+              <div className="space-y-2">
+                <div className="flex items-center justify-between">
+                  <span className="text-[11px] font-mono text-brand-emerald uppercase font-bold">
+                    CONTADOR INDEPENDIENTE
+                  </span>
+                  <span className="px-2.5 py-0.5 rounded-full bg-emerald-100 text-brand-pine text-[10px] font-bold">
+                    Hasta 15 RUCs · $4.60/cliente
+                  </span>
+                </div>
+                <div className="text-3xl font-extrabold text-swiss-pine font-mono">
+                  $69 <span className="text-xs font-normal text-slate-500">+ IVA / mes ($79.35)</span>
+                </div>
+                <ul className="text-xs text-slate-600 space-y-1.5 pt-1">
+                  <li>✓ Hasta 15 empresas o personas naturales aisladas desde 1 consola</li>
+                  <li>✓ Plan de Cuentas NIIF SCVS automático, Simplificado PN o Propio</li>
+                  <li>✓ Calendario SRI por 9no dígito: IVA 104, Ret. 103, ATS y Renta 101/102</li>
+                  <li>✓ Conciliación 61 bancos/coops EC + Facturación SRI ilimitada ($0/doc)</li>
+                  <li>✓ +$5 + IVA/mes por cada RUC adicional sobre el cupo</li>
+                </ul>
+              </div>
+              <a
+                href="#contacto"
+                className="w-full text-center px-4 py-2.5 rounded-xl bg-brand-emerald hover:bg-brand-pine text-white font-extrabold text-xs transition-colors"
+              >
+                Activar Plan Contador Independiente →
+              </a>
+            </div>
+
+            <div className="p-5 rounded-2xl bg-swiss-pine text-white border border-emerald-700 flex flex-col justify-between gap-4">
+              <div className="space-y-2">
+                <div className="flex items-center justify-between">
+                  <span className="text-[11px] font-mono text-emerald-300 uppercase font-bold">
+                    ESTUDIO CONTABLE / FIRMA
+                  </span>
+                  <span className="px-2.5 py-0.5 rounded-full bg-emerald-800 text-emerald-200 text-[10px] font-bold">
+                    Hasta 40 RUCs · Equipo Multi-Contador
+                  </span>
+                </div>
+                <div className="text-3xl font-extrabold text-white font-mono">
+                  $119 <span className="text-xs font-normal text-emerald-200">+ IVA / mes ($136.85)</span>
+                </div>
+                <ul className="text-xs text-emerald-100/90 space-y-1.5 pt-1">
+                  <li>✓ Hasta 40 empresas o personas naturales + equipo multi-contador</li>
+                  <li>✓ Adaptación de módulos y plan de cuentas por cliente en 1 clic</li>
+                  <li>✓ Calendario SRI consolidado (104, 103, ATS y Renta Anual 101/102)</li>
+                  <li>✓ RRHH/Nómina IESS, Inventario Kardex y Portal B2B opcional por cliente</li>
+                  <li>✓ +$5 + IVA/mes por cada RUC adicional sobre los 40 incluidos</li>
+                </ul>
+              </div>
+              <a
+                href="#contacto"
+                className="w-full text-center px-4 py-2.5 rounded-xl bg-brand-emerald hover:bg-emerald-500 text-white font-extrabold text-xs transition-colors"
+              >
+                Activar Plan Estudio Contable →
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* SERVICIOS COMPLEMENTARIOS POR PROYECTO — OCULTOS TEMPORALMENTE */}
+        {false && (
         <div className="swiss-card rounded-3xl p-6 sm:p-8 mb-14">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-5 mb-6 border-b border-slate-200">
             <div>
@@ -303,6 +390,7 @@ export default function PricingCalculatorSection({ onSelectPlan }: PricingCalcul
             </div>
           </div>
         </div>
+        )}
 
         {/* CALCULADORA DE AHORRO + ALIANZA CONTADORES */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">

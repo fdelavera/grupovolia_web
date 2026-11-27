@@ -283,8 +283,11 @@ export default function ContactSection({
                     <option value="Oráculo Cuantitativo / Algoritmo a Medida ($490 - $1,200)">
                       Oráculo Cuantitativo / Algoritmo en Tiempo Real
                     </option>
-                    <option value="Producción Audiovisual IA Estándares Internacionales ($250 - $450)">
-                      Producción Audiovisual IA Estándares Internacionales / Virtual Staging
+                    <option value="Consola Contadores Independiente ($69 + IVA/mes · hasta 15 RUCs)">
+                      Consola Contadores Independiente ($69 + IVA/mes · hasta 15 RUCs)
+                    </option>
+                    <option value="Consola Estudio Contable ($119 + IVA/mes · hasta 40 RUCs)">
+                      Consola Estudio Contable ($119 + IVA/mes · hasta 40 RUCs)
                     </option>
                     <option value="Estudio de Mercado + Modelo Financiero Excel ($199 - $350)">
                       Estudio de Mercado + Modelo Financiero Excel

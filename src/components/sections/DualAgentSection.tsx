@@ -13,7 +13,7 @@ import {
 
 export default function DualAgentSection() {
   const [selectedIndustry, setSelectedIndustry] = useState<
-    "comercio" | "medico" | "colegio" | "restaurante" | "agro" | "inmobiliaria"
+    "comercio" | "medico" | "colegio" | "restaurante" | "agro" | "inmobiliaria" | "contadores"
   >("comercio");
 
   const industryExamples = {
@@ -52,6 +52,12 @@ export default function DualAgentSection() {
       internalUser: "Necesito el flujo de obra del trimestre y revisar si algún abono pasó el tope UAFE de $10,000.",
       internalBot:
         "Reporte listo: El flujo de caja cubre el 100% de las planillas de obra del trimestre. UAFE: 2 reservas superaron los $10,000 en 30 días y ya tienen ficha KYC completa y archivo XML RESU generado.",
+    },
+    contadores: {
+      label: "Contadores / Estudio Contable",
+      internalUser: "¿Qué clientes de mi estudio vencen esta semana por 9no dígito del RUC y quién tiene pendiente IVA 104, ATS o Impuesto a la Renta?",
+      internalBot:
+        "Calendario SRI al día (contadores.grupovolia.com): 4 clientes vencen el día 18 (9no dígito 5). 2 Sociedades S.A.S. ya tienen ATS XML, Ret. 103 e IVA 104 listos para subir; 1 Persona Natural RIMPE Emprendedor tiene IVA semestral pendiente y su Form. 102 de Renta anual está cuadrado con gastos personales.",
     },
   };
 
