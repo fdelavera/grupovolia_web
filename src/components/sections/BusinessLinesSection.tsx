@@ -140,12 +140,12 @@ export default function BusinessLinesSection() {
       title: "RRHH Ecuador, Nómina IESS/Servicios, Radar Feriados IA & App Empleados",
       icon: UserCheck,
       features: [
-        "Califica desde el Paso 0 si el personal es Relación de Dependencia (IESS), Independiente con factura RIMPE, Comisionista de Corretaje o NO COMISIONISTA ($0) para socios/gerentes.",
-        "Horarios departamentales con clasificación automática de sobretiempo +25% nocturno, +50% suplementario y +100% extraordinario/feriado + Radar IA Dominical de feriados nacionales, puentes y fiestas cantonales (incl. Cuenca y Manta).",
-        "App Web Instalable (PWA) con tu Marca (/empleado/tu-empresa): muestra el logotipo y colores de tu empresa (con discreto pie 'Powered by GrupoVolia.com'), enlaces únicos por colaborador, switch maestro de Marcación Móvil GPS (OFF por defecto) y conexión con relojes biométricos ZKTeco/Hikvision.",
-        "Offboarding legal sin borrado de datos (archivo permanente + cálculo y PDF de Acta de Finiquito), Utilidades 15%, lotes TXT / SPI Interbancario para TODOS los bancos y cooperativas del Ecuador, RDEP CSV y Migración Inteligente IA con edición manual antes de confirmar.",
+        "Reclutamiento & Candidatos (ATS) integrado: crea vacantes por Nuevo Cargo o Reemplazo por Salida, gestiona postulantes internos y externos con archivo/actualización de CV (PDF/DOCX) y transfiere automáticamente datos y CV a Nuevo Colaborador en 1 clic.",
+        "Onboarding Legal Paso 0 (Dependencia IESS, Independiente RIMPE, Comisionista o NO COMISIONISTA $0) con expediente de CV + Enlaces 1-Clic de Registro para colaboradores (Web App por rol) y vendedores (/ventas).",
+        "Horarios departamentales con sobretiempo automático +25%/+50%/+100%, Radar IA Dominical de feriados nacionales y cantonales (18 cantones incl. Cuenca y Manta), relojes biométricos ZKTeco/Hikvision y App Empleados PWA 100% White-Label (/empleado/tu-empresa) con switch GPS ON/OFF.",
+        "Offboarding legal inmutable con Acta de Finiquito PDF, Utilidades 15%, lotes TXT / SPI Interbancario para 61 bancos y cooperativas EC, RDEP CSV y Migración Inteligente IA editable.",
       ],
-      techStack: "IESS + RIMPE · 25/50/100% + Feriados IA · App WL · Biométricos · Finiquito",
+      techStack: "ATS + CVs · IESS + RIMPE · Enlaces 1-Clic · 25/50/100% · App WL · Finiquito",
     },
   ];
 

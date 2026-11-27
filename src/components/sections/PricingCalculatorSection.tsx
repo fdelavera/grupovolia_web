@@ -47,7 +47,7 @@ export default function PricingCalculatorSection({ onSelectPlan }: PricingCalcul
       features: [
         "Usuarios, Clientes, Proveedores, Colaboradores RRHH y Facturas SRI ($0/doc) 100% Ilimitados en 1 matriz",
         "Los 10 Módulos Interconectados: Contabilidad SRI, Inventario Escáner, Finanzas/Oráculo Multi-Bolsa, CRM 10 Giros LOPDP, Project Manager & Agenda, Marketing Ops, UAFE, Portal B2B, IA y Módulo 10 RRHH",
-        "Módulo 10 RRHH Ilimitado: Nómina IESS/RIMPE, Sobretiempo 25/50/100%, Radar Feriados IA, Offboarding inmutable y App Empleados 100% White-Label",
+        "Módulo 10 RRHH Ilimitado: Reclutamiento ATS con CVs, Onboarding 1-clic, Nómina IESS/RIMPE, Sobretiempo 25/50/100%, Radar Feriados IA, Offboarding inmutable y App Empleados 100% White-Label",
         "Migración Inteligente IA editable desde todos tus sistemas anteriores + 1,500 consultas/mes en tu Copiloto IA",
         "Personalización a tu marca en 1 mes (hasta 3 revisiones) + actualizaciones normativas SRI, NIIF y Código del Trabajo incluidas",
       ],

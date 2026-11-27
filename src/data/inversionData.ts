@@ -95,7 +95,7 @@ export const SCREENSHOT_GALLERY = [
     title: "Contabilidad SRI v2 & ATS",
     badge: "Cumplimiento Fiscal",
     src: "/assets/inversion/02_contabilidad_sri.png",
-    demoUrl: "https://demo.grupovolia.com/demo/demo-contable",
+    demoUrl: "https://demo.grupovolia.com/demo/demo-servicios",
     desc: "Emisión ilimitada de comprobantes electrónicos con firma .p12 cifrada AES-256-GCM, retenciones automáticas y libro diario cuadrado.",
   },
   {

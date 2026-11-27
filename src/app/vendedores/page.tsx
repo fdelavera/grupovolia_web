@@ -50,7 +50,7 @@ const FOUR_CLOSING_REASONS = [
     icon: Layers,
     title: "10 Módulos Interconectados (incl. RRHH Ecuador) & 10 Demos Vivos",
     badge: "Cierre visual al instante",
-    desc: "No muestras un ERP genérico aburrido. Llegas a la cita con 10 módulos independientes e interconectados (incluyendo el nuevo Módulo 10 RRHH Ecuador + App Empleados 100% White-Label, Radar Feriados IA y Biométricos) y 10 demos vivos adaptados al lenguaje de cada industria en Ecuador.",
+    desc: "No muestras un ERP genérico aburrido. Llegas a la cita con 10 módulos independientes e interconectados (incluyendo el Módulo 10 RRHH Ecuador con Reclutamiento ATS, archivo de CVs, contratación 1-clic, enlaces de registro para colaboradores/vendedores, Radar Feriados IA, Biométricos y App Empleados 100% White-Label) y 10 demos vivos adaptados al lenguaje de cada industria en Ecuador.",
     highlight: "El dueño de negocio ve su propia operación resuelta en los primeros 3 minutos.",
   },
   {
