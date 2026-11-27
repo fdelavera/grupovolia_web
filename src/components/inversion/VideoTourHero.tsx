@@ -171,7 +171,7 @@ export default function VideoTourHero() {
               <div className="relative rounded-2xl overflow-hidden bg-black aspect-video border border-white/10">
                 <video
                   ref={videoRef}
-                  src="/assets/video/Video_Inversion_GrupoVolia_Pitch_16x9.mp4"
+                  src="/assets/video/Video_Inversion_GrupoVolia_Pitch_16x9.mp4?v=4"
                   poster="/assets/inversion/inversion_pitch_poster_16x9.jpg"
                   controls
                   playsInline
