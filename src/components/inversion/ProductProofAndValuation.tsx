@@ -22,7 +22,7 @@ export default function ProductProofAndValuation() {
 
   const valuationBars = [
     { label: "Costo en efectivo asumido", value: 3000, max: 85000, text: "~$3,000", color: "bg-slate-500" },
-    { label: "Financiamiento puente pedido", value: 5000, max: 85000, text: "$5,000", color: "bg-amber-500" },
+    { label: "Inversión en promoción solicitada", value: 5000, max: 85000, text: "$5,000", color: "bg-amber-500" },
     { label: "Valor reemplazo conservador", value: 55000, max: 85000, text: "$55,000", color: "bg-brand-emerald" },
     { label: "Valor agencia completa", value: 85000, max: 85000, text: "$85,000", color: "bg-swiss-pine" },
   ];
@@ -50,7 +50,7 @@ export default function ProductProofAndValuation() {
               <span>VALORACIÓN REAL DEL ACTIVO CONSTRUIDO</span>
             </div>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-swiss-pine tracking-tight">
-              El préstamo ($5,000) equivale a{" "}
+              La inversión en promoción ($5,000) equivale a{" "}
               <span className="text-brand-emerald">menos del 10%</span> del software ya creado
             </h2>
             <p className="mt-3 text-slate-600 text-sm sm:text-base leading-relaxed">
@@ -66,7 +66,7 @@ export default function ProductProofAndValuation() {
             <div className="lg:col-span-5 space-y-5">
               <div className="swiss-card rounded-3xl p-6 space-y-4">
                 <h3 className="text-sm font-bold text-swiss-pine uppercase tracking-wide font-mono">
-                  Comparativa: Préstamo vs. Valor de Reemplazo
+                  Comparativa: Inversión en Promoción vs. Valor de Reemplazo
                 </h3>
                 <div className="space-y-4">
                   {valuationBars.map((bar) => {

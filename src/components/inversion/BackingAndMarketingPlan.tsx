@@ -78,7 +78,7 @@ export default function BackingAndMarketingPlan() {
                   4 Meses Verificados vía Deel Inc. → Bank of America
                 </h3>
                 <span className="px-2.5 py-1 rounded-lg bg-amber-50 border border-amber-300 text-amber-800 text-[11px] font-mono font-bold">
-                  Cuota puente: $466.67/m
+                  Cuota mensual: $466.67/m
                 </span>
               </div>
 
@@ -170,28 +170,68 @@ export default function BackingAndMarketingPlan() {
           </div>
         </div>
 
-        {/* Part 2: 100% Allocation to 6-Month Launch Promotion + 3 Pillars */}
+        {/* Part 2: Founder Skin-in-the-Game + 4-Phase Organic-to-Paid Growth Plan (Dec 2026 -> Q2 2027) */}
         <div className="pt-8 border-t border-slate-200 space-y-8">
-          <div className="max-w-3xl">
+          <div className="max-w-4xl">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-brand-emerald/30 text-brand-pine text-xs font-mono font-bold mb-3 shadow-sm">
               <Megaphone className="w-3.5 h-3.5 text-brand-emerald" />
-              <span>ASIGNACIÓN 100% A PROMOCIÓN INICIAL (ENERO – JUNIO)</span>
+              <span>EN MARCHA DESDE DICIEMBRE 2026 · CAPITAL PROPIO DEL FUNDADOR + PROMOCIÓN DE LANZAMIENTO</span>
             </div>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-swiss-pine tracking-tight">
-              Plan Promocional B2B Ecuador —{" "}
-              <span className="text-brand-emerald">$5,000 USD</span> en 6 Meses
+              Plan de Crecimiento Orgánico y Expansión —{" "}
+              <span className="text-brand-emerald">Arranque Ya Financiado en Diciembre</span>
             </h2>
-            <p className="mt-2.5 text-slate-600 text-sm sm:text-base">
-              Como la tecnología ya está terminada, el 100% del financiamiento impulsa la captación
-              comercial de PYMEs y estudios contables mediante pauta Meta/Google, contenido UGC y
-              fuerza comercial a comisión.
+            <p className="mt-2.5 text-slate-600 text-sm sm:text-base leading-relaxed">
+              El fundador <strong>ya está invirtiendo capital propio desde diciembre de 2026</strong> para calentar
+              las páginas oficiales, activar el píxel de Meta, construir una lista propia de WhatsApp mediante una guía
+              gratuita para emprendedores y publicar los primeros videos del calendario tributario ecuatoriano (incluido el
+              décimo tercer sueldo). Además, ya contamos con <strong>3 asesores comerciales activos en campo</strong>{" "}
+              prospectando clientes iniciales mientras se combina contenido animado 2D, videos del fundador y una{" "}
+              <strong>portavoz corporativa con fuerte presencia en redes de imagen empresarial</strong>.
             </p>
+          </div>
+
+          {/* 4-Phase Roadmap Cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {[
+              {
+                phase: "FASE 1 · DIC – ENE (EN MARCHA)",
+                title: "Audiencia Caliente & Confianza",
+                desc: "Arranque suave financiado por el fundador: páginas oficiales, píxel de Meta, guía gratuita para captar contactos de WhatsApp y videos educativos de RUC, RIMPE, IESS y décimo tercero para llegar a enero con el algoritmo calibrado.",
+              },
+              {
+                phase: "FASE 2 · FEB – MAR",
+                title: "Dolores Reales & Contadores",
+                desc: "Series animadas 2D sobre dolores concretos (facturas SRI caídas, bodegas descuadradas, multas IESS/UAFE) + contenido dirigido a estudios contables como multiplicadores (cada contador atiende 20 a 50 PYMEs).",
+              },
+              {
+                phase: "FASE 3 · MAR – ABR",
+                title: "Grupo Volia Como Solución",
+                desc: "Conversión a demos en vivo de 24h con videos del fundador, demostraciones por industria y respaldo de portavoz corporativa con fuerte presencia en redes de imagen empresarial.",
+              },
+              {
+                phase: "FASE 4 · DESDE MAYO",
+                title: "Escala con Meta Ads + Fuerza Comercial",
+                desc: "Pauta pagada de alto retorno impactando audiencias tibias ya registradas por el píxel, apoyada por nuestra fuerza comercial a comisión (ya iniciada con 3 asesores activos en campo).",
+              },
+            ].map((item) => (
+              <div
+                key={item.phase}
+                className="swiss-card rounded-2xl p-5 bg-white border border-emerald-200/80 space-y-2"
+              >
+                <span className="inline-block text-[10px] font-mono font-bold uppercase px-2.5 py-0.5 rounded-full bg-brand-emeraldSoft text-brand-pine">
+                  {item.phase}
+                </span>
+                <h3 className="text-sm font-extrabold text-swiss-pine">{item.title}</h3>
+                <p className="text-xs text-slate-600 leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
             <div className="lg:col-span-5 swiss-card rounded-3xl p-6 space-y-4">
               <h3 className="text-sm font-extrabold text-swiss-pine uppercase font-mono">
-                Distribución del Fondo ($5,000 USD)
+                Distribución del Fondo de Promoción ($5,000 USD)
               </h3>
               <div className="space-y-4">
                 {FUND_ALLOCATION.map((item) => (

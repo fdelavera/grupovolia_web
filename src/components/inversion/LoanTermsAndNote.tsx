@@ -45,7 +45,7 @@ export default function LoanTermsAndNote() {
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-emeraldSoft border border-brand-emerald/30 text-brand-pine text-xs font-mono font-bold mb-3">
               <FileText className="w-3.5 h-3.5 text-brand-emerald" />
-              <span>CONDICIONES OFICIALES DEL PRÉSTAMO PUENTE</span>
+              <span>CONDICIONES OFICIALES · INVERSIÓN EN PROMOCIÓN DE LANZAMIENTO</span>
             </div>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-swiss-pine tracking-tight">
               Estructura de Repago{" "}
@@ -53,17 +53,17 @@ export default function LoanTermsAndNote() {
             </h2>
             <p className="mt-3 text-slate-600 text-sm sm:text-base leading-relaxed">
               La propuesta está diseñada sobre un desembolso{" "}
-              <strong>íntegro en una sola entrega (lump-sum)</strong> para ejecutar completa la
-              campaña desde enero y fijar desde el Día 1 el calendario exacto de repago (+12% fijo,
+              <strong>íntegro en una sola entrega (lump-sum)</strong> para potenciar la promoción de lanzamiento
+              que ya arranca en diciembre con capital propio del fundador y fijar desde el Día 1 el calendario exacto de repago (+12% fijo,
               con pre-pago VIP desde Mayo conservando el 100% de la ganancia).
             </p>
           </div>
 
           <div className="rounded-2xl bg-brand-emeraldSoft border border-brand-emerald/30 p-4 max-w-md text-xs text-slate-700 leading-relaxed">
             <strong className="text-swiss-pine block mb-1">
-              ¿Por qué tomar este puente al 12% en lugar de usar depósitos a plazo?
+              ¿Por qué invitar esta inversión en promoción al 12% en lugar de usar depósitos a plazo?
             </strong>
-            Es más económico asumir <strong>+$600</strong> por este puente comercial para capturar
+            Es más económico asumir <strong>+$600</strong> por esta inversión en promoción de lanzamiento para capturar
             el Q1 fiscal de Ecuador que romper depósitos a largo plazo antes de vencimiento, pagar
             penalidades bancarias y perder los intereses ya acumulados.
           </div>

@@ -41,10 +41,10 @@ export default function InvestorPerksAndFaq() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           name,
-          company: "Círculo Privado / Propuesta Puente ($5k)",
+          company: "Círculo Privado / Inversión en Promoción ($5k)",
           email,
           phone,
-          packageInterest: "Préstamo Puente Grupo Volia ($5,000 USD)",
+          packageInterest: "Inversión en Promoción de Lanzamiento Grupo Volia ($5,000 USD)",
           modality: circuitField,
           message:
             notes.trim() ||

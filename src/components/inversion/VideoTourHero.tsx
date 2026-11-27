@@ -78,21 +78,22 @@ export default function VideoTourHero() {
           <div className="lg:col-span-5 space-y-5">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-swiss-pineMid border border-brand-emerald/50 text-brand-emeraldBright text-xs font-mono font-bold">
               <Sparkles className="w-3.5 h-3.5" />
-              <span>GRUPOVOLIA S.A.S. · RONDA PUENTE COMERCIAL</span>
+              <span>GRUPOVOLIA S.A.S. · INVERSIÓN EN PROMOCIÓN DE LANZAMIENTO</span>
             </div>
 
             <h1 className="text-3xl sm:text-4xl lg:text-[42px] font-extrabold tracking-tight leading-[1.12] text-white">
               Software ERP & IA{" "}
               <span className="text-brand-emeraldBright">100% Construido.</span>{" "}
-              Fondo de Promoción Inicial ($5,000).
+              Inversión en Promoción de Lanzamiento ($5,000).
             </h1>
 
             <p className="text-sm sm:text-base text-slate-200 leading-relaxed">
               No estás financiando una idea ni desarrollo de software: la plataforma de{" "}
               <strong className="text-white">10 módulos en producción</strong> ya vale{" "}
               <strong className="text-brand-emeraldBright">$55,000–$85,000 USD</strong>{" "}
-              en mercado. Este financiamiento puente acelera el lanzamiento comercial de enero
-              preservando depósitos a largo plazo y con{" "}
+              en mercado. Además, el fundador ya está invirtiendo capital propio desde{" "}
+              <strong className="text-white">diciembre 2026</strong> en el crecimiento orgánico y ya cuenta con{" "}
+              <strong className="text-white">3 asesores comerciales activos</strong> en campo, con{" "}
               <strong className="text-white">respaldo directo de ingresos en USA (Micro1)</strong>.
             </p>
 
@@ -158,7 +159,7 @@ export default function VideoTourHero() {
                 <div className="flex items-center gap-2">
                   <span className="inline-flex h-2.5 w-2.5 rounded-full bg-brand-emeraldBright animate-pulse" />
                   <span className="font-mono font-bold text-brand-emeraldBright uppercase tracking-wider">
-                    Pitch Préstamo Puente · 60 FPS (01:46)
+                    Pitch Inversión en Promoción · 60 FPS
                   </span>
                 </div>
                 <span className="font-mono text-slate-300 text-[11px] flex items-center gap-1">

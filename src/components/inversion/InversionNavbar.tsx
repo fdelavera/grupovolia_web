@@ -31,7 +31,7 @@ export default function InversionNavbar() {
                   GRUPO <span className="text-brand-emerald">VOLIA</span>
                 </span>
                 <span className="hidden sm:block text-[10px] font-mono text-brand-emerald font-bold uppercase tracking-wider whitespace-nowrap">
-                  Propuesta Puente · $5,000
+                  Promoción de Lanzamiento · $5,000
                 </span>
               </div>
             </Link>
