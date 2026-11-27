@@ -1,5 +1,6 @@
 import crypto from "node:crypto";
 import { NextRequest, NextResponse } from "next/server";
+import { checkRateLimit, getClientIp } from "@/lib/security/rate-limit";
 
 function sha256Lower(val: string): string {
   return crypto.createHash("sha256").update(val.trim().toLowerCase(), "utf8").digest("hex");
@@ -13,6 +14,18 @@ function normalizePhoneDigits(phone: string): string {
 }
 
 export async function POST(req: NextRequest) {
+  const ip = getClientIp(req);
+  const rl = await checkRateLimit(`capi:${ip}`, 40, 60_000);
+  if (!rl.allowed) {
+    return NextResponse.json(
+      { dispatched: false, reason: "rate_limited" },
+      {
+        status: 429,
+        headers: { "Retry-After": String(rl.retryAfterSec) },
+      }
+    );
+  }
+
   try {
     const pixelId = (process.env.NEXT_PUBLIC_META_PIXEL_ID || "").trim();
     const accessToken = (process.env.META_CAPI_ACCESS_TOKEN || "").trim();

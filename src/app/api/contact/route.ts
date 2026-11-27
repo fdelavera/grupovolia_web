@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 import { Resend } from "resend";
+import { checkRateLimit, escapeHtml, getClientIp } from "@/lib/security/rate-limit";
 
 const ALLOWED_PUBLIC_ALIASES = new Set([
   "ventas@grupovolia.com",
@@ -9,6 +10,18 @@ const ALLOWED_PUBLIC_ALIASES = new Set([
 ]);
 
 export async function POST(req: NextRequest) {
+  const ip = getClientIp(req);
+  const rl = await checkRateLimit(`contact:${ip}`, 8, 60_000);
+  if (!rl.allowed) {
+    return NextResponse.json(
+      { error: "Has enviado demasiadas solicitudes seguidas. Por favor espera un minuto." },
+      {
+        status: 429,
+        headers: { "Retry-After": String(rl.retryAfterSec) },
+      }
+    );
+  }
+
   try {
     const {
       name,
@@ -106,52 +119,67 @@ export async function POST(req: NextRequest) {
 
     const resend = new Resend(resendApiKey);
 
+    const safeCleanAlias = escapeHtml(cleanAlias);
+    const safeHeadline = escapeHtml(company || name);
+    const safeName = escapeHtml(name);
+    const safeCompany = escapeHtml(company || "—");
+    const safeEmail = escapeHtml(email);
+    const safePhone = escapeHtml(phone || "—");
+    const safeAppointmentSummary = escapeHtml(appointmentSummary);
+    const safePackageInterest = escapeHtml(packageInterest || "—");
+    const safeModality = escapeHtml(modality || "—");
+    const safeMessage = escapeHtml(message);
+    const cleanReplyTo = String(email).replace(/[\r\n]+/g, "").trim();
+    const cleanSubject = `${bookingDate ? `[Cita ${bookingDate} ${bookingTime}] ` : ""}[Lead B2B Grupo Volia · ${cleanAlias}] ${company || name} — ${packageInterest || "Consulta General"}`
+      .replace(/[\r\n]+/g, " ")
+      .slice(0, 250);
+
     const { data, error } = await resend.emails.send({
       from: "Grupo Volia Web <onboarding@resend.dev>",
       to: recipient,
-      replyTo: email,
-      subject: `${bookingDate ? `[Cita ${bookingDate} ${bookingTime}] ` : ""}[Lead B2B Grupo Volia · ${cleanAlias}] ${company || name} — ${packageInterest || "Consulta General"}`,
+      replyTo: cleanReplyTo,
+      subject: cleanSubject,
       text: `Nuevo Lead Comercial en www.grupovolia.com:\n\nNombre: ${name}\nEmpresa: ${company || "No especificado"}\nEmail: ${email}\nTeléfono / WhatsApp: ${phone || "No especificado"}\nCanal Destino: ${cleanAlias}\nCita Solicitada: ${appointmentSummary}\nAtribución / Referido: ${attribTags || "Tráfico directo"}\nSolución de Interés: ${packageInterest || "Por definir"}\nForma de Pago / Modalidad: ${modality || "Por definir"}\n\nMensaje:\n${message}`,
       html: `
         <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 620px; margin: 0 auto; padding: 28px; background-color: #FFFFFF; color: #062016; border-radius: 16px; border: 1px solid #E2E8F0;">
           <div style="border-bottom: 1px solid #E2E8F0; padding-bottom: 16px; margin-bottom: 20px;">
-            <span style="background: #ECFDF5; color: #059669; padding: 4px 10px; border-radius: 999px; font-size: 11px; font-weight: 700; text-transform: uppercase;">Nuevo Lead B2B · ${cleanAlias}</span>
-            <h2 style="color: #062016; margin: 10px 0 4px 0; font-size: 22px;">${company || name}</h2>
+            <span style="background: #ECFDF5; color: #059669; padding: 4px 10px; border-radius: 999px; font-size: 11px; font-weight: 700; text-transform: uppercase;">Nuevo Lead B2B · ${safeCleanAlias}</span>
+            <h2 style="color: #062016; margin: 10px 0 4px 0; font-size: 22px;">${safeHeadline}</h2>
             <p style="color: #475569; margin: 0; font-size: 13px;">Recibido desde www.grupovolia.com</p>
           </div>
           <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px; font-size: 14px;">
             <tr>
               <td style="padding: 8px 0; color: #475569; width: 40%;">Contacto:</td>
-              <td style="padding: 8px 0; color: #062016; font-weight: 600;">${name}</td>
+              <td style="padding: 8px 0; color: #062016; font-weight: 600;">${safeName}</td>
             </tr>
             <tr>
               <td style="padding: 8px 0; color: #475569;">Empresa:</td>
-              <td style="padding: 8px 0; color: #062016;">${company || "—"}</td>
+              <td style="padding: 8px 0; color: #062016;">${safeCompany}</td>
             </tr>
             <tr>
               <td style="padding: 8px 0; color: #475569;">Correo Electrónico:</td>
-              <td style="padding: 8px 0;"><a href="mailto:${email}" style="color: #059669;">${email}</a></td>
+              <td style="padding: 8px 0;"><a href="mailto:${safeEmail}" style="color: #059669;">${safeEmail}</a></td>
             </tr>
             <tr>
               <td style="padding: 8px 0; color: #475569;">WhatsApp / Teléfono:</td>
-              <td style="padding: 8px 0; color: #059669; font-weight: 600;">${phone || "—"}</td>
+              <td style="padding: 8px 0; color: #059669; font-weight: 600;">${safePhone}</td>
             </tr>
             <tr>
               <td style="padding: 8px 0; color: #475569;">Cita / Canal:</td>
-              <td style="padding: 8px 0; color: #062016; font-weight: 700;">${appointmentSummary}</td>
+              <td style="padding: 8px 0; color: #062016; font-weight: 700;">${safeAppointmentSummary}</td>
             </tr>
             <tr>
               <td style="padding: 8px 0; color: #475569;">Solución de Interés:</td>
-              <td style="padding: 8px 0; color: #064E3B; font-weight: 700;">${packageInterest || "—"}</td>
+              <td style="padding: 8px 0; color: #064E3B; font-weight: 700;">${safePackageInterest}</td>
             </tr>
             <tr>
               <td style="padding: 8px 0; color: #475569;">Forma de Pago / Plan:</td>
-              <td style="padding: 8px 0; color: #0F172A;">${modality || "—"}</td>
+              <td style="padding: 8px 0; color: #0F172A;">${safeModality}</td>
             </tr>
           </table>
           <div style="background-color: #F8FAF9; border: 1px solid #E2E8F0; border-radius: 12px; padding: 16px;">
             <strong style="color: #475569; font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 8px;">Detalles del Proyecto / Requerimiento:</strong>
-            <p style="color: #0F172A; font-size: 14px; line-height: 1.6; margin: 0; white-space: pre-wrap;">${message}</p>
+            <p style="color: #0F172A; font-size: 14px; line-height: 1.6; margin: 0; white-space: pre-wrap;">${safeMessage}</p>
           </div>
         </div>
       `,

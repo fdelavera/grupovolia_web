@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { genAI } from "@/lib/gemini";
+import { checkRateLimit, getClientIp } from "@/lib/security/rate-limit";
 
 /**
  * Endpoint basado en la arquitectura multi-agente de FRANTU TRADING AI BOT:
@@ -10,8 +11,34 @@ import { genAI } from "@/lib/gemini";
  * Adaptado para empresas ecuatorianas en 4 sectores estratégicos.
  */
 export async function POST(req: NextRequest) {
+  const ip = getClientIp(req);
+  const rl = await checkRateLimit(`quant-oracle:${ip}`, 15, 60_000);
+  if (!rl.allowed) {
+    return NextResponse.json(
+      { error: "Demasiadas simulaciones seguidas. Por favor espera un minuto." },
+      {
+        status: 429,
+        headers: { "Retry-After": String(rl.retryAfterSec) },
+      }
+    );
+  }
+
   try {
-    const { sector, companyType, monthlyVolume, customChallenge } = await req.json();
+    const rawBody = (await req.json()) as Record<string, unknown>;
+    const sector =
+      typeof rawBody?.sector === "string" ? rawBody.sector.trim().slice(0, 300) : "";
+    const companyType =
+      typeof rawBody?.companyType === "string"
+        ? rawBody.companyType.trim().slice(0, 300)
+        : "";
+    const monthlyVolume =
+      rawBody?.monthlyVolume != null
+        ? String(rawBody.monthlyVolume).trim().slice(0, 300)
+        : "";
+    const customChallenge =
+      typeof rawBody?.customChallenge === "string"
+        ? rawBody.customChallenge.trim().slice(0, 300)
+        : "";
 
     const prompt = `
 Eres el motor algorítmico "Apex Quant Engine" de Grupo Volia (basado en la arquitectura de 4 etapas de Francisco de la Vera: 1_Elite_Scout, 1b_AI_Strategist, 2_Position_Architect y 3_Elite_Sentinel con indicadores EMA-9, VWAP y control de riesgo 1R).
