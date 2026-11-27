@@ -158,20 +158,20 @@ export default function VideoTourHero() {
                 <div className="flex items-center gap-2">
                   <span className="inline-flex h-2.5 w-2.5 rounded-full bg-brand-emeraldBright animate-pulse" />
                   <span className="font-mono font-bold text-brand-emeraldBright uppercase tracking-wider">
-                    Video Recorrido Real (01:39)
+                    Pitch Préstamo Puente · 60 FPS (01:46)
                   </span>
                 </div>
                 <span className="font-mono text-slate-300 text-[11px] flex items-center gap-1">
                   <Clock className="w-3.5 h-3.5 text-brand-emeraldBright" />
-                  Escena {activeChapter.idx}/7: {activeChapter.title}
+                  Escena {activeChapter.idx}/{VIDEO_CHAPTERS.length}: {activeChapter.title}
                 </span>
               </div>
 
               <div className="relative rounded-2xl overflow-hidden bg-black aspect-video border border-white/10">
                 <video
                   ref={videoRef}
-                  src="/assets/video/Video_Promocional_GrupoVolia_Master_16x9.mp4"
-                  poster="/assets/inversion/promo_poster_16x9.jpg"
+                  src="/assets/video/Video_Inversion_GrupoVolia_Pitch_16x9.mp4"
+                  poster="/assets/inversion/inversion_pitch_poster_16x9.jpg"
                   controls
                   playsInline
                   preload="metadata"
