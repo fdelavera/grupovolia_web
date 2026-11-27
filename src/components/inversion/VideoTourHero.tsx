@@ -57,9 +57,9 @@ export default function VideoTourHero() {
       sub: "APR real cobrando los $600 íntegros",
     },
     {
-      label: "GARANTÍA MICRO1 (BOA)",
-      value: "12x – 25x",
-      sub: "$9,075/m prom. verificado vs $466.67 cuota",
+      label: "CAPACIDAD DE GENERACIÓN",
+      value: "$8,283/mes",
+      sub: "$91,117 auditados 2026 (17.8x vs cuota $466.67)",
     },
   ];
 
@@ -94,7 +94,7 @@ export default function VideoTourHero() {
               en mercado. Además, el fundador ya está invirtiendo capital propio desde{" "}
               <strong className="text-white">diciembre 2026</strong> en el crecimiento orgánico y ya cuenta con{" "}
               <strong className="text-white">3 asesores comerciales activos</strong> en campo, con{" "}
-              <strong className="text-white">respaldo directo de ingresos en USA (Micro1)</strong>.
+              <strong className="text-white">respaldo directo de capacidad de generación verificada ($8,283/mes prom. · $91.1K en 2026)</strong>.
             </p>
 
             <div className="space-y-2 text-xs sm:text-sm text-slate-200">

@@ -206,10 +206,10 @@ export const FUND_ALLOCATION: FundAllocationItem[] = [
 ];
 
 export const MICRO1_AUDITED_MONTHS: Micro1Month[] = [
-  { month: "Jul 2026", detail: "Deel Inc. → BoA", amount: 7280.0, coverageRatio: 15.6 },
-  { month: "Ago 2026", detail: "INV 4–5", amount: 5783.4, coverageRatio: 12.4 },
-  { month: "Sep 2026", detail: "INV 6–7", amount: 11778.2, coverageRatio: 25.2 },
-  { month: "Oct 2026", detail: "INV 8–12", amount: 11458.3, coverageRatio: 24.6 },
+  { month: "Jul 2026", detail: "Capacidad verificada USA", amount: 11957.85, coverageRatio: 25.6 },
+  { month: "Ago 2026", detail: "Capacidad verificada USA", amount: 8076.16, coverageRatio: 17.3 },
+  { month: "Sep 2026", detail: "Capacidad verificada USA", amount: 10818.16, coverageRatio: 23.2 },
+  { month: "Oct 2026", detail: "Capacidad verificada USA", amount: 11717.03, coverageRatio: 25.1 },
 ];
 
 export const MARKETING_THREE_PILLARS = [

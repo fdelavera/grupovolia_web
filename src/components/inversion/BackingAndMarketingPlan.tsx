@@ -56,26 +56,28 @@ export default function BackingAndMarketingPlan() {
           <div className="lg:col-span-6 space-y-5">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-brand-emerald/30 text-brand-pine text-xs font-mono font-bold shadow-sm">
               <ShieldCheck className="w-3.5 h-3.5 text-brand-emerald" />
-              <span>GARANTÍA REAL INDEPENDIENTE (EE.UU.)</span>
+              <span>CAPACIDAD DE GENERACIÓN VERIFICADA (USA + ECUADOR)</span>
             </div>
 
             <h2 className="text-3xl sm:text-4xl font-extrabold text-swiss-pine tracking-tight">
-              Respaldo Directo Micro1 Inc.:{" "}
-              <span className="text-brand-emerald">12x a 25x</span> Sobre la Cuota
+              Capacidad de Generación:{" "}
+              <span className="text-brand-emerald">$8,283/mes</span> (17.8x Sobre la Cuota)
             </h2>
 
             <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-              Tu recuperación no depende de qué tan rápido venda el software en sus primeros
-              meses. La cuota máxima de <strong>$466.67 USD/mes</strong> (sobre $5,000) está
-              respaldada por contratos de consultoría de Inteligencia Artificial en Silicon Valley
-              depositados quincenalmente en Bank of America (días 5 y 20).
+              Tu recuperación no depende de qué tan rápido venda el software en sus primeros meses.
+              Durante 2026 (Ene–Nov, 11 meses auditados en cuentas bancarias USA y Ecuador), el
+              fundador demostró una capacidad consolidada de generación de{" "}
+              <strong>$91,117.39 USD ($8,283.40/mes promedio)</strong>, con un promedio reciente
+              Jul–Oct de <strong>$10,642/mes</strong> — frente a una cuota de apenas{" "}
+              <strong>$466.67 USD/mes</strong> (~5.6% de la capacidad mensual).
             </p>
 
             {/* 4-Month Visual Bar Card */}
             <div className="swiss-card rounded-3xl p-6 space-y-4">
               <div className="flex flex-wrap items-center justify-between gap-2">
                 <h3 className="text-sm font-extrabold text-swiss-pine">
-                  4 Meses Verificados vía Deel Inc. → Bank of America
+                  Capacidad de Generación Reciente Auditada (Jul–Oct 2026)
                 </h3>
                 <span className="px-2.5 py-1 rounded-lg bg-amber-50 border border-amber-300 text-amber-800 text-[11px] font-mono font-bold">
                   Cuota mensual: $466.67/m
@@ -116,10 +118,11 @@ export default function BackingAndMarketingPlan() {
 
               <div className="rounded-2xl bg-swiss-pine text-white p-4 text-xs leading-relaxed">
                 <strong className="text-brand-emeraldBright block mb-0.5">
-                  Jul–Oct 2026: $36,299.90 USD acumulados ($9,074.98 USD promedio/mes)
+                  Ene–Nov 2026 Auditado: $91,117.39 USD generados ($8,283.40/mes prom.) · Jul–Oct: $42,569.20 ($10,642/mes)
                 </strong>
-                Proyectos entre $45/h y $100/h, con tarifa predominante de $70/h. La cuota de
-                $466.67 representa apenas el <strong>~5.1%</strong> del promedio mensual.
+                Ingresos verificados en EE.UU. (consultoría IA Silicon Valley / operaciones) y
+                fuentes independientes. La cuota de $466.67 representa apenas el{" "}
+                <strong>~5.6%</strong> de la capacidad mensual promedio (cobertura 17.8x).
               </div>
             </div>
           </div>
