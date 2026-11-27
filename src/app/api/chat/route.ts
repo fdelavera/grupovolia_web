@@ -57,7 +57,7 @@ export async function POST(req: NextRequest) {
     }
 
     const model = genAI.getGenerativeModel({
-      model: "gemini-2.5-flash",
+      model: "gemini-4-hydrogen",
       systemInstruction: GRUPOVOLIA_SYSTEM_PROMPT,
       generationConfig: {
         maxOutputTokens: 1500,
@@ -75,7 +75,7 @@ export async function POST(req: NextRequest) {
 
     try {
       const fallbackModel = genAI.getGenerativeModel({
-        model: "gemini-1.5-flash",
+        model: "gemini-2.5-flash",
         systemInstruction: GRUPOVOLIA_SYSTEM_PROMPT,
         generationConfig: {
           maxOutputTokens: 1500,

@@ -64,7 +64,7 @@ Genera un diagnóstico ejecutivo estructurado en JSON con exactamente este forma
     if (process.env.GOOGLE_GENERATIVE_AI_API_KEY) {
       try {
         const model = genAI.getGenerativeModel({
-          model: "gemini-2.5-flash",
+          model: "gemini-4-hydrogen",
           generationConfig: {
             maxOutputTokens: 900,
             temperature: 0.5,
@@ -77,7 +77,7 @@ Genera un diagnóstico ejecutivo estructurado en JSON con exactamente este forma
           const parsed = JSON.parse(match[0]);
           return NextResponse.json({
             analysis: parsed,
-            source: "argon-engine-live",
+            source: "hydrogen-engine-live",
           });
         }
       } catch (e) {
