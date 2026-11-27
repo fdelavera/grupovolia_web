@@ -50,7 +50,7 @@ const FOUR_CLOSING_REASONS = [
     icon: Layers,
     title: "10 Módulos Interconectados (incl. RRHH Ecuador) & 10 Demos Vivos",
     badge: "Cierre visual al instante",
-    desc: "No muestras un ERP genérico aburrido. Llegas a la cita con 10 módulos independientes e interconectados (incluyendo el Módulo 10 RRHH Ecuador con Reclutamiento ATS, archivo de CVs, contratación 1-clic, enlaces de registro para colaboradores/vendedores, Radar Feriados IA, Biométricos y App Empleados 100% White-Label) y 10 demos vivos adaptados al lenguaje de cada industria en Ecuador.",
+    desc: "No muestras un ERP genérico aburrido. Llegas a la cita con 10 módulos independientes e interconectados (incluyendo el Módulo 10 RRHH Ecuador con Reclutamiento ATS, archivo de CVs, contratación 1-clic, enlaces de registro para colaboradores/vendedores, Radar Feriados IA, Biométricos y App Empleados 100% White-Label), 10 demos vivos y además la nueva línea independiente Consola Contadores (contadores.grupovolia.com · $69/mes hasta 15 RUCs y $119/mes hasta 40 RUCs con la misma comisión de 100% 1er mes + 15% recurrente).",
     highlight: "El dueño de negocio ve su propia operación resuelta en los primeros 3 minutos.",
   },
   {

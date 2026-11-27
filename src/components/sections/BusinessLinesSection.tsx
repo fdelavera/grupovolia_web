@@ -197,6 +197,38 @@ export default function BusinessLinesSection() {
             </a>
           </div>
 
+          {/* Callout Elegante: Consola Multi-Empresa para Contadores (Servicio Independiente) */}
+          <div className="mb-7 p-5 rounded-2xl bg-swiss-pine text-white border border-emerald-700/60 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4 text-xs shadow-sm">
+            <div className="space-y-1.5 max-w-3xl">
+              <div className="inline-flex items-center gap-2 text-[10px] font-mono uppercase tracking-wider text-emerald-300 font-bold">
+                <span>NUEVO SERVICIO INDEPENDIENTE · contadores.grupovolia.com</span>
+              </div>
+              <h4 className="text-base sm:text-lg font-extrabold text-white">
+                Consola Multi-Empresa para Contadores &amp; Estudios Contables (Ecuador)
+              </h4>
+              <p className="text-emerald-100/90 leading-relaxed">
+                Herramienta exclusiva e independiente de nuestros 10 módulos regulares: administra <strong>Empresas/Sociedades y Personas Naturales</strong> (Régimen General, RIMPE Emprendedor y Negocio Popular) desde una sola consola. Cada cliente adapta su Plan de Cuentas (NIIF SCVS, Simplificado PN o Propio) y módulos editables cuando crezca, con <strong>Calendario Fiscal SRI consolidado por 9no dígito del RUC</strong> (IVA 104, Retenciones 103, ATS e <strong>Impuesto a la Renta 101/102</strong>).
+              </p>
+              <div className="flex flex-wrap gap-2 pt-1 font-mono text-[11px]">
+                <span className="px-2.5 py-1 rounded-lg bg-emerald-900/80 border border-emerald-600/50 text-emerald-200 font-bold">
+                  Contador Independiente: $69 + IVA/mes (hasta 15 RUCs · $4.60/cliente)
+                </span>
+                <span className="px-2.5 py-1 rounded-lg bg-emerald-900/80 border border-emerald-600/50 text-emerald-200 font-bold">
+                  Estudio Contable: $119 + IVA/mes (hasta 40 RUCs · +$5/RUC extra)
+                </span>
+              </div>
+            </div>
+            <a
+              href="https://contadores.grupovolia.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="shrink-0 inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-brand-emerald hover:bg-emerald-500 text-white font-extrabold transition-all"
+            >
+              <span>Abrir contadores.grupovolia.com</span>
+              <ArrowUpRight className="w-4 h-4" />
+            </a>
+          </div>
+
           {/* Callout Elegante: Una Sola Suite Sincronizada o Cada Módulo Independiente */}
           <div className="mb-7 p-4 rounded-2xl bg-brand-emeraldSoft/60 border border-brand-emerald/30 flex flex-col md:flex-row items-start md:items-center justify-between gap-3 text-xs">
             <div className="flex items-start gap-2.5">
