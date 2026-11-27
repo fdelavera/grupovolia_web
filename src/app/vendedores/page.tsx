@@ -33,6 +33,7 @@ import Footer from "@/components/navigation/Footer";
 import GrupoVoliaChatModal from "@/components/chat/GrupoVoliaChatModal";
 import { buildGoogleCalendarBookingUrl } from "@/lib/calendar-booking";
 import { VendedoresWelcomeTour } from "@/components/vendedores/VendedoresWelcomeTour";
+import { SellerCommissionSimulator } from "@/components/vendedores/SellerCommissionSimulator";
 import { getStoredAttribution, trackWebEvent } from "@/lib/attribution";
 
 const FOUR_CLOSING_REASONS = [
@@ -87,8 +88,6 @@ export default function VendedoresPage() {
   const [chatOpen, setChatOpen] = useState(false);
   const [tourOpen, setTourOpen] = useState(false);
   const [showWelcomePrompt, setShowWelcomePrompt] = useState(false);
-  const [simClients, setSimClients] = useState(6);
-  const [simPlanUsd, setSimPlanUsd] = useState<35 | 69 | 119>(69);
 
   useEffect(() => {
     try {
@@ -107,10 +106,6 @@ export default function VendedoresPage() {
       // Ignorar
     }
   };
-
-  const simInitialRef = Number((simClients * simPlanUsd * 0.25).toFixed(2));
-  const simMonthlyRef = Number((simClients * simPlanUsd * 0.18).toFixed(2));
-  const simYear1Ref = Number((simInitialRef + simMonthlyRef * 12).toFixed(2));
 
   const [fullName, setFullName] = useState("");
   const [roleType, setRoleType] = useState<"Asesor Comercial Independiente" | "Líder de Célula Comercial">(
@@ -435,83 +430,8 @@ export default function VendedoresPage() {
             </div>
 
             <div data-tour-id="vend-tour-income" className="space-y-6">
-              {/* Simulador Rápido Referencial (Esquema Público 25% + 18%) */}
-              <div className="swiss-card rounded-3xl p-6 sm:p-8 bg-white border border-brand-emerald/30 space-y-4">
-                <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 pb-3">
-                  <div>
-                    <div className="inline-flex items-center gap-1.5 text-[11px] font-mono font-bold text-brand-emerald uppercase">
-                      <Calculator className="w-3.5 h-3.5" />
-                      <span>SIMULADOR REFERENCIAL DE CARTERA COMERCIAL</span>
-                    </div>
-                    <h3 className="text-lg font-extrabold text-swiss-pine mt-0.5">
-                      Proyecta tu Ingreso con Clientes Activos en Ecuador
-                    </h3>
-                  </div>
-                  <div className="flex flex-wrap gap-1.5 text-xs font-bold">
-                    {([
-                      [35, "Individual $35/m"],
-                      [69, "Suite PYME $69/m"],
-                      [119, "Corporativo $119/m"],
-                    ] as const).map(([val, lbl]) => (
-                      <button
-                        key={val}
-                        type="button"
-                        onClick={() => setSimPlanUsd(val)}
-                        className={`px-3 py-1.5 rounded-xl border transition-colors ${
-                          simPlanUsd === val
-                            ? "bg-swiss-pine text-white border-swiss-pine"
-                            : "bg-swiss-canvas text-slate-600 border-slate-200 hover:bg-slate-100"
-                        }`}
-                      >
-                        {lbl}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-center">
-                  <div className="lg:col-span-5 space-y-2">
-                    <div className="flex items-center justify-between text-xs">
-                      <span className="text-slate-600 font-semibold">Empresas Activas Cerradas:</span>
-                      <strong className="font-mono text-sm text-brand-emerald">
-                        {simClients} empresa{simClients === 1 ? "" : "s"}
-                      </strong>
-                    </div>
-                    <input
-                      type="range"
-                      min={1}
-                      max={25}
-                      value={simClients}
-                      onChange={(e) => setSimClients(Number(e.target.value))}
-                      className="w-full accent-brand-emerald cursor-pointer"
-                    />
-                    <p className="text-[11px] text-slate-500">
-                      Cálculo referencial público (25% de entrada inicial + 18% recurrente mensual sobre tarifa base sin IVA). Las condiciones contractuales finales se revisan en entrevista privada.
-                    </p>
-                  </div>
-
-                  <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-3">
-                    <div className="p-3.5 rounded-2xl bg-swiss-canvas border border-slate-200">
-                      <div className="text-[10px] font-mono uppercase text-slate-500">Cierre Inicial Ref.</div>
-                      <div className="text-lg font-extrabold font-mono text-swiss-pine mt-0.5 tabular-nums">
-                        ${simInitialRef.toLocaleString("en-US", { minimumFractionDigits: 2 })}
-                      </div>
-                    </div>
-                    <div className="p-3.5 rounded-2xl bg-emerald-50 border border-emerald-200">
-                      <div className="text-[10px] font-mono uppercase text-brand-pine">Renta Mensual Ref.</div>
-                      <div className="text-lg font-extrabold font-mono text-brand-emerald mt-0.5 tabular-nums">
-                        +${simMonthlyRef.toLocaleString("en-US", { minimumFractionDigits: 2 })}/m
-                      </div>
-                    </div>
-                    <div className="p-3.5 rounded-2xl bg-swiss-pine text-white">
-                      <div className="text-[10px] font-mono uppercase text-emerald-300">Acumulado Año 1 Ref.</div>
-                      <div className="text-lg font-extrabold font-mono mt-0.5 tabular-nums">
-                        ${simYear1Ref.toLocaleString("en-US", { minimumFractionDigits: 2 })}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              {/* Simulador Oficial de Comisiones & Facturación SRI Ecuador */}
+              <SellerCommissionSimulator />
 
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               {/* Card 1: Independent Advisors */}
@@ -532,7 +452,7 @@ export default function VendedoresPage() {
                   <li className="flex items-start gap-2.5">
                     <CheckCircle2 className="w-4 h-4 text-brand-emerald shrink-0 mt-0.5" />
                     <span>
-                      <strong>Doble fuente de ingreso:</strong> comisión de entrada por cierre (esquema referencial desde 25% inicial + 18% recurrente mensual según rol y volumen) y construcción de cartera acumulativa.
+                      <strong>Doble fuente de ingreso:</strong> <strong>100% del 1er mes neto cobrado</strong> por cada cliente nuevo + <strong>15% recurrente mensual (Meses 2–12)</strong> sobre las renovaciones activas de tu cartera. Facturación electrónica +15% IVA con retención oficial de Renta (10% Régimen General, 1% RIMPE Emprendedor, 5% Sociedad; 0% retención IVA).
                     </span>
                   </li>
                   <li className="flex items-start gap-2.5">
