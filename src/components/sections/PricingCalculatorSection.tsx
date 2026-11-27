@@ -15,10 +15,14 @@ interface PricingCalculatorSectionProps {
 }
 
 export default function PricingCalculatorSection({ onSelectPlan }: PricingCalculatorSectionProps) {
-  const [calcPackage, setCalcPackage] = useState<"individual" | "pyme" | "corp">("pyme");
+  const [calcPackage, setCalcPackage] = useState<
+    "individual" | "pyme" | "corp" | "contador_indep" | "estudio_contable"
+  >("pyme");
   const [calcMonths, setCalcMonths] = useState<12 | 24>(12);
   const [employeeCount, setEmployeeCount] = useState<number>(15);
   const [competitorMonthly, setCompetitorMonthly] = useState<number>(280);
+  const [accountantRucCount, setAccountantRucCount] = useState<number>(15);
+  const [accountantCompPerRuc, setAccountantCompPerRuc] = useState<number>(25);
   const [referredClients, setReferredClients] = useState<number>(5);
 
   const packages = {
@@ -69,20 +73,44 @@ export default function PricingCalculatorSection({ onSelectPlan }: PricingCalcul
     },
   };
 
-  const selectedPkg = packages[calcPackage];
+  const isAccountantCalc =
+    calcPackage === "contador_indep" || calcPackage === "estudio_contable";
+  const selectedPkg =
+    calcPackage === "individual" || calcPackage === "pyme" || calcPackage === "corp"
+      ? packages[calcPackage]
+      : packages.pyme;
+
+  const accountantIncludedRucs = calcPackage === "estudio_contable" ? 40 : 15;
+  const accountantBaseMonthly = calcPackage === "estudio_contable" ? 119 : 69;
+  const accountantExtraRucs = Math.max(0, accountantRucCount - accountantIncludedRucs);
+  const accountantMonthlyTotal = accountantBaseMonthly + accountantExtraRucs * 5;
+  const accountantCostPerRuc = accountantMonthlyTotal / Math.max(1, accountantRucCount);
 
   // Costo tradicional real en Ecuador: ERP/CRM/Facturero + Software de RRHH por empleado (Buk/Nómina360 ~$4.50/emp) + Setup tradicional ($2,500)
   const hrSoftwareCompetitorMonthly = Math.round(employeeCount * 4.5);
-  const combinedCompetitorMonthly = competitorMonthly + hrSoftwareCompetitorMonthly;
-  const traditionalSetupFee = employeeCount >= 10 ? 2500 : 1200;
+  const combinedCompetitorMonthly = isAccountantCalc
+    ? Math.round(accountantRucCount * accountantCompPerRuc)
+    : competitorMonthly + hrSoftwareCompetitorMonthly;
+  const traditionalSetupFee = isAccountantCalc
+    ? accountantRucCount * 35
+    : employeeCount >= 10
+      ? 2500
+      : 1200;
 
-  const totalSaaS = selectedPkg.pricing.setup + selectedPkg.pricing.monthly * calcMonths;
+  const activeSetupFee = isAccountantCalc ? 0 : selectedPkg.pricing.setup;
+  const activeMonthlyFee = isAccountantCalc
+    ? accountantMonthlyTotal
+    : selectedPkg.pricing.monthly;
+
+  const totalSaaS = activeSetupFee + activeMonthlyFee * calcMonths;
   const totalCompetitor = traditionalSetupFee + combinedCompetitorMonthly * calcMonths;
 
   const savingsSaaS = Math.max(0, totalCompetitor - totalSaaS);
 
-  // Ganancia operativa mensual estimada por interconexión (horas ahorradas en nómina, recargos 25/50/100%, SRI Auto-Retry, Kardex y conciliación)
-  const estimatedMonthlyOperationalGain = Math.round(180 + employeeCount * 18);
+  // Ganancia operativa mensual estimada (empresas: horas en nómina/SRI/Kardex; contadores: ~2.5h ahorradas/RUC en ATS/103/104/101-102 + conciliación bancaria)
+  const estimatedMonthlyOperationalGain = isAccountantCalc
+    ? Math.round(accountantRucCount * 28)
+    : Math.round(180 + employeeCount * 18);
 
   const partnerUpfrontTotal = referredClients * 60;
   const partnerMonthlyRecurring = referredClients * 12.4;
@@ -398,11 +426,11 @@ export default function PricingCalculatorSection({ onSelectPlan }: PricingCalcul
             <div className="flex items-center gap-2.5 mb-2">
               <Calculator className="w-5 h-5 text-brand-emerald" />
               <h3 className="text-xl font-bold text-swiss-pine">
-                Calculadora Interactiva de Ahorro para tu Empresa
+                Calculadora Interactiva de Ahorro (Empresas &amp; Contadores)
               </h3>
             </div>
             <p className="text-xs text-slate-600 mb-6">
-              Compara el costo total real entre tu Membresía SaaS de Grupo Volia (con usuarios y RRHH ilimitados) vs. proveedores tradicionales por separado.
+              Compara el costo total real entre Grupo Volia (Suite B2B o Consola Multi-Empresa Contadores) vs. proveedores tradicionales por separado.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
@@ -412,12 +440,28 @@ export default function PricingCalculatorSection({ onSelectPlan }: PricingCalcul
                 </label>
                 <select
                   value={calcPackage}
-                  onChange={(e) => setCalcPackage(e.target.value as "individual" | "pyme" | "corp")}
+                  onChange={(e) => {
+                    const next = e.target.value as
+                      | "individual"
+                      | "pyme"
+                      | "corp"
+                      | "contador_indep"
+                      | "estudio_contable";
+                    setCalcPackage(next);
+                    if (next === "contador_indep") setAccountantRucCount(15);
+                    if (next === "estudio_contable") setAccountantRucCount(35);
+                  }}
                   className="w-full bg-white border border-slate-300 rounded-xl px-3.5 py-2.5 text-xs text-swiss-pine font-semibold focus:outline-none focus:border-brand-emerald"
                 >
                   <option value="individual">1. Módulo Individual PYME ($35/mes + IVA)</option>
                   <option value="pyme">2. Suite Completa PYME Estrella ($69/mes + IVA)</option>
                   <option value="corp">3. Suite Corporativa Multisucursal ($119/mes + IVA)</option>
+                  <option value="contador_indep">
+                    4. Consola Contadores Independiente ($69/mes + IVA · hasta 15 RUCs)
+                  </option>
+                  <option value="estudio_contable">
+                    5. Consola Estudio Contable ($119/mes + IVA · hasta 40 RUCs)
+                  </option>
                 </select>
               </div>
 
@@ -452,56 +496,104 @@ export default function PricingCalculatorSection({ onSelectPlan }: PricingCalcul
               </div>
             </div>
 
-            <div className="space-y-4 mb-6">
-              <div>
-                <div className="flex justify-between text-xs mb-1.5">
-                  <span className="text-slate-600">
-                    3. Colaboradores en tu empresa (RRHH + Nómina IESS/Servicios + App White-Label):
-                  </span>
-                  <strong className="text-brand-emerald font-mono">
-                    {employeeCount} personas (ahorra ~${hrSoftwareCompetitorMonthly}/m en Buk/Nómina360)
-                  </strong>
+            {isAccountantCalc ? (
+              <div className="space-y-4 mb-6">
+                <div>
+                  <div className="flex justify-between text-xs mb-1.5">
+                    <span className="text-slate-600">
+                      3. Clientes RUC en tu cartera (Empresas/Sociedades + Personas Naturales):
+                    </span>
+                    <strong className="text-brand-emerald font-mono">
+                      {accountantRucCount} RUCs (${accountantCostPerRuc.toFixed(2)}/cliente al mes)
+                    </strong>
+                  </div>
+                  <input
+                    type="range"
+                    min={1}
+                    max={60}
+                    step={1}
+                    value={accountantRucCount}
+                    onChange={(e) => setAccountantRucCount(Number(e.target.value))}
+                    className="w-full accent-brand-emerald cursor-pointer"
+                  />
                 </div>
-                <input
-                  type="range"
-                  min={1}
-                  max={80}
-                  step={1}
-                  value={employeeCount}
-                  onChange={(e) => setEmployeeCount(Number(e.target.value))}
-                  className="w-full accent-brand-emerald cursor-pointer"
-                />
-              </div>
 
-              <div>
-                <div className="flex justify-between text-xs mb-1.5">
-                  <span className="text-slate-600">
-                    4. Gasto mensual en sistemas tradicionales separados (ERP + Inventario + CRM + Proyectos):
-                  </span>
-                  <strong className="text-brand-crimson font-mono">${competitorMonthly} USD / mes</strong>
+                <div>
+                  <div className="flex justify-between text-xs mb-1.5">
+                    <span className="text-slate-600">
+                      4. Costo mensual tradicional por cada cliente (software contable + facturero separado):
+                    </span>
+                    <strong className="text-brand-crimson font-mono">
+                      ${accountantCompPerRuc} USD / RUC / mes (${combinedCompetitorMonthly}/m total)
+                    </strong>
+                  </div>
+                  <input
+                    type="range"
+                    min={15}
+                    max={45}
+                    step={1}
+                    value={accountantCompPerRuc}
+                    onChange={(e) => setAccountantCompPerRuc(Number(e.target.value))}
+                    className="w-full accent-brand-emerald cursor-pointer"
+                  />
                 </div>
-                <input
-                  type="range"
-                  min={120}
-                  max={650}
-                  step={10}
-                  value={competitorMonthly}
-                  onChange={(e) => setCompetitorMonthly(Number(e.target.value))}
-                  className="w-full accent-brand-emerald cursor-pointer"
-                />
               </div>
-            </div>
+            ) : (
+              <div className="space-y-4 mb-6">
+                <div>
+                  <div className="flex justify-between text-xs mb-1.5">
+                    <span className="text-slate-600">
+                      3. Colaboradores en tu empresa (RRHH + Nómina IESS/Servicios + App White-Label):
+                    </span>
+                    <strong className="text-brand-emerald font-mono">
+                      {employeeCount} personas (ahorra ~${hrSoftwareCompetitorMonthly}/m en Buk/Nómina360)
+                    </strong>
+                  </div>
+                  <input
+                    type="range"
+                    min={1}
+                    max={80}
+                    step={1}
+                    value={employeeCount}
+                    onChange={(e) => setEmployeeCount(Number(e.target.value))}
+                    className="w-full accent-brand-emerald cursor-pointer"
+                  />
+                </div>
+
+                <div>
+                  <div className="flex justify-between text-xs mb-1.5">
+                    <span className="text-slate-600">
+                      4. Gasto mensual en sistemas tradicionales separados (ERP + Inventario + CRM + Proyectos):
+                    </span>
+                    <strong className="text-brand-crimson font-mono">${competitorMonthly} USD / mes</strong>
+                  </div>
+                  <input
+                    type="range"
+                    min={120}
+                    max={650}
+                    step={10}
+                    value={competitorMonthly}
+                    onChange={(e) => setCompetitorMonthly(Number(e.target.value))}
+                    className="w-full accent-brand-emerald cursor-pointer"
+                  />
+                </div>
+              </div>
+            )}
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
               <div className="p-4 rounded-2xl bg-brand-emeraldSoft/70 border border-brand-emerald/40">
                 <div className="text-[10px] font-mono text-brand-emerald font-bold uppercase">
-                  MEMBRESÍA SAAS GRUPO VOLIA (+ IVA)
+                  {isAccountantCalc
+                    ? "CONSOLA CONTADORES GRUPO VOLIA (+ IVA)"
+                    : "MEMBRESÍA SAAS GRUPO VOLIA (+ IVA)"}
                 </div>
                 <div className="text-2xl font-extrabold text-swiss-pine font-mono mt-1 tabular-nums">
                   ${totalSaaS.toLocaleString()}
                 </div>
                 <div className="text-[11px] text-slate-600 mt-0.5">
-                  En {calcMonths} meses (${selectedPkg.pricing.setup} setup + ${selectedPkg.pricing.monthly}/m · RRHH ilimitado)
+                  {isAccountantCalc
+                    ? `En ${calcMonths} meses ($0 setup + $${activeMonthlyFee}/m · ${accountantRucCount} RUCs)`
+                    : `En ${calcMonths} meses ($${activeSetupFee} setup + $${activeMonthlyFee}/m · RRHH ilimitado)`}
                 </div>
                 <div className="mt-2 pt-2 border-t border-brand-emerald/20 text-xs font-bold text-brand-emerald">
                   Ahorras ${savingsSaaS.toLocaleString()} USD vs. sistemas separados
@@ -510,7 +602,9 @@ export default function PricingCalculatorSection({ onSelectPlan }: PricingCalcul
 
               <div className="p-4 rounded-2xl bg-slate-100 border border-slate-200">
                 <div className="text-[10px] font-mono text-slate-500 font-bold uppercase">
-                  ERP + RRHH TRADICIONAL
+                  {isAccountantCalc
+                    ? "SOFTWARE CONTABLE POR EMPRESA (TRADICIONAL)"
+                    : "ERP + RRHH TRADICIONAL"}
                 </div>
                 <div className="text-2xl font-extrabold text-slate-400 line-through font-mono mt-1 tabular-nums">
                   ${totalCompetitor.toLocaleString()}
@@ -519,7 +613,9 @@ export default function PricingCalculatorSection({ onSelectPlan }: PricingCalcul
                   En {calcMonths} meses (${traditionalSetupFee.toLocaleString()} setup + ${combinedCompetitorMonthly}/m)
                 </div>
                 <div className="mt-2 pt-2 border-t border-slate-200 text-[11px] text-slate-500">
-                  Sin App Empleados WL ni Copiloto IA
+                  {isAccountantCalc
+                    ? "Sin consola multi-RUC unificada ni Calendario SRI 9no dígito"
+                    : "Sin App Empleados WL ni Copiloto IA"}
                 </div>
               </div>
             </div>
@@ -527,10 +623,14 @@ export default function PricingCalculatorSection({ onSelectPlan }: PricingCalcul
             <div className="mt-4 p-3.5 rounded-2xl bg-swiss-pine text-white flex flex-wrap items-center justify-between gap-2 text-xs">
               <div>
                 <div className="text-[10px] font-mono text-brand-emeraldBright font-bold uppercase">
-                  GANANCIA OPERATIVA ESTIMADA POR INTERCONEXIÓN (10 MÓDULOS + IA)
+                  {isAccountantCalc
+                    ? "GANANCIA OPERATIVA ESTIMADA DEL CONTADOR / ESTUDIO"
+                    : "GANANCIA OPERATIVA ESTIMADA POR INTERCONEXIÓN (10 MÓDULOS + IA)"}
                 </div>
                 <p className="text-slate-200 mt-0.5">
-                  Horas liberadas en nómina IESS, cálculo automático 25%/50%/100%, SRI Auto-Retry, Kardex y conciliación.
+                  {isAccountantCalc
+                    ? `Horas liberadas cada mes en ${accountantRucCount} RUCs (ATS, IVA 104, Ret. 103, Renta 101/102 y conciliación de 61 bancos) — se paga solo con 1 cliente.`
+                    : "Horas liberadas en nómina IESS, cálculo automático 25%/50%/100%, SRI Auto-Retry, Kardex y conciliación."}
                 </p>
               </div>
               <div className="text-right font-mono">
