@@ -50,7 +50,7 @@ const FOUR_CLOSING_REASONS = [
     icon: Layers,
     title: "10 Módulos Interconectados (incl. RRHH Ecuador) & 10 Demos Vivos",
     badge: "Cierre visual al instante",
-    desc: "No muestras un ERP genérico aburrido. Llegas a la cita con 10 módulos independientes e interconectados (incluyendo el Módulo 10 RRHH Ecuador con Reclutamiento ATS, archivo de CVs, contratación 1-clic, enlaces de registro para colaboradores/vendedores, Radar Feriados IA, Biométricos y App Empleados 100% White-Label), 10 demos vivos y además la nueva línea independiente Consola Contadores (contadores.grupovolia.com · $69/mes hasta 15 RUCs y $119/mes hasta 40 RUCs con la misma comisión de 100% 1er mes + 15% recurrente).",
+    desc: "No muestras un ERP genérico aburrido. Llegas a la cita con 10 módulos independientes e interconectados (incluyendo el Módulo 10 RRHH Ecuador con Reclutamiento ATS, archivo de CVs, contratación 1-clic, enlaces de registro para colaboradores/vendedores, Radar Feriados IA, Biométricos y App Empleados 100% White-Label), 10 demos vivos y además la nueva línea independiente Consola Contadores (contadores.grupovolia.com · $69/mes anual u $83/mes mensual hasta 15 RUCs, y $119/mes anual o $143/mes mensual hasta 40 RUCs con la misma comisión de 100% 1er mes + 15% recurrente o 265% inmediato en anual).",
     highlight: "El dueño de negocio ve su propia operación resuelta en los primeros 3 minutos.",
   },
   {
@@ -291,7 +291,7 @@ export default function VendedoresPage() {
                     <CheckCircle2 className="w-4 h-4 text-brand-emerald shrink-0 mt-0.5" />
                     <div>
                       <strong className="text-swiss-pine block">Proformas IA en Segundos</strong>
-                      Arma propuestas formales en PDF con logos y planes ($35–$119/m + IVA) directo desde tablet o celular.
+                      Arma propuestas formales en PDF con logos y planes ($35–$119/m anual · $42–$143/m mensual + IVA) directo desde tablet o celular.
                     </div>
                   </div>
                   <div className="p-3 rounded-2xl bg-swiss-canvas border border-slate-200 flex items-start gap-3">
@@ -452,7 +452,7 @@ export default function VendedoresPage() {
                   <li className="flex items-start gap-2.5">
                     <CheckCircle2 className="w-4 h-4 text-brand-emerald shrink-0 mt-0.5" />
                     <span>
-                      <strong>Doble fuente de ingreso:</strong> <strong>100% del 1er mes neto cobrado</strong> por cada cliente nuevo + <strong>15% recurrente mensual (Meses 2–12)</strong> sobre las renovaciones activas de tu cartera. Facturación electrónica +15% IVA con retención oficial de Renta (10% Régimen General, 1% RIMPE Emprendedor, 5% Sociedad; 0% retención IVA).
+                      <strong>Doble fuente de ingreso (Mensual o Pago Único Anual):</strong> En modalidad mensual cobras <strong>100% del 1er mes neto</strong> ($42 / $83 / $143) + <strong>15% recurrente (Meses 2–12)</strong>; si el cliente elige <strong>Pago Anual Adelantado</strong> ($420 / $828 / $1,428 + IVA), cobras en <strong>1 solo pago inmediato el 265%</strong> de 1 mes ($92.75 / $182.85 / $315.35 bruto). Facturación electrónica +15% IVA con retención oficial de Renta (10% Régimen General, 1% RIMPE Emprendedor, 5% Sociedad; 0% retención IVA).
                     </span>
                   </li>
                   <li className="flex items-start gap-2.5">
@@ -464,7 +464,7 @@ export default function VendedoresPage() {
                   <li className="flex items-start gap-2.5">
                     <CheckCircle2 className="w-4 h-4 text-brand-emerald shrink-0 mt-0.5" />
                     <span>
-                      <strong>Ticket fácil de aprobar:</strong> planes PYME desde $35 hasta $119/mes + IVA (con cancelación anticipada sin penalización), muy por debajo del software tradicional.
+                      <strong>Ticket fácil de aprobar:</strong> planes PYME desde $35 hasta $119/mes en pago anual ($42–$143/mes en pago mensual) + IVA, muy por debajo del software tradicional.
                     </span>
                   </li>
                 </ul>

@@ -21,7 +21,7 @@ export default function GrupoVoliaChatModal({
     {
       role: "assistant",
       content:
-        "¡Hola! Soy Anna, asesora ejecutiva de Grupo Volia. Puedo ayudarte a elegir entre nuestra Suite Completa PYME ($69/mes + IVA con 10 módulos e ilimitados usuarios/RRHH), la Suite Corporativa Multisucursal ($119/mes + IVA) o nuestra nueva Consola Multi-Empresa para Contadores (contadores.grupovolia.com desde $69/mes hasta 15 RUCs). ¿A qué se dedica tu empresa o estudio?",
+        "¡Hola! Soy Anna, asesora ejecutiva de Grupo Volia. Puedo ayudarte a elegir entre nuestra Suite Completa PYME (desde $69/mes anual u $83/mes mensual + IVA con 10 módulos e ilimitados usuarios/RRHH), la Suite Corporativa Multisucursal ($119/m anual · $143/m mensual + IVA) o nuestra Consola Multi-Empresa para Contadores (contadores.grupovolia.com desde $69/m anual hasta 15 RUCs). ¿A qué se dedica tu empresa o estudio?",
     },
   ]);
   const [input, setInput] = useState("");
@@ -117,7 +117,7 @@ export default function GrupoVoliaChatModal({
     "¿Cómo funciona el módulo de Inventario y la conexión con POS en Ecuador?",
     "¿Qué hace el Copiloto IA Interno para mis empleados y gerencia?",
     "¿Cómo funciona la personalización en 1 mes y las 3 revisiones?",
-    "¿Qué incluye la Suite Completa PYME ($69/mes + IVA) vs. Corporativa Multisucursal ($119/mes + IVA)?",
+    "¿Qué incluye la Suite Completa PYME ($69/m anual · $83/m mensual + IVA) vs. Corporativa ($119/m anual · $143/m mensual + IVA)?",
   ];
 
   useEffect(() => {

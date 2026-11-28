@@ -276,32 +276,32 @@ export default function LoanTermsAndNote() {
             <div className="swiss-card rounded-3xl p-6 space-y-3.5">
               <div className="flex items-center gap-2 text-[11px] font-mono font-bold text-brand-emerald uppercase">
                 <TrendingUp className="w-3.5 h-3.5" />
-                <span>Hito de Auto-Sostenibilidad SaaS (Proyección Base 1–3 Ventas/Mes)</span>
+                <span>Hito de Auto-Sostenibilidad SaaS (Mensual + Anual Adelantado)</span>
               </div>
               <div className="grid grid-cols-2 gap-3 text-xs">
                 <div className="rounded-2xl bg-swiss-canvas border border-slate-200 p-3.5">
-                  <div className="text-slate-500">Mes 4 · Equilibrio</div>
+                  <div className="text-slate-500">Cobro Anual Adelantado</div>
                   <div className="text-lg font-extrabold text-brand-pine mt-0.5">
-                    7 PYMEs activas
+                    $420 / $828 / $1,428
                   </div>
                   <div className="text-[11px] text-slate-600">
-                    Flujo neto +$485.25 (104% cuota)
+                    Flujo anticipado desde Mes 1 (+Setup $120/$250)
                   </div>
                 </div>
                 <div className="rounded-2xl bg-brand-emeraldSoft border border-brand-emerald/30 p-3.5">
-                  <div className="text-brand-pine font-semibold">Mes 12 · Año 1</div>
+                  <div className="text-brand-pine font-semibold">Modalidad Mensual (+20%)</div>
                   <div className="text-lg font-extrabold text-brand-emerald mt-0.5">
-                    22 PYMEs netas*
+                    $42 / $83 / $143
                   </div>
                   <div className="text-[11px] text-brand-pine">
-                    +$1,533.50/m neto (3.3x cuota)
+                    ~7 PYMEs activas ya cubren el 100% de la cuota
                   </div>
                 </div>
               </div>
               <div className="flex items-start gap-2 text-[11px] text-slate-500">
                 <Shield className="w-3.5 h-3.5 text-brand-emerald shrink-0 mt-0.5" />
                 <span>
-                  *Proyección neta tras contemplar ~12% de rotación anual. El servicio de la deuda está cubierto desde el Mes 1 por Micro1 Inc. en Bank of America.
+                  El esquema dual (Anual adelantado $35/$69/$119 o Mensual $42/$83/$143) acelera la liquidez desde el Mes 1. Además, el servicio de la deuda está cubierto desde el Mes 1 por el respaldo de generación verificada del fundador ($8,283/mes promedio).
                 </span>
               </div>
             </div>

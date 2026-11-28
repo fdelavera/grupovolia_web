@@ -193,7 +193,7 @@ export default function BusinessLinesSection() {
               href="#tarifario-calculadora"
               className="self-start lg:self-auto inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-brand-emeraldSoft hover:bg-brand-emeraldLight text-brand-pine border border-brand-emerald/30 text-xs font-bold transition-all"
             >
-              <span>Desde $35/mes + IVA (Individual) o $69/mes + IVA (Suite 10 Módulos)</span>
+              <span>Desde $35/mes anual ($42/mes mensual) + IVA · Suite 10 Módulos $69/m anual ($83/m mensual)</span>
               <ArrowUpRight className="w-4 h-4 text-brand-emerald" />
             </a>
           </div>
@@ -212,10 +212,10 @@ export default function BusinessLinesSection() {
               </p>
               <div className="flex flex-wrap gap-2 pt-1 font-mono text-[11px]">
                 <span className="px-2.5 py-1 rounded-lg bg-emerald-900/80 border border-emerald-600/50 text-emerald-200 font-bold">
-                  Contador Independiente: $69 + IVA/mes (hasta 15 RUCs · $4.60/cliente)
+                  Contador Independiente: $69/m anual ($83/m mensual) + IVA · hasta 15 RUCs
                 </span>
                 <span className="px-2.5 py-1 rounded-lg bg-emerald-900/80 border border-emerald-600/50 text-emerald-200 font-bold">
-                  Estudio Contable: $119 + IVA/mes (hasta 40 RUCs · +$5/RUC extra)
+                  Estudio Contable: $119/m anual ($143/m mensual) + IVA · hasta 40 RUCs (+$5/RUC extra)
                 </span>
               </div>
             </div>

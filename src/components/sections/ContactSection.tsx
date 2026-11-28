@@ -34,9 +34,11 @@ export default function ContactSection({
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [packageInterest, setPackageInterest] = useState(
-    "2. Suite Completa PYME Estrella ($69/mes + IVA · Usuarios y RRHH Ilimitados)"
+    "2. Suite Completa PYME Estrella ($69/m anual · $83/m mensual + IVA · Setup $120)"
   );
-  const [modality, setModality] = useState("Membresía SaaS Mensual — Pago con Tarjeta Stripe (0% Recargo)");
+  const [modality, setModality] = useState(
+    "Pago Anual Adelantado (Ahorra 2 meses) — Tarjeta Stripe (0% Recargo)"
+  );
   const [message, setMessage] = useState("");
   const [bookingChannel, setBookingChannel] =
     useState<PublicBookingChannel>("ventas@grupovolia.com");
@@ -271,23 +273,23 @@ export default function ContactSection({
                     onChange={(e) => setPackageInterest(e.target.value)}
                     className="w-full bg-swiss-canvas border border-slate-300 rounded-xl px-3.5 py-3 text-xs sm:text-sm text-swiss-pine focus:outline-none focus:border-brand-emerald focus:bg-white"
                   >
-                    <option value="1. Módulo Individual PYME ($35/mes + IVA · Setup $120 + IVA)">
-                      1. Módulo Individual PYME ($35/mes + IVA · Setup $120 + IVA)
+                    <option value="1. Módulo Individual PYME ($35/m anual · $42/m mensual + IVA · Setup $120)">
+                      1. Módulo Individual PYME ($35/m anual · $42/m mensual + IVA · Setup $120)
                     </option>
-                    <option value="2. Suite Completa PYME Estrella ($69/mes + IVA · Usuarios y RRHH Ilimitados)">
-                      2. Suite Completa PYME Estrella ($69/mes + IVA · Setup $120 + IVA)
+                    <option value="2. Suite Completa PYME Estrella ($69/m anual · $83/m mensual + IVA · Setup $120)">
+                      2. Suite Completa PYME Estrella ($69/m anual · $83/m mensual + IVA · Setup $120)
                     </option>
-                    <option value="3. Suite Corporativa Multisucursal ($119/mes + IVA · Setup $250 + IVA)">
-                      3. Suite Corporativa Multisucursal ($119/mes + IVA · Setup $250 + IVA)
+                    <option value="3. Suite Corporativa Multisucursal ($119/m anual · $143/m mensual + IVA · Setup $250)">
+                      3. Suite Corporativa Multisucursal ($119/m anual · $143/m mensual + IVA · Setup $250)
                     </option>
                     <option value="Oráculo Cuantitativo / Algoritmo a Medida ($490 - $1,200)">
                       Oráculo Cuantitativo / Algoritmo en Tiempo Real
                     </option>
-                    <option value="Consola Contadores Independiente ($69 + IVA/mes · hasta 15 RUCs)">
-                      Consola Contadores Independiente ($69 + IVA/mes · hasta 15 RUCs)
+                    <option value="Consola Contadores Independiente ($69/m anual · $83/m mensual + IVA · hasta 15 RUCs)">
+                      Consola Contadores Independiente ($69/m anual · $83/m mensual · hasta 15 RUCs)
                     </option>
-                    <option value="Consola Estudio Contable ($119 + IVA/mes · hasta 40 RUCs)">
-                      Consola Estudio Contable ($119 + IVA/mes · hasta 40 RUCs)
+                    <option value="Consola Estudio Contable ($119/m anual · $143/m mensual + IVA · hasta 40 RUCs)">
+                      Consola Estudio Contable ($119/m anual · $143/m mensual · hasta 40 RUCs)
                     </option>
                     <option value="Estudio de Mercado + Modelo Financiero Excel ($199 - $350)">
                       Estudio de Mercado + Modelo Financiero Excel
@@ -307,11 +309,17 @@ export default function ContactSection({
                     onChange={(e) => setModality(e.target.value)}
                     className="w-full bg-swiss-canvas border border-slate-300 rounded-xl px-3.5 py-3 text-xs sm:text-sm text-swiss-pine focus:outline-none focus:border-brand-emerald focus:bg-white"
                   >
+                    <option value="Pago Anual Adelantado (Ahorra 2 meses) — Tarjeta Stripe (0% Recargo)">
+                      Pago Anual Adelantado (Ahorra 2 meses) — Tarjeta Stripe (0% Recargo)
+                    </option>
+                    <option value="Pago Anual Adelantado (Ahorra 2 meses) — Transferencia Bancaria GRUPOVOLIA S.A.S.">
+                      Pago Anual Adelantado (Ahorra 2 meses) — Transferencia Bancaria
+                    </option>
                     <option value="Membresía SaaS Mensual — Pago con Tarjeta Stripe (0% Recargo)">
-                      Membresía SaaS Mensual — Tarjeta Stripe (0% Recargo)
+                      Membresía SaaS Mensual (+20%) — Tarjeta Stripe (0% Recargo)
                     </option>
                     <option value="Membresía SaaS Mensual — Transferencia Bancaria GRUPOVOLIA S.A.S.">
-                      Membresía SaaS Mensual — Transferencia Bancaria Empresarial
+                      Membresía SaaS Mensual (+20%) — Transferencia Bancaria Empresarial
                     </option>
                     <option value="Servicio Complementario por Proyecto o Iguala">
                       Servicio Complementario por Proyecto o Iguala

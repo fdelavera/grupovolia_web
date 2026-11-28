@@ -15,6 +15,7 @@ interface PricingCalculatorSectionProps {
 }
 
 export default function PricingCalculatorSection({ onSelectPlan }: PricingCalculatorSectionProps) {
+  const [billingCycle, setBillingCycle] = useState<"annual" | "monthly">("annual");
   const [calcPackage, setCalcPackage] = useState<
     "individual" | "pyme" | "corp" | "contador_indep" | "estudio_contable"
   >("pyme");
@@ -25,6 +26,8 @@ export default function PricingCalculatorSection({ onSelectPlan }: PricingCalcul
   const [accountantCompPerRuc, setAccountantCompPerRuc] = useState<number>(25);
   const [referredClients, setReferredClients] = useState<number>(5);
 
+  const isAnnual = billingCycle === "annual";
+
   const packages = {
     individual: {
       name: "1. Módulo Individual PYME",
@@ -32,7 +35,7 @@ export default function PricingCalculatorSection({ onSelectPlan }: PricingCalcul
         "Elige 1 de los 10 Módulos con Usuarios, Clientes y Proveedores Ilimitados (y Colaboradores Ilimitados si eliges RRHH)",
       badge: "Entrada Rápida · 1 Módulo",
       highlight: false,
-      pricing: { setup: 120, monthly: 35 },
+      pricing: { setup: 120, annualMonthly: 35, annualTotal: 420, monthlyPrice: 42, annualSavings: 84 },
       features: [
         "1 Módulo independiente a elección (opera 100% autónomo sin errores y listo para escalar a los 10 módulos)",
         "Usuarios, Clientes y Proveedores 100% Ilimitados (y Colaboradores Ilimitados si contratas Módulo 10 RRHH)",
@@ -47,7 +50,7 @@ export default function PricingCalculatorSection({ onSelectPlan }: PricingCalcul
         "1 Empresa / Matriz · Usuarios, Clientes, Proveedores y Colaboradores RRHH 100% Ilimitados · Los 10 Módulos + IA",
       badge: "MÁS ELEGIDO · ESTRELLA",
       highlight: true,
-      pricing: { setup: 120, monthly: 69 },
+      pricing: { setup: 120, annualMonthly: 69, annualTotal: 828, monthlyPrice: 83, annualSavings: 168 },
       features: [
         "Usuarios, Clientes, Proveedores, Colaboradores RRHH y Facturas SRI ($0/doc) 100% Ilimitados en 1 matriz",
         "Los 10 Módulos Interconectados: Contabilidad SRI, Inventario Escáner, Finanzas/Oráculo Multi-Bolsa, CRM 10 Giros LOPDP, Project Manager & Agenda, Marketing Ops, UAFE, Portal B2B, IA y Módulo 10 RRHH",
@@ -62,7 +65,7 @@ export default function PricingCalculatorSection({ onSelectPlan }: PricingCalcul
         "Operación Multisucursal & Multi-Cantón Sin Límite de Sucursales · Base Dedicada + Biométricos Multi-Sede + IA Pro",
       badge: "Multisucursal & Multi-Cantón",
       highlight: false,
-      pricing: { setup: 250, monthly: 119 },
+      pricing: { setup: 250, annualMonthly: 119, annualTotal: 1428, monthlyPrice: 143, annualSavings: 288 },
       features: [
         "Operación Multisucursal y Multi-Cantón sin límite de sucursales, múltiples bodegas y múltiples puntos de emisión SRI",
         "Módulo 10 RRHH Corporativo: feriados cantonales simultáneos por cada ciudad, Webhook Biométrico ZKTeco/Hikvision multi-sede y App Empleados White-Label",
@@ -81,7 +84,14 @@ export default function PricingCalculatorSection({ onSelectPlan }: PricingCalcul
       : packages.pyme;
 
   const accountantIncludedRucs = calcPackage === "estudio_contable" ? 40 : 15;
-  const accountantBaseMonthly = calcPackage === "estudio_contable" ? 119 : 69;
+  const accountantBaseMonthly =
+    calcPackage === "estudio_contable"
+      ? isAnnual
+        ? 119
+        : 143
+      : isAnnual
+        ? 69
+        : 83;
   const accountantExtraRucs = Math.max(0, accountantRucCount - accountantIncludedRucs);
   const accountantMonthlyTotal = accountantBaseMonthly + accountantExtraRucs * 5;
   const accountantCostPerRuc = accountantMonthlyTotal / Math.max(1, accountantRucCount);
@@ -100,7 +110,9 @@ export default function PricingCalculatorSection({ onSelectPlan }: PricingCalcul
   const activeSetupFee = isAccountantCalc ? 0 : selectedPkg.pricing.setup;
   const activeMonthlyFee = isAccountantCalc
     ? accountantMonthlyTotal
-    : selectedPkg.pricing.monthly;
+    : isAnnual
+      ? selectedPkg.pricing.annualMonthly
+      : selectedPkg.pricing.monthlyPrice;
 
   const totalSaaS = activeSetupFee + activeMonthlyFee * calcMonths;
   const totalCompetitor = traditionalSetupFee + combinedCompetitorMonthly * calcMonths;
@@ -146,12 +158,62 @@ export default function PricingCalculatorSection({ onSelectPlan }: PricingCalcul
               <strong>Transferencia Bancaria GRUPOVOLIA S.A.S.</strong> (no aceptamos efectivo, cheques, PayPhone ni Deuna!).
             </span>
           </div>
+
+          {/* ADOBE-STYLE INTERACTIVE BILLING TOGGLE */}
+          <div className="mt-8 flex flex-col items-center gap-2.5">
+            <div
+              role="group"
+              aria-label="Modalidad de facturación"
+              className="inline-flex flex-wrap items-center justify-center p-1.5 rounded-2xl bg-white border-2 border-brand-emerald/35 shadow-sm gap-1.5"
+            >
+              <button
+                type="button"
+                onClick={() => setBillingCycle("annual")}
+                className={`px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center gap-2 ${
+                  isAnnual
+                    ? "bg-swiss-pine text-white shadow-sm"
+                    : "text-slate-600 hover:text-swiss-pine"
+                }`}
+              >
+                <span>Pago Anual Adelantado</span>
+                <span
+                  className={`px-2 py-0.5 rounded-full text-[10px] font-mono font-extrabold ${
+                    isAnnual
+                      ? "bg-brand-emerald text-white"
+                      : "bg-brand-emeraldSoft text-brand-pine"
+                  }`}
+                >
+                  Ahorra 2 meses · $35 / $69 / $119 al mes
+                </span>
+              </button>
+              <button
+                type="button"
+                onClick={() => setBillingCycle("monthly")}
+                className={`px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center gap-2 ${
+                  !isAnnual
+                    ? "bg-swiss-pine text-white shadow-sm"
+                    : "text-slate-600 hover:text-swiss-pine"
+                }`}
+              >
+                <span>Pago Mensual</span>
+                <span className="text-[11px] font-mono opacity-85">
+                  ($42 / $83 / $143 al mes)
+                </span>
+              </button>
+            </div>
+            <p className="text-[11px] font-mono text-slate-500">
+              {isAnnual
+                ? "Facturación anual en 1 solo pago (ahorras ~20% vs mensual). Diseño e Implementación Inicial sin cambios ($120 / $250)."
+                : "Modalidad mes a mes (+20% sobre tarifa anual). Cambia a Pago Anual Adelantado arriba para ahorrar 2 meses."}
+            </p>
+          </div>
         </div>
 
         {/* 3 PRICING CARDS */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-10">
           {(Object.keys(packages) as Array<keyof typeof packages>).map((key) => {
             const pkg = packages[key];
+            const displayPrice = isAnnual ? pkg.pricing.annualMonthly : pkg.pricing.monthlyPrice;
             return (
               <div
                 key={key}
@@ -178,11 +240,42 @@ export default function PricingCalculatorSection({ onSelectPlan }: PricingCalcul
                   <p className="text-xs text-slate-500 mt-1">{pkg.subtitle}</p>
 
                   <div className="mt-6 p-4 rounded-2xl bg-swiss-canvas border border-slate-200">
-                    <div className="flex items-baseline gap-1.5">
-                      <span className="text-3xl sm:text-4xl font-extrabold text-swiss-pine font-mono tabular-nums">
-                        ${pkg.pricing.monthly}
-                      </span>
-                      <span className="text-xs text-slate-500 font-mono">USD / mes + IVA</span>
+                    <div className="flex items-baseline justify-between gap-2 flex-wrap">
+                      <div className="flex items-baseline gap-1.5">
+                        <span className="text-3xl sm:text-4xl font-extrabold text-swiss-pine font-mono tabular-nums">
+                          ${displayPrice}
+                        </span>
+                        <span className="text-xs text-slate-500 font-mono">USD / mes + IVA</span>
+                      </div>
+                      {isAnnual ? (
+                        <span className="px-2 py-0.5 rounded-full bg-emerald-100 text-brand-pine text-[10px] font-mono font-bold">
+                          Ahorras ${pkg.pricing.annualSavings}/año
+                        </span>
+                      ) : (
+                        <span className="px-2 py-0.5 rounded-full bg-slate-200 text-slate-700 text-[10px] font-mono font-bold">
+                          Plan Mensual (+20%)
+                        </span>
+                      )}
+                    </div>
+                    <div className="mt-1.5 text-[11px] font-mono text-slate-600">
+                      {isAnnual ? (
+                        <span>
+                          Total anual adelantado:{" "}
+                          <strong className="text-swiss-pine">
+                            ${pkg.pricing.annualTotal.toLocaleString()}/año + IVA
+                          </strong>{" "}
+                          <span className="line-through text-slate-400">
+                            (${pkg.pricing.monthlyPrice}/m)
+                          </span>
+                        </span>
+                      ) : (
+                        <span>
+                          En pago anual:{" "}
+                          <strong className="text-brand-emerald">
+                            ${pkg.pricing.annualMonthly}/mes (${pkg.pricing.annualTotal.toLocaleString()}/año + IVA)
+                          </strong>
+                        </span>
+                      )}
                     </div>
                     <div className="mt-2 pt-2 border-t border-slate-200 flex items-center justify-between text-xs">
                       <span className="text-slate-600">Diseño e Implementación Inicial:</span>
@@ -207,8 +300,10 @@ export default function PricingCalculatorSection({ onSelectPlan }: PricingCalcul
                   href="#contacto"
                   onClick={() =>
                     onSelectPlan?.(
-                      pkg.name,
-                      "Membresía SaaS Mensual — Pago con Tarjeta Stripe (0% Recargo)"
+                      `${pkg.name} (${isAnnual ? `Anual $${pkg.pricing.annualMonthly}/m · $${pkg.pricing.annualTotal}/año` : `Mensual $${pkg.pricing.monthlyPrice}/m`} + IVA)`,
+                      isAnnual
+                        ? "Pago Anual Adelantado (Ahorra 2 meses) — Tarjeta Stripe (0% Recargo)"
+                        : "Membresía SaaS Mensual — Pago con Tarjeta Stripe (0% Recargo)"
                     )
                   }
                   className={`mt-8 w-full px-5 py-3.5 rounded-xl font-bold text-xs flex items-center justify-between gap-3 text-left transition-all ${
@@ -218,7 +313,11 @@ export default function PricingCalculatorSection({ onSelectPlan }: PricingCalcul
                   }`}
                 >
                   <span className="leading-snug">
-                    Elegir {pkg.name.replace(/^[0-9]\.\s*/, "")} (${pkg.pricing.monthly}/mes + IVA)
+                    Elegir {pkg.name.replace(/^[0-9]\.\s*/, "")} (
+                    {isAnnual
+                      ? `$${displayPrice}/mes · $${pkg.pricing.annualTotal}/año`
+                      : `$${displayPrice}/mes`}{" "}
+                    + IVA)
                   </span>
                   <ArrowRight className="w-4 h-4 shrink-0" />
                 </a>
@@ -280,14 +379,17 @@ export default function PricingCalculatorSection({ onSelectPlan }: PricingCalcul
                     CONTADOR INDEPENDIENTE
                   </span>
                   <span className="px-2.5 py-0.5 rounded-full bg-emerald-100 text-brand-pine text-[10px] font-bold">
-                    Hasta 15 RUCs · $4.60/cliente
+                    Hasta 15 RUCs · ${isAnnual ? "4.60" : "5.53"}/cliente
                   </span>
                 </div>
                 <div className="text-3xl font-extrabold text-swiss-pine font-mono">
-                  $69 <span className="text-xs font-normal text-slate-500">+ IVA / mes ($79.35)</span>
+                  ${isAnnual ? 69 : 83}{" "}
+                  <span className="text-xs font-normal text-slate-500">
+                    + IVA / mes {isAnnual ? "($828/año · Ahorra 2m)" : "($95.45 c/IVA)"}
+                  </span>
                 </div>
                 <ul className="text-xs text-slate-600 space-y-1.5 pt-1">
-                  <li>✓ Hasta 15 empresas o personas naturales aisladas desde 1 consola</li>
+                  <li>✓ Hasta 15 empresas o personas naturales aisladas desde 1 consola ($0 setup)</li>
                   <li>✓ Plan de Cuentas NIIF SCVS automático, Simplificado PN o Propio</li>
                   <li>✓ Calendario SRI por 9no dígito: IVA 104, Ret. 103, ATS y Renta 101/102</li>
                   <li>✓ Conciliación 61 bancos/coops EC + Facturación SRI ilimitada ($0/doc)</li>
@@ -296,6 +398,14 @@ export default function PricingCalculatorSection({ onSelectPlan }: PricingCalcul
               </div>
               <a
                 href="#contacto"
+                onClick={() =>
+                  onSelectPlan?.(
+                    `Consola Contadores Independiente (${isAnnual ? "$69/m anual · $828/año" : "$83/m mensual"} + IVA · hasta 15 RUCs)`,
+                    isAnnual
+                      ? "Pago Anual Adelantado (Ahorra 2 meses) — Tarjeta Stripe (0% Recargo)"
+                      : "Membresía SaaS Mensual — Pago con Tarjeta Stripe (0% Recargo)"
+                  )
+                }
                 className="w-full text-center px-4 py-2.5 rounded-xl bg-brand-emerald hover:bg-brand-pine text-white font-extrabold text-xs transition-colors"
               >
                 Activar Plan Contador Independiente →
@@ -313,10 +423,13 @@ export default function PricingCalculatorSection({ onSelectPlan }: PricingCalcul
                   </span>
                 </div>
                 <div className="text-3xl font-extrabold text-white font-mono">
-                  $119 <span className="text-xs font-normal text-emerald-200">+ IVA / mes ($136.85)</span>
+                  ${isAnnual ? 119 : 143}{" "}
+                  <span className="text-xs font-normal text-emerald-200">
+                    + IVA / mes {isAnnual ? "($1,428/año · Ahorra 2m)" : "($164.45 c/IVA)"}
+                  </span>
                 </div>
                 <ul className="text-xs text-emerald-100/90 space-y-1.5 pt-1">
-                  <li>✓ Hasta 40 empresas o personas naturales + equipo multi-contador</li>
+                  <li>✓ Hasta 40 empresas o personas naturales + equipo multi-contador ($0 setup)</li>
                   <li>✓ Adaptación de módulos y plan de cuentas por cliente en 1 clic</li>
                   <li>✓ Calendario SRI consolidado (104, 103, ATS y Renta Anual 101/102)</li>
                   <li>✓ RRHH/Nómina IESS, Inventario Kardex y Portal B2B opcional por cliente</li>
@@ -325,6 +438,14 @@ export default function PricingCalculatorSection({ onSelectPlan }: PricingCalcul
               </div>
               <a
                 href="#contacto"
+                onClick={() =>
+                  onSelectPlan?.(
+                    `Consola Estudio Contable (${isAnnual ? "$119/m anual · $1,428/año" : "$143/m mensual"} + IVA · hasta 40 RUCs)`,
+                    isAnnual
+                      ? "Pago Anual Adelantado (Ahorra 2 meses) — Tarjeta Stripe (0% Recargo)"
+                      : "Membresía SaaS Mensual — Pago con Tarjeta Stripe (0% Recargo)"
+                  )
+                }
                 className="w-full text-center px-4 py-2.5 rounded-xl bg-brand-emerald hover:bg-emerald-500 text-white font-extrabold text-xs transition-colors"
               >
                 Activar Plan Estudio Contable →
@@ -453,14 +574,20 @@ export default function PricingCalculatorSection({ onSelectPlan }: PricingCalcul
                   }}
                   className="w-full bg-white border border-slate-300 rounded-xl px-3.5 py-2.5 text-xs text-swiss-pine font-semibold focus:outline-none focus:border-brand-emerald"
                 >
-                  <option value="individual">1. Módulo Individual PYME ($35/mes + IVA)</option>
-                  <option value="pyme">2. Suite Completa PYME Estrella ($69/mes + IVA)</option>
-                  <option value="corp">3. Suite Corporativa Multisucursal ($119/mes + IVA)</option>
+                  <option value="individual">
+                    1. Módulo Individual PYME (${isAnnual ? 35 : 42}/mes + IVA)
+                  </option>
+                  <option value="pyme">
+                    2. Suite Completa PYME Estrella (${isAnnual ? 69 : 83}/mes + IVA)
+                  </option>
+                  <option value="corp">
+                    3. Suite Corporativa Multisucursal (${isAnnual ? 119 : 143}/mes + IVA)
+                  </option>
                   <option value="contador_indep">
-                    4. Consola Contadores Independiente ($69/mes + IVA · hasta 15 RUCs)
+                    4. Consola Contadores Independiente (${isAnnual ? 69 : 83}/mes + IVA · hasta 15 RUCs)
                   </option>
                   <option value="estudio_contable">
-                    5. Consola Estudio Contable ($119/mes + IVA · hasta 40 RUCs)
+                    5. Consola Estudio Contable (${isAnnual ? 119 : 143}/mes + IVA · hasta 40 RUCs)
                   </option>
                 </select>
               </div>
@@ -592,8 +719,8 @@ export default function PricingCalculatorSection({ onSelectPlan }: PricingCalcul
                 </div>
                 <div className="text-[11px] text-slate-600 mt-0.5">
                   {isAccountantCalc
-                    ? `En ${calcMonths} meses ($0 setup + $${activeMonthlyFee}/m · ${accountantRucCount} RUCs)`
-                    : `En ${calcMonths} meses ($${activeSetupFee} setup + $${activeMonthlyFee}/m · RRHH ilimitado)`}
+                    ? `En ${calcMonths} meses (${isAnnual ? "Anual" : "Mensual"}: $0 setup + $${activeMonthlyFee}/m · ${accountantRucCount} RUCs)`
+                    : `En ${calcMonths} meses (${isAnnual ? "Anual" : "Mensual"}: $${activeSetupFee} setup + $${activeMonthlyFee}/m · RRHH ilimitado)`}
                 </div>
                 <div className="mt-2 pt-2 border-t border-brand-emerald/20 text-xs font-bold text-brand-emerald">
                   Ahorras ${savingsSaaS.toLocaleString()} USD vs. sistemas separados

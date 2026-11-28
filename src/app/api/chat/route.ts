@@ -91,7 +91,7 @@ export async function POST(req: NextRequest) {
     } catch {
       return NextResponse.json({
         reply:
-          "¡Hola! Soy Anna de Grupo Volia. Nuestro paquete estrella es la **Suite Completa PYME** (10 módulos interconectados + Contabilidad SRI ilimitada + Inventario + Finanzas NIIF + CRM + Project Manager + Portal B2B + RRHH y Colaboradores Ilimitados + Copiloto IA Interno personalizable) por **$69/mes + IVA** (+ $120 + IVA implementación inicial). Puedes pagar con tarjeta vía Stripe (sin recargo) o transferencia bancaria. ¿Te gustaría recibir una proforma personalizada desde la sección de Contacto?",
+          "¡Hola! Soy Anna de Grupo Volia. Nuestro paquete estrella es la **Suite Completa PYME** (10 módulos interconectados + Contabilidad SRI ilimitada + Inventario + Finanzas NIIF + CRM + Project Manager + Portal B2B + RRHH y Colaboradores Ilimitados + Copiloto IA Interno personalizable) desde **$69/mes en pago anual adelantado ($828/año + IVA)** u **$83/mes en pago mensual (+ IVA)**, más **$120 + IVA** de implementación inicial. Puedes pagar con tarjeta vía Stripe (sin recargo) o transferencia bancaria. ¿Te gustaría recibir una proforma personalizada desde la sección de Contacto?",
       });
     }
   }

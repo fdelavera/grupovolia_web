@@ -6,6 +6,35 @@ import { Calculator, CheckCircle2, Info, Receipt, ShieldCheck } from "lucide-rea
 type TaxRegimeId = "regimen_general" | "rimpe_emprendedor" | "sociedad";
 type PaymentChannel = "transfer" | "stripe";
 type SellerRoleMode = "seller" | "leader";
+type ClientBillingMode = "annual" | "monthly";
+type PlanTier = "individual" | "suite" | "corp";
+
+const PLAN_TIERS: Record<
+  PlanTier,
+  { label: string; annualMonthly: number; annualTotal: number; monthlyPrice: number; defaultSetup: number }
+> = {
+  individual: {
+    label: "1 Módulo",
+    annualMonthly: 35,
+    annualTotal: 420,
+    monthlyPrice: 42,
+    defaultSetup: 120,
+  },
+  suite: {
+    label: "Suite",
+    annualMonthly: 69,
+    annualTotal: 828,
+    monthlyPrice: 83,
+    defaultSetup: 120,
+  },
+  corp: {
+    label: "Corp.",
+    annualMonthly: 119,
+    annualTotal: 1428,
+    monthlyPrice: 143,
+    defaultSetup: 250,
+  },
+};
 
 const TAX_REGIMES: Record<
   TaxRegimeId,
@@ -36,30 +65,52 @@ const fmt = (n: number) =>
 
 export function SellerCommissionSimulator() {
   const [roleMode, setRoleMode] = useState<SellerRoleMode>("seller");
-  const [planUsd, setPlanUsd] = useState<35 | 69 | 119>(69);
+  const [billingMode, setBillingMode] = useState<ClientBillingMode>("annual");
+  const [planTier, setPlanTier] = useState<PlanTier>("suite");
   const [clients, setClients] = useState<number>(6);
   const [setupUsd, setSetupUsd] = useState<number>(120);
   const [paymentChannel, setPaymentChannel] = useState<PaymentChannel>("transfer");
   const [taxRegime, setTaxRegime] = useState<TaxRegimeId>("regimen_general");
 
-  const stripeFeePerClientM1 =
-    paymentChannel === "stripe" ? Number(((planUsd * 1.15) * 0.038 + 0.3).toFixed(2)) : 0;
+  const tier = PLAN_TIERS[planTier];
+  const isAnnual = billingMode === "annual";
+  const planMonthlyEquivalent = isAnnual ? tier.annualMonthly : tier.monthlyPrice;
+  const clientChargeBase = isAnnual ? tier.annualTotal : tier.monthlyPrice;
+
+  const stripeFeeOnCharge =
+    paymentChannel === "stripe" ? Number(((clientChargeBase * 1.15) * 0.038 + 0.3).toFixed(2)) : 0;
   const stripeFeeSetup =
     paymentChannel === "stripe" && setupUsd > 0
       ? Number(((setupUsd * 1.15) * 0.038 + 0.3).toFixed(2))
       : 0;
 
-  const netBaseM1PerClient = Math.max(0, Number((planUsd - stripeFeePerClientM1).toFixed(2)));
+  // Para Mensual: neto sobre M1; para Anual: neto proporcional equivalente a 1 mes
+  const netBasePerMonth = isAnnual
+    ? Math.max(0, Number(((tier.annualTotal - stripeFeeOnCharge) / 12).toFixed(4)))
+    : Math.max(0, Number((tier.monthlyPrice - stripeFeeOnCharge).toFixed(2)));
   const netBaseSetupPerClient = Math.max(0, Number((setupUsd - stripeFeeSetup).toFixed(2)));
 
-  const subtotalM1 =
-    roleMode === "seller"
-      ? Number((netBaseM1PerClient * clients).toFixed(2))
-      : Number(((netBaseM1PerClient + netBaseSetupPerClient * 0.1) * clients).toFixed(2));
-
   const recurringPct = roleMode === "seller" ? 0.15 : 0.2;
-  const monthlyRecurringSubtotal = Number((netBaseM1PerClient * recurringPct * clients).toFixed(2));
-  const year1Subtotal = Number((subtotalM1 + monthlyRecurringSubtotal * 11).toFixed(2));
+  // Anual adelantado: 1 solo pago inmediato = 100% M1 + 15% x 11 meses = 265% (o 320% líder + 10% setup)
+  const annualMultiplier = roleMode === "seller" ? 2.65 : 3.2;
+
+  const subtotalM1 = isAnnual
+    ? Number(
+        (
+          (netBasePerMonth * annualMultiplier + (roleMode === "leader" ? netBaseSetupPerClient * 0.1 : 0)) *
+          clients
+        ).toFixed(2)
+      )
+    : roleMode === "seller"
+      ? Number((netBasePerMonth * clients).toFixed(2))
+      : Number(((netBasePerMonth + netBaseSetupPerClient * 0.1) * clients).toFixed(2));
+
+  const monthlyRecurringSubtotal = isAnnual
+    ? 0
+    : Number((netBasePerMonth * recurringPct * clients).toFixed(2));
+  const year1Subtotal = isAnnual
+    ? subtotalM1
+    : Number((subtotalM1 + monthlyRecurringSubtotal * 11).toFixed(2));
 
   const regime = TAX_REGIMES[taxRegime];
   const iva15 = Number((subtotalM1 * 0.15).toFixed(2));
@@ -108,32 +159,74 @@ export function SellerCommissionSimulator() {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-5">
         <div className="lg:col-span-5 space-y-4 text-xs">
           <div>
-            <div className="font-bold text-slate-700 mb-1.5">1. Plan vendido al cliente (sin IVA)</div>
+            <div className="font-bold text-slate-700 mb-1.5">1. Modalidad de Pago del Cliente</div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 font-bold">
+              <button
+                type="button"
+                onClick={() => setBillingMode("annual")}
+                className={`px-3 py-2 rounded-xl border text-left transition-colors ${
+                  isAnnual
+                    ? "bg-brand-emerald text-white border-brand-emerald"
+                    : "bg-swiss-canvas text-slate-600 border-slate-200 hover:border-brand-emerald"
+                }`}
+              >
+                <div className="text-[11px]">Pago Anual Adelantado</div>
+                <div className={`text-[10px] font-mono ${isAnnual ? "text-emerald-100" : "text-slate-500"}`}>
+                  $35 / $69 / $119 al mes · 1 solo pago (265%)
+                </div>
+              </button>
+              <button
+                type="button"
+                onClick={() => setBillingMode("monthly")}
+                className={`px-3 py-2 rounded-xl border text-left transition-colors ${
+                  !isAnnual
+                    ? "bg-brand-emerald text-white border-brand-emerald"
+                    : "bg-swiss-canvas text-slate-600 border-slate-200 hover:border-brand-emerald"
+                }`}
+              >
+                <div className="text-[11px]">Pago Mensual (+20%)</div>
+                <div className={`text-[10px] font-mono ${!isAnnual ? "text-emerald-100" : "text-slate-500"}`}>
+                  $42 / $83 / $143 · M1 + 15% × 11m
+                </div>
+              </button>
+            </div>
+          </div>
+
+          <div>
+            <div className="font-bold text-slate-700 mb-1.5">2. Plan vendido al cliente (sin IVA)</div>
             <div className="grid grid-cols-3 gap-1.5 font-bold">
-              {([
-                [35, "1 Módulo $35"],
-                [69, "Suite $69"],
-                [119, "Corp. $119"],
-              ] as const).map(([val, lbl]) => (
-                <button
-                  key={val}
-                  type="button"
-                  onClick={() => setPlanUsd(val)}
-                  className={`px-2.5 py-2 rounded-xl border transition-colors ${
-                    planUsd === val
-                      ? "bg-swiss-pine text-white border-swiss-pine"
-                      : "bg-swiss-canvas text-slate-600 border-slate-200 hover:border-brand-emerald"
-                  }`}
-                >
-                  {lbl}
-                </button>
-              ))}
+              {(["individual", "suite", "corp"] as PlanTier[]).map((t) => {
+                const info = PLAN_TIERS[t];
+                const shownPrice = isAnnual ? info.annualMonthly : info.monthlyPrice;
+                return (
+                  <button
+                    key={t}
+                    type="button"
+                    onClick={() => {
+                      setPlanTier(t);
+                      setSetupUsd(info.defaultSetup);
+                    }}
+                    className={`px-2.5 py-2 rounded-xl border transition-colors ${
+                      planTier === t
+                        ? "bg-swiss-pine text-white border-swiss-pine"
+                        : "bg-swiss-canvas text-slate-600 border-slate-200 hover:border-brand-emerald"
+                    }`}
+                  >
+                    <div>
+                      {info.label} ${shownPrice}
+                    </div>
+                    <div className={`text-[9px] font-mono ${planTier === t ? "text-emerald-300" : "text-slate-400"}`}>
+                      {isAnnual ? `$${info.annualTotal}/año` : "/mes (+20%)"}
+                    </div>
+                  </button>
+                );
+              })}
             </div>
           </div>
 
           <div>
             <div className="flex items-center justify-between mb-1">
-              <span className="font-bold text-slate-700">2. Empresas cerradas este mes:</span>
+              <span className="font-bold text-slate-700">3. Empresas cerradas este mes:</span>
               <strong className="font-mono text-sm text-brand-emerald">
                 {clients} empresa{clients === 1 ? "" : "s"}
               </strong>
@@ -150,7 +243,7 @@ export function SellerCommissionSimulator() {
 
           <div className="grid grid-cols-2 gap-2.5">
             <div>
-              <label className="block font-bold text-slate-700 mb-1">3. Pago del cliente</label>
+              <label className="block font-bold text-slate-700 mb-1">4. Pago del cliente</label>
               <select
                 value={paymentChannel}
                 onChange={(e) => setPaymentChannel(e.target.value as PaymentChannel)}
@@ -176,7 +269,7 @@ export function SellerCommissionSimulator() {
 
           <div>
             <label className="block font-bold text-slate-700 mb-1">
-              4. Tu Régimen SRI (Retención Grupo Volia)
+              5. Tu Régimen SRI (Retención Grupo Volia)
             </label>
             <select
               value={taxRegime}
@@ -196,21 +289,33 @@ export function SellerCommissionSimulator() {
         <div className="lg:col-span-7 space-y-3.5">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
             <div className="p-3.5 rounded-2xl bg-swiss-canvas border border-slate-200">
-              <div className="text-[10px] font-mono uppercase text-slate-500">Comisión Mes 1</div>
+              <div className="text-[10px] font-mono uppercase text-slate-500">
+                {isAnnual ? "Cobro Único Inmediato" : "Comisión Mes 1"}
+              </div>
               <div className="text-lg font-extrabold font-mono text-swiss-pine mt-0.5 tabular-nums">
                 {fmt(subtotalM1)}
               </div>
               <div className="text-[10px] text-slate-500 mt-0.5">
-                {roleMode === "seller" ? "100% 1er mes neto" : "100% M1 + 10% Setup"}
+                {isAnnual
+                  ? roleMode === "seller"
+                    ? `265% de $${planMonthlyEquivalent}/m (1 solo pago)`
+                    : `320% de $${planMonthlyEquivalent}/m + 10% Setup`
+                  : roleMode === "seller"
+                    ? `100% 1er mes ($${planMonthlyEquivalent})`
+                    : `100% M1 ($${planMonthlyEquivalent}) + 10% Setup`}
               </div>
             </div>
             <div className="p-3.5 rounded-2xl bg-emerald-50 border border-emerald-200">
               <div className="text-[10px] font-mono uppercase text-brand-pine">Recurrente M2–12</div>
               <div className="text-lg font-extrabold font-mono text-brand-emerald mt-0.5 tabular-nums">
-                +{fmt(monthlyRecurringSubtotal)}/m
+                {isAnnual ? "$0.00/m" : `+${fmt(monthlyRecurringSubtotal)}/m`}
               </div>
               <div className="text-[10px] text-brand-pine/80 mt-0.5">
-                {roleMode === "seller" ? "15% × 11 meses" : "15% propio + 5% override"}
+                {isAnnual
+                  ? "Ya incluido en tu cobro único (265%)"
+                  : roleMode === "seller"
+                    ? "15% × 11 meses"
+                    : "15% propio + 5% override"}
               </div>
             </div>
             <div className="p-3.5 rounded-2xl bg-swiss-pine text-white">
@@ -218,7 +323,9 @@ export function SellerCommissionSimulator() {
               <div className="text-lg font-extrabold font-mono mt-0.5 tabular-nums">
                 {fmt(year1Subtotal)}
               </div>
-              <div className="text-[10px] text-emerald-200/90 mt-0.5">Base antes de IVA</div>
+              <div className="text-[10px] text-emerald-200/90 mt-0.5">
+                {isAnnual ? "100% cobrado de inmediato" : "Base antes de IVA"}
+              </div>
             </div>
           </div>
 
@@ -226,7 +333,7 @@ export function SellerCommissionSimulator() {
             <div className="flex items-center justify-between border-b border-slate-200 pb-2">
               <span className="font-extrabold text-swiss-pine inline-flex items-center gap-1.5">
                 <Receipt className="w-4 h-4 text-brand-emerald" />
-                Desglose de Tu Factura Electrónica (Mes 1)
+                Desglose de Tu Factura Electrónica ({isAnnual ? "Cobro Único Anual" : "Mes 1"})
               </span>
               <span className="text-[10px] font-mono px-2 py-0.5 rounded-md bg-emerald-100 text-brand-pine font-bold">
                 Ret. Renta {regime.irPct}% · Ret. IVA 0%
